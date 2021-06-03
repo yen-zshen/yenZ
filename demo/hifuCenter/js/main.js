@@ -75,8 +75,26 @@ $(document).ready(function () {
     }
     
 
+// QA
+//----------
 
+let answer =  $('.answer');
+let arrow = $('.answer .arrow');
+let inner = $( '.inner' )
 
+arrow.on( 'click' ,function(){
+	let block = $(this).parent()
+	
+	// block.addClass('open');
+
+	if( !block.hasClass('open') ){
+		answer.removeClass('open')
+		block.addClass('open');
+	}else{
+		block.removeClass('open')
+	}
+	
+})
 
 
 
