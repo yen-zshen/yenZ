@@ -89,25 +89,6 @@ $(document).ready(function () {
     }
     
 
-// QA
-//----------
-
-let answer =  $('.answer');
-let arrow = $('.answer .arrow');
-
-arrow.on( 'click' ,function(){
-	let block = $(this).parent()
-	
-	// block.addClass('open');
-
-	if( !block.hasClass('open') ){
-		answer.removeClass('open')
-		block.addClass('open');
-	}else{
-		block.removeClass('open')
-	}
-	
-})
 
 
 
@@ -178,8 +159,104 @@ $(window).on('scroll',function(){
 
 })
 
-// click ------------------------------
 
+$.ajax({
+    type: "GET",
+    url: "https://spreadsheets.google.com/feeds/list/1tA1Q7DoNaQHJjLsU-HPPRf4ZJGX3a1eRUpHpWOdscAo/od6/public/values?alt=json",
+    dataType: "json", 
+    cache: false,
+    success: function push_html(object) {
+			console.log("success")
+      let googleData = object.feed.entry;
+
+			// console.log( googleData );
+
+			let qaArray=[];
+			let drArray=[];
+			googleData.forEach(function(data,i){
+				qaArray.push(
+					{
+						'question':data.gsx$question.$t,
+						'answer':data.gsx$answer.$t.replaceAll('\n','<br>')
+					}
+				)
+				if( i < 3 ){
+					drArray.push(
+						{
+							'drName':data.gsx$name.$t,
+							'drIntro':data.gsx$introduction.$t.replaceAll('\n','<br>'),
+							'drPicture':data.gsx$picture.$t
+						}
+					)
+				}
+
+			})
+
+			// write into html (phone) --------------
+			let phoneData = document.getElementById('phoneData');
+			phoneData.textContent = googleData[0].gsx$phone.$t;
+
+
+			// write into html (QA) --------------
+			let qaHtmlTemp;
+			let qaHtml = document.getElementById('qaData');
+			let qaHtmlString ='';
+			
+			qaArray.forEach(function(qa){
+				qaHtmlTemp = `<div class="col">
+					<div class="block">
+						<div class="question">
+							<p>${qa.question}</p>
+						</div>
+						<div class="answer">
+							<div class="inner">
+								<p>${qa.answer}</p>
+							</div>
+							<div class="arrow"></div>
+						</div>
+					</div>
+				</div>`;
+				qaHtmlString += qaHtmlTemp
+				qaHtml.innerHTML=qaHtmlString;
+			})
+
+			// write into html (doctor) --------------
+			let drHtmlTemp;
+			let drHtml = document.getElementById('drData');
+			let drHtmlString ='';
+
+			drArray.forEach(function(dr){
+				drHtmlTemp = `<div class="col">
+					<div class="img">
+						<img src="img/${dr.drPicture}.png" alt="">
+					</div>
+					<div class="intro">
+						<div class="name"><strong>${dr.drName}</strong> 醫師</div>
+						<p>${dr.drIntro}</p>
+					</div>
+				</div>`;
+				drHtmlString += drHtmlTemp
+				drHtml.innerHTML=drHtmlString;
+			})
+
+			// console.log(qaArray)
+			// console.log(drArray)
+    }
+      
+  })
+
+// QA ------------------------------
+let answer =  $('.answer');
+
+$(document).on('click','.answer .arrow',function(){
+	let block = $(this).parent()
+	if( !block.hasClass('open') ){
+		answer.removeClass('open')
+		block.addClass('open');
+	}else{
+		block.removeClass('open')
+	}
+})
 
 
 
