@@ -4,23 +4,12 @@
 
 $(document).ready(function () {
 
-	function headerScrollFixed(){
-		let w_top = $(window).scrollTop();
-		if( w_top > 0 ){
-			$('header').addClass('fixed');
-		}else{
-			$('header').removeClass('fixed');
-		}
-	}
-	headerScrollFixed()
-	$(window).on('scroll',function(){
-		headerScrollFixed()
-	})
+	
 
 
 	let menuBar = $("#menuBar");
 	$('.btn_hamburger').on('click',function(){
-		console.log(menuBar)
+		// console.log(menuBar)
 		if( !menuBar.hasClass('open') ){
 			menuBar.addClass('open');
         btn_ham_toopen_animate();
@@ -33,6 +22,32 @@ $(document).ready(function () {
 		}
 	})
 
+
+	// click list -----------------------------------------
+	let navBar = document.getElementById('menuBar');
+	navBar.addEventListener('click',function(e){
+	let navList = e.target;
+	if( navList.getAttribute('data-type') == 'nav' ){
+		let navListNum = navList.getAttribute('data-num');
+		let navBarHeight = document.querySelector('header').clientHeight;
+
+		if( navListNum == '10' ){
+			
+		}else if( navListNum == '11' ){
+			$('html,body').animate({	scrollTop: 0	}, 500);
+		}else{
+			$('html,body').animate({
+				scrollTop: $("section[data-num='" + navListNum + "']").offset().top - navBarHeight - 10
+			}, 500);
+		}
+	}
+
+	menuBar.removeClass('open')
+	menuBar.addClass('close')
+	btn_ham_toclose_animate();
+
+})
+
 	$(window).on('resize',function(){
 		menuBar.removeClass('close')
 	})
@@ -42,7 +57,6 @@ $(document).ready(function () {
 	//-----------------------------------------------------
   var tl_ham = new TimelineMax();
 	function btn_ham_toopen_animate(){
-		console.log("124")
 	  tl_ham = new TimelineMax({});
 		tl_ham.add('startClose',0.25)
 		tl_ham.to('.btn_hamburger .line02',0.25,{
@@ -80,7 +94,6 @@ $(document).ready(function () {
 
 let answer =  $('.answer');
 let arrow = $('.answer .arrow');
-let inner = $( '.inner' )
 
 arrow.on( 'click' ,function(){
 	let block = $(this).parent()
@@ -98,8 +111,81 @@ arrow.on( 'click' ,function(){
 
 
 
+let scrollData = [];
+
+
+function headerScrollFixed(scrollNow){
+	if( scrollNow > 0 ){
+		$('header').addClass('fixed');
+	}else{
+		$('header').removeClass('fixed');
+	}
+}
+
+function getSectionData(){
+	let sections = document.querySelectorAll('section');
+	sections.forEach(function(sec){
+		let secTop = sec.offsetTop;
+		let secHeight = sec.offsetHeight;
+		let secNum = sec.getAttribute('data-num');
+		// console.log(`num: ${secNum} , offsetTop : ${secTop} , height : ${secHeight}`)
+		scrollData.push(
+			{
+				'num':secNum,
+				'offsetTop':secTop,
+				'height':secHeight
+			})
+	})
+	// console.log(scrollData)
+}
+
+
+function navChoose(scrollNow){
+	// console.log(scrollNow);
+	scrollData.forEach(function(sec){
+		let secTop = sec.offsetTop;
+		let secH = sec.height;
+		let secNum = sec.num;
+		let navBarH = document.querySelector('header').offsetHeight;
+		let sNow = scrollNow + navBarH + 11;
+		if( secNum == '0' ){
+			document.querySelectorAll('#menuBar li').forEach(function(list){
+				list.classList.remove('choose');
+			})
+		}else if( sNow >= secTop && sNow < (secTop + secH)){
+			// console.log(secNum)
+			
+			$("#menuBar li[data-num='"+ secNum +"']").addClass("choose").siblings().removeClass("choose");
+		}
+		
+	})
+	
+}
+
+
+
+let scrollNow = $(window).scrollTop();
+// get section data
+getSectionData();
+headerScrollFixed(scrollNow);
+navChoose(scrollNow);
+
+// scroll ------------------------------
+$(window).on('scroll',function(){
+	scrollNow = $(window).scrollTop();
+	headerScrollFixed(scrollNow)
+	setTimeout(function(){ navChoose(scrollNow) }, 500);
+
+})
+
+// click ------------------------------
+
+
+
 
 	
 });
 
 
+
+// Modernizr.mq('(max-width: 768px)');
