@@ -1,10 +1,95 @@
-// $(window).on("load", function () {
+$(window).on("load", function () {
 	
-// });
+});
 
 $(document).ready(function () {
 
-	
+	animateSet();
+	$.ajax({
+    type: "GET",
+    url: "https://spreadsheets.google.com/feeds/list/1tA1Q7DoNaQHJjLsU-HPPRf4ZJGX3a1eRUpHpWOdscAo/od6/public/values?alt=json",
+    dataType: "json", 
+    cache: false,
+    success: function push_html(object) {
+			console.log("success")
+      let googleData = object.feed.entry;
+
+			// console.log( googleData );
+
+			let qaArray=[];
+			let drArray=[];
+			googleData.forEach(function(data,i){
+				qaArray.push(
+					{
+						'question':data.gsx$question.$t,
+						'answer':data.gsx$answer.$t.replaceAll('\n','<br>')
+					}
+				)
+				if( i < 3 ){
+					drArray.push(
+						{
+							'drName':data.gsx$name.$t,
+							'drIntro':data.gsx$introduction.$t.replaceAll('\n','<br>'),
+							'drPicture':data.gsx$picture.$t
+						}
+					)
+				}
+
+			})
+
+			// write into html (phone) --------------
+			let phoneData = document.getElementById('phoneData');
+			phoneData.textContent = googleData[0].gsx$phone.$t;
+
+
+			// write into html (QA) --------------
+			let qaHtmlTemp;
+			let qaHtml = document.getElementById('qaData');
+			let qaHtmlString ='';
+			
+			qaArray.forEach(function(qa){
+				qaHtmlTemp = `<div class="col">
+					<div class="block">
+						<div class="question">
+							<p>${qa.question}</p>
+						</div>
+						<div class="answer">
+							<div class="inner">
+								<p>${qa.answer}</p>
+							</div>
+							<div class="arrow"></div>
+						</div>
+					</div>
+				</div>`;
+				qaHtmlString += qaHtmlTemp
+				qaHtml.innerHTML=qaHtmlString;
+				animateSet(8);
+			})
+
+			// write into html (doctor) --------------
+			let drHtmlTemp;
+			let drHtml = document.getElementById('drData');
+			let drHtmlString ='';
+
+			drArray.forEach(function(dr){
+				drHtmlTemp = `<div class="col">
+					<div class="img">
+						<img src="img/${dr.drPicture}.png" alt="">
+					</div>
+					<div class="intro">
+						<div class="name"><strong>${dr.drName}</strong> 醫師</div>
+						<p>${dr.drIntro}</p>
+					</div>
+				</div>`;
+				drHtmlString += drHtmlTemp
+				drHtml.innerHTML=drHtmlString;
+				animateSet(7);
+				
+			})
+			animateShow($(window).scrollTop())
+    }
+      
+  })
 
 
 	let menuBar = $("#menuBar");
@@ -102,9 +187,8 @@ function headerScrollFixed(scrollNow){
 		$('header').removeClass('fixed');
 	}
 }
-
+let sections = document.querySelectorAll('section');
 function getSectionData(){
-	let sections = document.querySelectorAll('section');
 	sections.forEach(function(sec){
 		let secTop = sec.offsetTop;
 		let secHeight = sec.offsetHeight;
@@ -123,6 +207,10 @@ function getSectionData(){
 
 function navChoose(scrollNow){
 	// console.log(scrollNow);
+	sections.forEach(function(sec,i){
+		scrollData[i].offsetTop = sec.offsetTop
+		scrollData[i].height = sec.offsetHeight
+	})
 	scrollData.forEach(function(sec){
 		let secTop = sec.offsetTop;
 		let secH = sec.height;
@@ -134,116 +222,29 @@ function navChoose(scrollNow){
 				list.classList.remove('choose');
 			})
 		}else if( sNow >= secTop && sNow < (secTop + secH)){
-			// console.log(secNum)
-			
 			$("#menuBar li[data-num='"+ secNum +"']").addClass("choose").siblings().removeClass("choose");
 		}
-		
 	})
-	
 }
 
 
-
 let scrollNow = $(window).scrollTop();
+let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 // get section data
 getSectionData();
 headerScrollFixed(scrollNow);
 navChoose(scrollNow);
-
+animateShow(scrollNow);
 // scroll ------------------------------
-$(window).on('scroll',function(){
+$(document).on('scroll',window,function(){
 	scrollNow = $(window).scrollTop();
 	headerScrollFixed(scrollNow)
 	setTimeout(function(){ navChoose(scrollNow) }, 500);
-
+	animateShow(scrollNow);
 })
 
 
-$.ajax({
-    type: "GET",
-    url: "https://spreadsheets.google.com/feeds/list/1tA1Q7DoNaQHJjLsU-HPPRf4ZJGX3a1eRUpHpWOdscAo/od6/public/values?alt=json",
-    dataType: "json", 
-    cache: false,
-    success: function push_html(object) {
-			console.log("success")
-      let googleData = object.feed.entry;
 
-			// console.log( googleData );
-
-			let qaArray=[];
-			let drArray=[];
-			googleData.forEach(function(data,i){
-				qaArray.push(
-					{
-						'question':data.gsx$question.$t,
-						'answer':data.gsx$answer.$t.replaceAll('\n','<br>')
-					}
-				)
-				if( i < 3 ){
-					drArray.push(
-						{
-							'drName':data.gsx$name.$t,
-							'drIntro':data.gsx$introduction.$t.replaceAll('\n','<br>'),
-							'drPicture':data.gsx$picture.$t
-						}
-					)
-				}
-
-			})
-
-			// write into html (phone) --------------
-			let phoneData = document.getElementById('phoneData');
-			phoneData.textContent = googleData[0].gsx$phone.$t;
-
-
-			// write into html (QA) --------------
-			let qaHtmlTemp;
-			let qaHtml = document.getElementById('qaData');
-			let qaHtmlString ='';
-			
-			qaArray.forEach(function(qa){
-				qaHtmlTemp = `<div class="col">
-					<div class="block">
-						<div class="question">
-							<p>${qa.question}</p>
-						</div>
-						<div class="answer">
-							<div class="inner">
-								<p>${qa.answer}</p>
-							</div>
-							<div class="arrow"></div>
-						</div>
-					</div>
-				</div>`;
-				qaHtmlString += qaHtmlTemp
-				qaHtml.innerHTML=qaHtmlString;
-			})
-
-			// write into html (doctor) --------------
-			let drHtmlTemp;
-			let drHtml = document.getElementById('drData');
-			let drHtmlString ='';
-
-			drArray.forEach(function(dr){
-				drHtmlTemp = `<div class="col">
-					<div class="img">
-						<img src="img/${dr.drPicture}.png" alt="">
-					</div>
-					<div class="intro">
-						<div class="name"><strong>${dr.drName}</strong> 醫師</div>
-						<p>${dr.drIntro}</p>
-					</div>
-				</div>`;
-				drHtmlString += drHtmlTemp
-				drHtml.innerHTML=drHtmlString;
-			})
-
-			// console.log(qaArray)
-			// console.log(drArray)
-    }
-      
-  })
 
 // QA ------------------------------
 let answer =  $('.answer');
@@ -258,6 +259,101 @@ $(document).on('click','.answer .arrow',function(){
 	}
 })
 
+
+// tweenMax ------------------------------
+function animateShow(scrollNow){
+	let wh2 = scrollNow + windowHeight /10*5;
+	sections.forEach(function(el,i){
+		let secTop = el.offsetTop;
+		let secH = el.offsetHeight;
+		if( wh2 >= secTop && wh2 < ( secTop + secH ) ){
+			animateMove( i+1 )
+		}
+	})
+	
+}
+
+
+function animateMove( num ){
+	let tl = new TimelineMax({});
+	console.log(num)
+	switch (num) {
+		case 3:
+			tl.to( '.sec03 .showAmimate',0.75,{
+				x:"-50%",
+				y:"-75%",
+				opacity:1,
+				ease: "power3.out"
+			})
+			break;
+		case 4:
+			tl.to( '.sec04 .showAmimate',0.75,{
+				x:"-50%",
+				y:"-82%",
+				opacity:1,
+				ease: "power3.out"
+			}).staggerTo( '.sec04 ul li',1,{
+				y:0,
+				opacity:1,
+				ease: "power3.out"
+			},0.2)
+			break;
+		case 5:
+			tl.staggerTo( '.sec05 .col',1,{
+				y:0,
+				opacity:1,
+				ease: "power3.out"
+			},0.2).to( '.sec05 .showAmimate',2.25,{
+				y:0,
+				opacity:1,
+				ease: "power3.out"
+			},0.5)
+			break;
+		case 6:
+			tl.to( '.sec06 .showAmimate',1,{
+				x:0,
+				opacity:1,
+				ease: "power3.out"
+			})
+			break;
+		case 7:
+			tl.staggerTo( '.sec07 .col',1,{
+				y:0,
+				opacity:1,
+				ease: "power3.out"
+			},0.4)
+			break;
+		case 8:
+			let sec08Row = document.querySelector('.sec08 .row');
+			sec08Row.classList.add('show')
+		case 9:
+			tl.to( '.sec08 .showAmimate',1,{
+				x:0,
+				opacity:1,
+				ease: "power3.out"
+			},0.2)
+			break;
+	}
+
+}
+
+
+function animateSet(num){
+	
+	if( num == 7 ){
+		TweenMax.set('.sec07 .col', {y:40, opacity:0});
+	}else if( num == 8 ){
+		// TweenMax.set('.sec08 .row', {y:0, opacity:0});
+	}else{
+		TweenMax.set('.sec03 .showAmimate', {y:"-35%", opacity:0});
+		TweenMax.set('.sec04 .showAmimate', {y:"-50%", opacity:0});
+		TweenMax.set('.sec04 ul li', {y:50, opacity:0});
+		TweenMax.set('.sec05 .col', {y:80, opacity:0});
+		TweenMax.set('.sec05 .showAmimate', {y:100, opacity:0});
+		TweenMax.set('.sec06 .showAmimate', {x:-100, opacity:0});
+		TweenMax.set('.sec08 .showAmimate', {x:50, opacity:0});
+	}
+}
 
 
 	
