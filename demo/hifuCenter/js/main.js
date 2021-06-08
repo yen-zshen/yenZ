@@ -18,6 +18,8 @@ $(document).ready(function () {
 
 			let qaArray=[];
 			let drArray=[];
+			let drCount;
+			
 			googleData.forEach(function(data,i){
 				qaArray.push(
 					{
@@ -25,7 +27,11 @@ $(document).ready(function () {
 						'answer':data.gsx$answer.$t.replaceAll('\n','<br>')
 					}
 				)
-				if( i < 3 ){
+				if( i == 0 ){
+					drCount = data.gsx$doctorcount.$t;
+					// console.log("drcount :" + drCount)
+				}
+				if( i < drCount ){
 					drArray.push(
 						{
 							'drName':data.gsx$name.$t,
@@ -34,6 +40,8 @@ $(document).ready(function () {
 						}
 					)
 				}
+				
+				
 
 			})
 
@@ -46,8 +54,14 @@ $(document).ready(function () {
 			let qaHtmlTemp;
 			let qaHtml = document.getElementById('qaData');
 			let qaHtmlString ='';
+			let qaImg = document.querySelector('.sec08 .img');
+			let qaArrayCount = qaArray.length;
 			
-			qaArray.forEach(function(qa){
+			qaArray.forEach(function(qa,i){
+				if( qaArrayCount % 2 == 0 ){
+					console.log("even")
+					qaImg.classList.add('even');
+				}
 				qaHtmlTemp = `<div class="col">
 					<div class="block">
 						<div class="question">
