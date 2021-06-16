@@ -39,20 +39,14 @@ $(document).ready(function() {
   });
 });
 
-function fbData(){
-  console.log("success fbdata")
+function fbFeed(){
+  console.log("success fbFeed")
   FB.ui({
-    method: "share_open_graph",
-    action_type: "og.shares",
-    display: "popup",
-    action_properties: JSON.stringify({
-      object: {
-        "og:url": webLink,
-        "og:title": titleName,
-        "og:description": contentName,
-        "og:image": imgLink
-      }
-    })
+    method: "feed",
+    link: webLink,
+    caption: titleName,
+    description: contentName,
+    picture:imgLink,
   });
 }
 
@@ -63,6 +57,23 @@ function fbData(){
   js.src = "//connect.facebook.net/en_US/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+// function fbData(){
+//   console.log("success fbdata")
+//   FB.ui({
+//     method: "share_open_graph",
+//     action_type: "og.shares",
+//     display: "popup",
+//     action_properties: JSON.stringify({
+//       object: {
+//         "og:url": webLink,
+//         "og:title": titleName,
+//         "og:description": contentName,
+//         "og:image": imgLink
+//       }
+//     })
+//   });
+// }
 
 // window.fbAsyncInit = function() {
 //   FB.init({
@@ -95,8 +106,6 @@ function fbData(){
     
 //   //  });
 // };
-
-
 
 
 
