@@ -40,30 +40,83 @@
 
 
 
+
+
+
+
 <body>
 	
 	<script>
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId            : '923542691836404',
-				autoLogAppEvents : true,
-				xfbml            : true,
-				version          : 'v11.0'
-			});
-		};
-		function fbFeed(){
-			// FB.ui({
-			// 	method: 'feed',
-			// 	link: 'https://developers.facebook.com/docs/'
-			// }, function(response){});
-				FB.ui({
-				method: "feed",
-				link: 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html',
-				caption: "＝＝＝可自訂 title 區＝＝＝",
-				description: '＝＝＝可自訂 content 區＝＝＝',
-				picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
-			}, function(response){});
-			}
+		  (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    window.fbAsyncInit = function() {
+      var appId = "923542691836404";
+      FB.init({
+        appId: appId,
+        xfbml: false,
+            version: 'v2.11'
+      });
+    };
+
+
+    function clickHandler() {
+      {
+        var FBDesc = "Test description";
+        var FBTitle = "Test Title";
+        var FBLink = "https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html";
+        var FBPic = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
+
+        FB.ui({
+          method: "share_open_graph",
+          action_type: "og.shares",
+          display: "popup",
+          action_properties: JSON.stringify({
+            object: {
+              "og:url": FBLink,
+              "og:title": FBTitle,
+              "og:description": FBDesc,
+              "og:image": FBPic
+            }
+          })
+        });
+      };
+    }
+
+	</script>
+
+
+
+	<script>
+		// window.fbAsyncInit = function() {
+		// 	FB.init({
+		// 		appId            : '923542691836404',
+		// 		autoLogAppEvents : true,
+		// 		xfbml            : true,
+		// 		version          : 'v11.0'
+		// 	});
+		// };
+		// function fbFeed(){
+		// 	// FB.ui({
+		// 	// 	method: 'feed',
+		// 	// 	link: 'https://developers.facebook.com/docs/'
+		// 	// }, function(response){});
+		// 		FB.ui({
+		// 			method: "feed",
+		// 			link: 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html',
+		// 			caption: "＝＝＝可自訂 title 區＝＝＝",
+		// 			description: '＝＝＝可自訂 content 區＝＝＝',
+		// 			picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
+		// 	}, function(response){});
+		// 	}
 	</script>
 	
 	
@@ -93,15 +146,13 @@
 
 			<br>
 
-			<button class="shareBtn" onclick="fbFeed()">
+			<button class="shareBtn" onclick="clickHandler()">
 				Share new
 			</button>
 			<!-- <div class="shareBtn" onclick="fbFeed">
 				<p>Share new</p>
 			</div> -->
-			<a href="https://www.facebook.com/dialog/feed?app_id=923542691836404&display=popup&link=https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html&redirect_uri=https://developers.facebook.com/tools/explorer&source=https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg" target="_blank" class="fbShare">
-				share feed
-				</a>
+			
 
 				<!-- https://www.facebook.com/dialog/feed?app_id=923542691836404&display=popup&link=https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html&redirect_uri=https://developers.facebook.com/tools/explorer&source=https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg -->
 
