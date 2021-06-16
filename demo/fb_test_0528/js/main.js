@@ -22,37 +22,22 @@ imgWebTag.setAttribute('href',imgLink + "?" + randomNum)
 // let webLink = 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html'
 // let imgLink = 'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg';
 
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '923542691836404',
-    xfbml      : true,
-    cookie     : true,
-    version    : 'v2.4'
+
+$(document).ready(function() {
+  $.ajaxSetup({ cache: true });
+  $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
+    FB.init({
+      appId: '923542691836404',
+      version: 'v2.7' 
+    });     
+    $('#loginbutton,#feedbutton').removeAttr('disabled');
+    $('.shareBtn').on('click',function(){
+      console.log('shareBtn click');
+      fbFeed();
+    })
+    FB.getLoginStatus(updateStatusCallback);
   });
-  $('.shareBtn').on('click',function(){
-    console.log('success click btn 3')
-    fbFeed();
-  //   FB.ui({
-  //     method: 'share_open_graph',
-  //     action_type: 'og.shares',
-  //     caption: '＝＝＝可自訂 title 區 caption ＝＝＝',
-  //     description: '＝＝＝可自訂內容區 description ＝＝＝',
-  //     action_properties: JSON.stringify({
-  //         object : {
-  //            'og:url': webLink,
-  //            'og:title': "＝＝＝可自訂 title 區＝＝＝",
-  //            'og:description': '＝＝＝可自訂 內容 區＝＝＝',
-  //           //  'og:og:image:width': '1200',
-  //           //  'og:image:height': '630',
-  //            'og:image': imgLink
-  //         },
-  //         function(response) {}
-  //     })
-  // });
-  
-    
-   });
-};
+});
 
 function fbData(){
   console.log("success fbdata")
@@ -71,25 +56,51 @@ function fbData(){
   });
 }
 
-function fbFeed(){
-  console.log("success fbFeed")
-  FB.ui({
-    method: "feed",
-    link: webLink,
-    caption: titleName,
-    description: contentName,
-    picture:imgLink,
-  });
-}
-
-
 (function(d, s, id){
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement(s); js.id = id;
-   js.src = "//connect.facebook.net/en_US/sdk.js";
-   fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// window.fbAsyncInit = function() {
+//   FB.init({
+//     appId      : '923542691836404',
+//     xfbml      : true,
+//     cookie     : true,
+//     version    : 'v2.4'
+//   });
+//   // $('.shareBtn').on('click',function(){
+//   //   console.log('success click btn 3')
+//   //   fbFeed();
+//   // //   FB.ui({
+//   // //     method: 'share_open_graph',
+//   // //     action_type: 'og.shares',
+//   // //     caption: '＝＝＝可自訂 title 區 caption ＝＝＝',
+//   // //     description: '＝＝＝可自訂內容區 description ＝＝＝',
+//   // //     action_properties: JSON.stringify({
+//   // //         object : {
+//   // //            'og:url': webLink,
+//   // //            'og:title': "＝＝＝可自訂 title 區＝＝＝",
+//   // //            'og:description': '＝＝＝可自訂 內容 區＝＝＝',
+//   // //           //  'og:og:image:width': '1200',
+//   // //           //  'og:image:height': '630',
+//   // //            'og:image': imgLink
+//   // //         },
+//   // //         function(response) {}
+//   // //     })
+//   // // });
+  
+    
+//   //  });
+// };
+
+
+
+
+
+
 
 
 
