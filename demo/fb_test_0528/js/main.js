@@ -24,23 +24,29 @@ window.fbAsyncInit = function() {
 
   $('.shareBtn').on('click',function(){
     console.log('success click btn 3')
-    FB.ui(
-      {
-        method: 'share',
-        // name: 'Facebook Dialogs',
-        link: webLink,
-        picture: imgLink,
-        caption: '＝＝＝可自訂 title 區＝＝＝',
-        description: '＝＝＝可自訂內容區＝＝＝'
-      },
-      function(response) {
-        // if (response && response.post_id) {
-        //   alert('Post was published.');
-        // } else {
-        //   alert('Post was not published.');
-        // }
-      }
-    );
+    FB.ui({
+      method: 'feed',
+      link: webLink,
+      caption: 'An example caption',
+    }, function(response){});
+    // FB.ui(
+    //   {
+    //     method: 'share',
+    //     // name: 'Facebook Dialogs',
+    //     link: webLink,
+    //     picture: imgLink,
+    //     caption: '＝＝＝可自訂 title 區＝＝＝',
+    //     description: '＝＝＝可自訂內容區＝＝＝',
+    //     href: $(location).attr('href') + '?og_img=' + image,
+    //   },
+    //   function(response) {
+    //     // if (response && response.post_id) {
+    //     //   alert('Post was published.');
+    //     // } else {
+    //     //   alert('Post was not published.');
+    //     // }
+    //   }
+    // );
   })
   
   // $('.shareBtn').click(function(e){
