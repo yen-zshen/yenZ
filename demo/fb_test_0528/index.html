@@ -73,11 +73,19 @@
 		}(document, 'script', 'facebook-jssdk'));
 
 		FB.ui({
-				method: "feed",
-				link: 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html',
-				caption: "＝＝＝可自訂 title 區＝＝＝",
-				description: '＝＝＝可自訂 content 區＝＝＝',
-				picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
+			method: 'share_open_graph',
+			action_type: 'og.shares',
+			action_properties: JSON.stringify({
+				object : {
+					'og:url': 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html',
+					'og:title': 'Test Title',
+					'og:description': 'Dialogs provide a simple, consistent interface for applications to interface with users.',
+					'og:og:image:width': '900',
+					'og:image:height': '960',
+					'og:image': 'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
+				}
+			})
+
 		}, function(response){});
 
 
