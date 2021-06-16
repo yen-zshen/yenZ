@@ -22,11 +22,11 @@ window.fbAsyncInit = function() {
       version          : 'v11.0'                
   });
 
-  $('.shareBtn').on('clisk',function(){
+  $('.shareBtn').on('click',function(){
     console.log('success click btn 3')
     FB.ui(
       {
-        // method: 'feed',
+        method: 'share',
         // name: 'Facebook Dialogs',
         link: webLink,
         picture: imgLink,
@@ -34,11 +34,11 @@ window.fbAsyncInit = function() {
         description: '＝＝＝可自訂內容區＝＝＝'
       },
       function(response) {
-        if (response && response.post_id) {
-          alert('Post was published.');
-        } else {
-          alert('Post was not published.');
-        }
+        // if (response && response.post_id) {
+        //   alert('Post was published.');
+        // } else {
+        //   alert('Post was not published.');
+        // }
       }
     );
   })
