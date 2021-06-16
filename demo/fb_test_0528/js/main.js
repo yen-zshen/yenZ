@@ -2,13 +2,21 @@
 
 const link = document.querySelector(".fbShare");
 const imgTag = document.querySelector('.imgHide img');
+const imgFBTag = document.querySelector('meta[property="og:image"]');
+const imgWebTag = document.querySelector('link[rel="image_src"]');
 let contentName = "＝＝＝可自訂 content 區＝＝＝";
 let titleName = "＝＝＝可自訂 title 區＝＝＝";
+let randomNum =  Math.random().toString(36).substring(7);;
+ //從第7個字開始抓，所以是13 - 7 = 6 個隨機數字+字母
+
 let webLink = 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html'
 let imgLink = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
+
 // console.log(link);
 // console.log(imgTag);
-// link.setAttribute("href", `https://www.facebook.com/sharer.php?u=${webLink}&quote=${gameName}`)
+link.setAttribute("href", `https://www.facebook.com/sharer.php?u=${webLink}&quote=${gameName}`)
+imgFBTag.setAttribute('content',imgLink + "?" + randomNum)
+imgWebTag.setAttribute('href',imgLink + "?" + randomNum)
 // imgTag.setAttribute('src',imgLink);
 
 // let webLink = 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html'
