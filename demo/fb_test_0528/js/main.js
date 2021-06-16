@@ -27,41 +27,49 @@ window.fbAsyncInit = function() {
     appId      : '923542691836404',
     xfbml      : true,
     cookie     : true,
-    // version    : 'v2.4'
+    version    : 'v2.4'
   });
+  $('.shareBtn').on('click',function(){
+    console.log('success click btn 3')
+    fbData();
+  //   FB.ui({
+  //     method: 'share_open_graph',
+  //     action_type: 'og.shares',
+  //     caption: '＝＝＝可自訂 title 區 caption ＝＝＝',
+  //     description: '＝＝＝可自訂內容區 description ＝＝＝',
+  //     action_properties: JSON.stringify({
+  //         object : {
+  //            'og:url': webLink,
+  //            'og:title': "＝＝＝可自訂 title 區＝＝＝",
+  //            'og:description': '＝＝＝可自訂 內容 區＝＝＝',
+  //           //  'og:og:image:width': '1200',
+  //           //  'og:image:height': '630',
+  //            'og:image': imgLink
+  //         },
+  //         function(response) {}
+  //     })
+  // });
+  
+    
+   });
 };
 
-$('.shareBtn').on('click',function(){
-  console.log('success click btn 3')
-//   FB.ui({
-//     method: 'share_open_graph',
-//     action_type: 'og.shares',
-//     caption: '＝＝＝可自訂 title 區 caption ＝＝＝',
-//     description: '＝＝＝可自訂內容區 description ＝＝＝',
-//     action_properties: JSON.stringify({
-//         object : {
-//            'og:url': webLink,
-//            'og:title': "＝＝＝可自訂 title 區＝＝＝",
-//            'og:description': '＝＝＝可自訂 內容 區＝＝＝',
-//           //  'og:og:image:width': '1200',
-//           //  'og:image:height': '630',
-//            'og:image': imgLink
-//         },
-//         function(response) {}
-//     })
-// });
-
+function fbData(){
   FB.ui({
-    method: 'feed',
-    name: 'Facebook dialogs',
-    link: webLink,
-    picture: imgLink,
-    title: '＝＝＝可自訂 title 區＝＝＝',
-    description: '＝＝＝可自訂 內容 區＝＝＝',
-    caption: '＝＝＝可自訂 caption 區＝＝＝'
+    method: "share_open_graph",
+    action_type: "og.shares",
+    display: "popup",
+    action_properties: JSON.stringify({
+      object: {
+        "og:url": webLink,
+        "og:title": titleName,
+        "og:description": contentName,
+        "og:image": imgLink
+      }
+    })
+  });
+}
 
-  }, function(response) {});
- });
 
 (function(d, s, id){
    var js, fjs = d.getElementsByTagName(s)[0];
