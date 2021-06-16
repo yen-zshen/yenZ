@@ -40,14 +40,15 @@ $(document).ready(function() {
 });
 
 function fbFeed(){
-  console.log("success fbFeed")
+  
   FB.ui({
     method: "feed",
     link: webLink,
     caption: titleName,
-    description: contentName,
-    picture:imgLink,
+    description: '＝＝＝可自訂 content 區＝＝＝',
+    picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
   });
+  console.log("success fbFeed")
 }
 
 (function(d, s, id){
