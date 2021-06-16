@@ -25,10 +25,19 @@ window.fbAsyncInit = function() {
   $('.shareBtn').on('click',function(){
     console.log('success click btn 3')
     FB.ui({
-      method: 'feed',
-      link: webLink,
-      caption: 'An example caption',
-    }, function(response){});
+      method: 'share_open_graph',
+      action_type: 'og.shares',
+      action_properties: JSON.stringify({
+          object : {
+             'og:url': webLink,
+             'og:title': "＝＝＝可自訂 title 區＝＝＝",
+             'og:description': '＝＝＝可自訂 內容 區＝＝＝',
+             'og:og:image:width': '1200',
+             'og:image:height': '630',
+             'og:image': imgLink
+          }
+      })
+  });
     // FB.ui(
     //   {
     //     method: 'share',
