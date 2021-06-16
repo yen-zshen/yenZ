@@ -5,18 +5,20 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+	
 
 	<title>版型</title>
 
 	<!-- FB 社群圖片 -->
-	<meta property="og:image" content="https://www.microsoft.com/taiwan/promo/office-365-business/img/fb.jpg" />
-	<link rel="image_src" href="https://www.microsoft.com/taiwan/promo/office-365-business/img/fb.jpg" />
+	<meta property="og:image" content="https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/sec04.png" />
+	<link rel="image_src" href="https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/sec04.png" />
 	<!-- 頁籤 icon -->
 	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="shortcut icon" />
 	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="icon" type="image/x-icon" />
 	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="icon" type="image/vnd.microsoft.icon" />
+
+	<!-- <meta http-equiv = "refresh" content = "3"/>  -->
 
 	<link rel="stylesheet" type="text/css" href="css/all.css">
 
@@ -32,6 +34,14 @@
 
 
 <body>
+
+	<script>
+		var fbxhr = new XMLHttpRequest(); 
+		fbxhr.open ("POST", "https://graph.facebook.com", true); 
+		fbxhr.setRequestHeader ("Content-type", "application/x-www-form-urlencoded"); 
+		fbxhr.send ("id = http: //you_site.com/&scrape=true"); 
+	</script>
+	
 
 	
 	<div class="wrapper">
@@ -55,7 +65,7 @@
 
 			<a href=""></a>
 
-			<div class="fb-share-button" data-href="https://www.microsoft.com/taiwan/promo/microsoft365-business/SMB/solutionPages/solution1.aspx" data-layout="button_count" data-size="large">
+			<!-- <div class="fb-share-button" data-href="https://www.microsoft.com/taiwan/promo/microsoft365-business/SMB/solutionPages/solution1.aspx" data-layout="button_count" data-size="large">
 				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a>
 				
 			</div>
@@ -63,7 +73,7 @@
       <div class="fb-share-button" data-href="https://weidou.com.tw/" data-layout="button_count" data-size="large">
 				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?quote=555555" class="fb-xfbml-parse-ignore">分享</a>
 				
-			</div>
+			</div> -->
 
       
 
@@ -71,7 +81,7 @@
 
 			
 
-			<a href="https://www.facebook.com/sharer.php?u=https://weidou.com.tw/&quote=要寫的留言" target="_blank" class="fbShare">
+			<a href="https://www.facebook.com/sharer.php?u=https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html&quote=要寫的留言" target="_blank" class="fbShare">
 				<img src="img/lan_earth.png" style="width: 50px;"/> share
 				</a>
 		
