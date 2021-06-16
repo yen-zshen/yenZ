@@ -8,4 +8,4 @@ let metaImg = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
 console.log(link);
 console.log(metaImgTag);
 link.setAttribute("href", `https://www.facebook.com/sharer.php?u=${webLink}&quote=${gameName}`)
-// metaImgTag.setAttribute('content',metaImg);
+metaImgTag.setAttribute('content',metaImg);
