@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
       appId            : '923542691836404',
       status           : true,
       cookie           : true,
-      version          : 'v2.10'                
+      version          : 'v11.0'                
   });
   
   $( '.shareBtn' ).click(function(e){
