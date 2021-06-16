@@ -22,7 +22,7 @@ window.fbAsyncInit = function() {
       version          : 'v11.0'                
   });
   
-  $( '.shareBtn' ).click(function(e){
+  $('.shareBtn').click(function(e){
     console.log('success click share')
       e.preventDefault();
       var image = imgLink;
