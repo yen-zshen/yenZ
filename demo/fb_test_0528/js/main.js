@@ -30,12 +30,12 @@ $(document).ready(function() {
       appId: '923542691836404',
       version: 'v2.7' 
     });     
-    $('#loginbutton,#feedbutton').removeAttr('disabled');
+    // $('#loginbutton,#feedbutton').removeAttr('disabled');
     $('.shareBtn').on('click',function(){
       console.log('shareBtn click');
       fbFeed();
     })
-    FB.getLoginStatus(updateStatusCallback);
+    // FB.getLoginStatus(updateStatusCallback);
   });
 });
 
