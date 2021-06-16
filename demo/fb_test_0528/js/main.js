@@ -14,7 +14,7 @@ let imgLink = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
 
 // console.log(link);
 // console.log(imgTag);
-link.setAttribute("href", `https://www.facebook.com/sharer.php?u=${webLink}&quote=${gameName}`)
+link.setAttribute("href", `https://www.facebook.com/sharer.php?u=${webLink}&quote=${contentName}`)
 imgFBTag.setAttribute('content',imgLink + "?" + randomNum)
 imgWebTag.setAttribute('href',imgLink + "?" + randomNum)
 // imgTag.setAttribute('src',imgLink);
