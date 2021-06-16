@@ -11,7 +11,7 @@
 // imgTag.setAttribute('src',imgLink);
 
 let webLink = 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html'
-let imgLink = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
+let imgLink = 'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg';
 
 
 window.fbAsyncInit = function() {
@@ -21,22 +21,44 @@ window.fbAsyncInit = function() {
       cookie           : true,
       version          : 'v11.0'                
   });
-  
-  $('.shareBtn').click(function(e){
-    console.log('success click share 2')
-      e.preventDefault();
-      var image = imgLink;
 
-      FB.ui(
-              {
-                  method: 'share',
-                  href: $(location).attr('href') + '?og_img=' + image,
-              },
-              function (response) {
-
-              }
-          );
+  $('.shareBtn').on('clisk',function(){
+    FB.ui(
+      {
+        // method: 'feed',
+        // name: 'Facebook Dialogs',
+        link: webLink,
+        picture: imgLink,
+        caption: '＝＝＝可自訂 title 區＝＝＝',
+        description: '＝＝＝可自訂內容區＝＝＝'
+      },
+      function(response) {
+        if (response && response.post_id) {
+          alert('Post was published.');
+        } else {
+          alert('Post was not published.');
+        }
+      }
+    );
   })
+  
+  // $('.shareBtn').click(function(e){
+  //   console.log('success click share 2')
+  //     e.preventDefault();
+  //     var image = imgLink;
+  //     console.log(image)
+
+  //     FB.ui(
+  //             {
+  //                 method: 'share',
+  //                 href: $(location).attr('href') + '?og_img=' + image,
+                  
+  //             },
+  //             function (response) {
+
+  //             }
+  //         );
+  // })
 };
 
 (function(d, s, id){
