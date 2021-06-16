@@ -53,16 +53,6 @@
 <body>
 	
 	<script>
-		  (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
 
     window.fbAsyncInit = function() {
       var appId = "923542691836404";
@@ -71,80 +61,45 @@
         xfbml: false,
             version: 'v2.11'
       });
-			FB.getLoginStatus(function (response) {
-				if (response.status === 'connected') {        
-					var uid = response.authResponse.userID;
-							//var accessToken = response.authResponse.accessToken;
-									//accessToken 的功用可以看這裡 http://developers.facebook.com/docs/reference/api/">http://developers.facebook.com/docs/reference/api/
-					login_success(923542691836404);
-				} else {
-							FB.login(function (response) {
-									if (response.authResponse) {
-															var uid = response.authResponse.userID;
-															var accessToken = response.authResponse.accessToken;
-											login_success(923542691836404);
-									} else {
-											alert('登入失敗!');
-									}
-							}, {
-									scope: 'email,publish_stream'
-							});
-				}
 			
-			});
-			function login_success(uid){
-     
-					var body = '測試一下測試一下測試一下測試一下';
-					FB.api('/me/feed', 'post', { message: body }, function(response) {
-						if (!response || response.error) {
-							alert('Error occured');
-						} else {
-							alert('Post ID: ' + response.id);
-						}
-					});
-				
-					// FB.ui(
-					// 	{
-					// 		method: 'feed',
-					// 		name: 'Facebook Dialogs',
-					// 		link: 'http://www.suncolor.com.tw',
-					// 		picture: 'http://fbrell.com/f8.jpg',
-					// 		caption: '測試一下',
-					// 		description: '測試兩下測試兩下測試兩下'
-					// 	},
-					// 	function(response) {
-					// 		if (response && response.post_id) {
-					// 			alert('Post was published.');
-					// 		} else {
-					// 			alert('Post was not published.');
-					// 		}
-					// 	}
-					// );
-			}
     };
+
+		(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "http://connect.facebook.net/en_US/all.js";
+    fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+		FB.ui({
+				method: "feed",
+				link: 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html',
+				caption: "＝＝＝可自訂 title 區＝＝＝",
+				description: '＝＝＝可自訂 content 區＝＝＝',
+				picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
+		}, function(response){});
 
 
     function clickHandler() {
-      {
-        var FBDesc = "Test description";
-        var FBTitle = "Test Title";
-        var FBLink = "https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html";
-        var FBPic = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
+			// var FBDesc = "Test description";
+			// var FBTitle = "Test Title";
+			// var FBLink = "https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html";
+			// var FBPic = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
 
-        FB.ui({
-          method: "share_open_graph",
-          action_type: "og.shares",
-          display: "popup",
-          action_properties: JSON.stringify({
-            object: {
-              "og:url": FBLink,
-              "og:title": FBTitle,
-              "og:description": FBDesc,
-              "og:image": FBPic
-            }
-          })
-        });
-      };
+			// FB.ui({
+			// 	method: "share_open_graph",
+			// 	action_type: "og.shares",
+			// 	display: "popup",
+			// 	action_properties: JSON.stringify({
+			// 		object: {
+			// 			"og:url": FBLink,
+			// 			"og:title": FBTitle,
+			// 			"og:description": FBDesc,
+			// 			"og:image": FBPic
+			// 		}
+			// 	})
+			// });
     }
 
 	</script>
@@ -160,19 +115,19 @@
 		// 		version          : 'v11.0'
 		// 	});
 		// };
-		// function fbFeed(){
-		// 	// FB.ui({
-		// 	// 	method: 'feed',
-		// 	// 	link: 'https://developers.facebook.com/docs/'
-		// 	// }, function(response){});
-		// 		FB.ui({
-		// 			method: "feed",
-		// 			link: 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html',
-		// 			caption: "＝＝＝可自訂 title 區＝＝＝",
-		// 			description: '＝＝＝可自訂 content 區＝＝＝',
-		// 			picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
-		// 	}, function(response){});
-		// 	}
+		function fbFeed(){
+			// FB.ui({
+			// 	method: 'feed',
+			// 	link: 'https://developers.facebook.com/docs/'
+			// }, function(response){});
+				FB.ui({
+					method: "feed",
+					link: 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html',
+					caption: "＝＝＝可自訂 title 區＝＝＝",
+					description: '＝＝＝可自訂 content 區＝＝＝',
+					picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
+			}, function(response){});
+			}
 	</script>
 	
 	
@@ -202,7 +157,7 @@
 
 			<br>
 
-			<button class="shareBtn" onclick="clickHandler()">
+			<button class="shareBtn" onclick="fbFeed()">
 				Share new
 			</button>
 			<!-- <div class="shareBtn" onclick="fbFeed">
