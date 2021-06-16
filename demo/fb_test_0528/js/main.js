@@ -16,7 +16,7 @@ let imgLink = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : 923542691836404,
+    appId      : '923542691836404',
     xfbml      : true,
     cookie     : true,
     // version    : 'v2.4'
@@ -51,16 +51,16 @@ window.fbAsyncInit = function() {
 //     })
 // });
 
-FB.ui({
-  method: 'feed',
-  name: 'Facebook dialogs',
-  link: webLink,
-  picture: imgLink,
-  title: '＝＝＝可自訂 title 區＝＝＝',
-  description: '＝＝＝可自訂 內容 區＝＝＝',
-  caption: '＝＝＝可自訂 caption 區＝＝＝'
+  FB.ui({
+    method: 'feed',
+    name: 'Facebook dialogs',
+    link: webLink,
+    picture: imgLink,
+    title: '＝＝＝可自訂 title 區＝＝＝',
+    description: '＝＝＝可自訂 內容 區＝＝＝',
+    caption: '＝＝＝可自訂 caption 區＝＝＝'
 
-}, function(response) {});
+  }, function(response) {});
  });
 
 
