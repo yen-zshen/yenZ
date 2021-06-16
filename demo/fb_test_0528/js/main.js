@@ -15,41 +15,42 @@ let imgLink = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
 // console.log(link);
 // console.log(imgTag);
 link.setAttribute("href", `https://www.facebook.com/sharer.php?u=${webLink}&quote=${contentName}`)
-imgFBTag.setAttribute('content',imgLink + "?" + randomNum)
-imgWebTag.setAttribute('href',imgLink + "?" + randomNum)
+imgFBTag.setAttribute('content',imgLink + "?v=" + randomNum)
+imgWebTag.setAttribute('href',imgLink + "?v=" + randomNum)
+
 // imgTag.setAttribute('src',imgLink);
 
 // let webLink = 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html'
 // let imgLink = 'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg';
 
 
-$(document).ready(function() {
-  $.ajaxSetup({ cache: true });
-  $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
-    FB.init({
-      appId: '923542691836404',
-      version: 'v2.7' 
-    });     
-    // $('#loginbutton,#feedbutton').removeAttr('disabled');
-    $('.shareBtn').on('click',function(){
-      console.log('shareBtn click');
-      fbFeed();
-    })
-    // FB.getLoginStatus(updateStatusCallback);
-  });
-});
+// $(document).ready(function() {
+//   $.ajaxSetup({ cache: true });
+//   $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
+//     FB.init({
+//       appId: '923542691836404',
+//       version: 'v2.7' 
+//     });     
+//     // $('#loginbutton,#feedbutton').removeAttr('disabled');
+//     $('.shareBtn').on('click',function(){
+//       console.log('shareBtn click');
+//       fbFeed();
+//     })
+//     // FB.getLoginStatus(updateStatusCallback);
+//   });
+// });
 
-function fbFeed(){
+// function fbFeed(){
   
-  FB.ui({
-    method: "feed",
-    link: webLink,
-    caption: titleName,
-    description: '＝＝＝可自訂 content 區＝＝＝',
-    picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
-  });
-  console.log("success fbFeed")
-}
+//   FB.ui({
+//     method: "feed",
+//     link: webLink,
+//     caption: titleName,
+//     description: '＝＝＝可自訂 content 區＝＝＝',
+//     picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
+//   });
+//   console.log("success fbFeed")
+// }
 
 // (function(d, s, id){
 //   var js, fjs = d.getElementsByTagName(s)[0];
