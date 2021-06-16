@@ -31,7 +31,7 @@ window.fbAsyncInit = function() {
   });
   $('.shareBtn').on('click',function(){
     console.log('success click btn 3')
-    fbData();
+    fbFeed();
   //   FB.ui({
   //     method: 'share_open_graph',
   //     action_type: 'og.shares',
@@ -55,6 +55,7 @@ window.fbAsyncInit = function() {
 };
 
 function fbData(){
+  console.log("success fbdata")
   FB.ui({
     method: "share_open_graph",
     action_type: "og.shares",
@@ -67,6 +68,17 @@ function fbData(){
         "og:image": imgLink
       }
     })
+  });
+}
+
+function fbFeed(){
+  console.log("success fbFeed")
+  FB.ui({
+    method: "feed",
+    link: webLink,
+    caption: titleName,
+    description: contentName,
+    picture:imgLink,
   });
 }
 
