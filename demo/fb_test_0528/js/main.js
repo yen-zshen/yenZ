@@ -23,14 +23,14 @@ window.fbAsyncInit = function() {
   });
   
   $('.shareBtn').click(function(e){
-    console.log('success click share')
+    console.log('success click share 2')
       e.preventDefault();
       var image = imgLink;
 
       FB.ui(
               {
                   method: 'share',
-                  href: webLink,
+                  href: $(location).attr('href') + '?og_img=' + image,
               },
               function (response) {
 
