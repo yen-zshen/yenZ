@@ -40,6 +40,7 @@
 
 
 <body>
+	
 	<script>
 		window.fbAsyncInit = function() {
 			FB.init({
@@ -48,7 +49,8 @@
 				xfbml            : true,
 				version          : 'v11.0'
 			});
-			function fbFeed(){
+		};
+		function fbFeed(){
 				FB.ui({
 				method: "feed",
 				link: 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html',
@@ -57,8 +59,6 @@
 				picture:'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg',
 			});
 			}
-			
-		};
 	</script>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 	
@@ -71,14 +71,8 @@
 
 	
 	<div class="wrapper">
-		
-		<header class="header" id="top">
-		
-		</header>
-		<main>
-	
 
-			<a href=""></a>
+		<main>
 
 			<!-- <div class="fb-share-button" data-href="https://www.microsoft.com/taiwan/promo/microsoft365-business/SMB/solutionPages/solution1.aspx" data-layout="button_count" data-size="large">
 				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a>
@@ -94,15 +88,16 @@
 
 			<br>
 
-
-			<div class="shareBtn" onclick="fbFeed()">
-				<!-- <img src="http://mysite.com/image.jpg"> -->
+			<button class="shareBtn" onclick="fbFeed()">
+				Share new
+			</button>
+			<!-- <div class="shareBtn" onclick="fbFeed">
 				<p>Share new</p>
-			</div>
+			</div> -->
 			
 
 			<a href="https://www.facebook.com/sharer.php?u=https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html&quote=要寫的留言" target="_blank" class="fbShare">
-				<img src="img/lan_earth.png" style="width: 50px;"/> share
+				share
 				</a>
 		
 			
