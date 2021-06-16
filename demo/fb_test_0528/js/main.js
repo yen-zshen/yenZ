@@ -15,7 +15,7 @@ let imgLink = 'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg';
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : FB_ID,
+    appId      : 923542691836404,
     xfbml      : true,
     version    : 'v2.4'
   });
@@ -48,6 +48,16 @@ window.fbAsyncInit = function() {
         function(response) {}
     })
 });
+
+// FB.ui({
+//   method: 'share',
+//   href: 'http://yourwebpage.com',
+//   picture: customImage,
+//   title: customTitle,
+//   description: customDescription,
+//   caption: customCaption
+
+// }, function(response) {});
  });
 
 
