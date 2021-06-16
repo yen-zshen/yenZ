@@ -73,16 +73,16 @@
       });
 			FB.getLoginStatus(function (response) {
 				if (response.status === 'connected') {        
-					var uid = "923542691836404";
+					var uid = response.authResponse.userID;
 							//var accessToken = response.authResponse.accessToken;
 									//accessToken 的功用可以看這裡 http://developers.facebook.com/docs/reference/api/">http://developers.facebook.com/docs/reference/api/
-					login_success(uid);
+					login_success(923542691836404);
 				} else {
 							FB.login(function (response) {
 									if (response.authResponse) {
 															var uid = response.authResponse.userID;
 															var accessToken = response.authResponse.accessToken;
-											login_success(uid);
+											login_success(923542691836404);
 									} else {
 											alert('登入失敗!');
 									}
