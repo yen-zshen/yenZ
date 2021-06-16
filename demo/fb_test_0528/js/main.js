@@ -23,6 +23,7 @@ window.fbAsyncInit = function() {
   });
 
   $('.shareBtn').on('clisk',function(){
+    console.log('success click btn 3')
     FB.ui(
       {
         // method: 'feed',
