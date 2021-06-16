@@ -1,23 +1,25 @@
 
 
-// const link = document.querySelector(".fbShare");
-// const imgTag = document.querySelector('.imgHide img');
-// let gameName = "＝＝＝可自訂內容區＝＝＝";
-// let webLink = 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html'
-// let imgLink = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
+const link = document.querySelector(".fbShare");
+const imgTag = document.querySelector('.imgHide img');
+let contentName = "＝＝＝可自訂 content 區＝＝＝";
+let titleName = "＝＝＝可自訂 title 區＝＝＝";
+let webLink = 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html'
+let imgLink = "https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg";
 // console.log(link);
 // console.log(imgTag);
 // link.setAttribute("href", `https://www.facebook.com/sharer.php?u=${webLink}&quote=${gameName}`)
 // imgTag.setAttribute('src',imgLink);
 
-let webLink = 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html'
-let imgLink = 'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg';
+// let webLink = 'https://yen-zshen.github.io/yenZ/demo/fb_test_0528/index.html'
+// let imgLink = 'https://yen-zshen.github.io/yenZ/demo/hifuCenter/img/fb.jpg';
 
 window.fbAsyncInit = function() {
   FB.init({
     appId      : 923542691836404,
     xfbml      : true,
-    version    : 'v2.4'
+    cookie     : true,
+    // version    : 'v2.4'
   });
 };
 
@@ -50,8 +52,9 @@ window.fbAsyncInit = function() {
 // });
 
 FB.ui({
-  method: 'share',
-  href: webLink,
+  method: 'feed',
+  name: 'Facebook dialogs',
+  link: webLink,
   picture: imgLink,
   title: '＝＝＝可自訂 title 區＝＝＝',
   description: '＝＝＝可自訂 內容 區＝＝＝',
