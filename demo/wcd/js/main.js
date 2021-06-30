@@ -66,8 +66,8 @@ function pageChange(){
 			
 		}
 	})
-	let status = document.querySelector('.header .test');
-	status.innerHTML = `<p>目前題目：${userStatus.nowTopic}</p><p>目前分數：${userStatus.score}</p>`
+	// let status = document.querySelector('.header .test');
+	// status.innerHTML = `<p>目前題目：${userStatus.nowTopic}</p><p>目前分數：${userStatus.score}</p>`
 }
 
 
