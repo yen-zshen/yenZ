@@ -4,10 +4,58 @@
 let pages = document.querySelectorAll("section");
 const btn = document.querySelector('.btn');
 const main = document.querySelector('main');
+let userStatus = {
+	'nowTopic' : 0,
+	'score' : 0,
+	'answerCorrect' : true
+}
+const ansPageContent =[
+	{
+		'ytLink' : "https://www.youtube.com/embed/mRE57pADCRY",
+		'txt' : "01_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	},
+	{
+		'ytLink' : "https://www.youtube.com/embed/Jc2ft2ZdmCE",
+		'txt' : "02_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	},
+	{
+		'ytLink' : "https://www.youtube.com/embed/IPP8EXA52VE",
+		'txt' : "03_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	},
+	{
+		'ytLink' : "https://www.youtube.com/embed/mRE57pADCRY",
+		'txt' : "04_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	},
+	{
+		'ytLink' : "https://www.youtube.com/embed/Jc2ft2ZdmCE",
+		'txt' : "05_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	},
+	{
+		'ytLink' : "https://www.youtube.com/embed/IPP8EXA52VE",
+		'txt' : "06_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	},
+	{
+		'ytLink' : "https://www.youtube.com/embed/mRE57pADCRY",
+		'txt' : "07_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	},
+	{
+		'ytLink' : "https://www.youtube.com/embed/Jc2ft2ZdmCE",
+		'txt' : "08_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	},
+	{
+		'ytLink' : "https://www.youtube.com/embed/IPP8EXA52VE",
+		'txt' : "09_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	},
+	{
+		'ytLink' : "https://www.youtube.com/embed/IPP8EXA52VE",
+		'txt' : "10_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+	}
+]
 pageChange();
 
 function pageChange(){
 	pages = document.querySelectorAll("section");
+	console.log('pageChange')
 	pages.forEach(function(item){
 		if( item.getAttribute('data-type') == 'hide'){
 			item.style.opacity = '0';
@@ -15,21 +63,21 @@ function pageChange(){
 		}else{
 			item.style.display = 'block';
 			setTimeout(function(){ item.style.opacity = '1' }, 500);
+			
 		}
 	})
+	let status = document.querySelector('.header .test');
+	status.innerHTML = `<p>目前題目：${userStatus.nowTopic}</p><p>目前分數：${userStatus.score}</p>`
 }
 
 
 
-let userStatus = {
-	'nowTopic' : 0,
-	'score' : 0,
-	'answerCorrect' : true
-}
+
 
 main.addEventListener('click',function(e){
 	let btnType = e.target.getAttribute('data-type');
-	console.log(e.target)
+	let answerResult = e.target.getAttribute('data-result'); 
+	// console.log(e.target)
 
 	// click btn gameStart
 	if( btnType == 'gameStart' ){
@@ -38,9 +86,9 @@ main.addEventListener('click',function(e){
 				item.setAttribute('data-type','hide')
 			}else if( item.classList == 'information' ){
 				item.setAttribute('data-type','show')
-				pageChange();
 			}
 		})
+		pageChange();
 	}
 	// click btn informationFinish
 	if( btnType == 'informationFinish' ){
@@ -49,9 +97,9 @@ main.addEventListener('click',function(e){
 				item.setAttribute('data-type','hide')
 			}else if( item.classList == 'storyIntro' ){
 				item.setAttribute('data-type','show')
-				pageChange();
 			}
 		})
+		pageChange();
 	}
 	// click btn storyIntro
 	if( btnType == 'storyIntro' ){
@@ -61,54 +109,101 @@ main.addEventListener('click',function(e){
 				item.setAttribute('data-type','hide')
 			}else if( item.classList == 'question' && item.getAttribute('data-num') == userStatus.nowTopic ){
 				item.setAttribute('data-type','show')
-				pageChange();
-				topicMove();
 			}
 		})
+		pageChange();
+		topicMove(1);
 	}
 
-	// click question btn answerYes
-	if( btnType == 'answerYes' ){
-		userStatus.score += 1;
-		userStatus.answerCorrect = true;
+	// click question page btn answerYes
+	if( btnType == 'answerBtn' ){
+		if( answerResult == 'yes'){
+			userStatus.score += 1;
+			userStatus.answerCorrect = true;
+		}else if(answerResult == 'no'){
+			userStatus.score -= 1;
+			userStatus.answerCorrect = false;
+		}
+		setAnswerBox(userStatus.answerCorrect);
+		
 		pages.forEach(function(item){
 			if(item.classList == 'question'){
 				item.setAttribute('data-type','hide')
 			}else if( item.classList == 'answer' ){
 				item.setAttribute('data-type','show')
-				pageChange();
 			}
 		})
+		pageChange();
+		changeAnsPageContent(userStatus.nowTopic);
+	}
+
+	// click answer page btn nextTopic
+	if( btnType == 'nextTopic' ){
+		userStatus.nowTopic += 1;
+		pages.forEach(function(item){
+			if(item.classList == 'answer'){
+				item.setAttribute('data-type','hide')
+			}else if( item.classList == 'question' && item.getAttribute('data-num') == userStatus.nowTopic ){
+				item.setAttribute('data-type','show')
+			}
+		})
+		pageChange();
+		topicMove(userStatus.nowTopic);
 	}
 
 	
-	
-	// console.log(e.target.getAttribute('data-type'));
-	// topicMove();
 	
 
 })
 
 
+function setAnswerBox(data){
+	let answerBox = document.querySelector('.answerBox');
+	let answer_correct = document.querySelector('.answer_correct')
+	let answer_wrong = document.querySelector('.answer_wrong')
+		if(data == true){
+			answer_correct.setAttribute('data-type','show');
+			answer_wrong.setAttribute('data-type','hide');
+		}else if( data == false ){
+			answer_correct.setAttribute('data-type','hide');
+			answer_wrong.setAttribute('data-type','show');
+		}
+}
+
+function changeAnsPageContent(num){
+	let ansYt = document.getElementById('ansYt');
+	let ansTxt = document.getElementById('ansTxt');
+	console.log(ansYt)
+	ansYt.setAttribute('src',ansPageContent[num-1].ytLink);
+	ansTxt.textContent = ansPageContent[num-1].txt;
+}
+
+
 
 	
 
-	function topicMove(){
-		TweenMax.set('.situation.question01 .front', {y:50, opacity:0});
-		TweenMax.set('.situation.question01 .back', {y:-50, opacity:0});
+	function topicMove(num){
+		let questionEnent ={
+			'back': '.situation.question0' + num+ ' .back',
+			'front': '.situation.question0' + num + ' .front'
+		}
+		console.log( questionEnent.front )
+		TweenMax.set(questionEnent.front, {y:50, opacity:0});
+		TweenMax.set(questionEnent.back, {y:-50, opacity:0});
 		TweenMax.set('.question .content', {y:100, opacity:0});
-		TweenMax.set('.question .content .inner', {y:40, opacity:0});
+		TweenMax.set('.question .content .innerBox', {y:40, opacity:0});
 		TweenMax.set('.question .questionBox', {y:20, opacity:0});
 		TweenMax.set('.question .btnBlock', {y:20, opacity:0});
 		console.log('move')
 		let tl = new TimelineMax();
+		
 
-		tl.to('.situation.question01 .back',0.9,{
+		tl.to(questionEnent.back,0.9,{
 			y:0,
 			opacity:1,
 			ease: "power4.out",
 		},0.5)
-		.to('.situation.question01 .front',0.5,{
+		.to(questionEnent.front,0.5,{
 			y:0,
 			opacity:1,
 			ease: "power4.out",
@@ -118,7 +213,7 @@ main.addEventListener('click',function(e){
 			opacity:1,
 			ease: "power4.out"
 		},1.2)
-		.to('.question .content .inner',0.5,{
+		.to('.question .content .innerBox',0.5,{
 			y:0,
 			opacity:1,
 			ease: "power4.out"
