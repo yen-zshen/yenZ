@@ -188,7 +188,7 @@ function changeAnsPageContent(num){
 			'front': '.situation.question0' + num + ' .front'
 		}
 		console.log( questionEnent.front )
-		TweenMax.set(questionEnent.front, {y:50, opacity:0});
+		TweenMax.set(questionEnent.front, {y:"-100%", opacity:1});
 		TweenMax.set(questionEnent.back, {y:-50, opacity:0});
 		TweenMax.set('.question .content', {y:100, opacity:0});
 		TweenMax.set('.question .content .innerBox', {y:40, opacity:0});
@@ -204,7 +204,7 @@ function changeAnsPageContent(num){
 			ease: "power4.out",
 		},0.5)
 		.to(questionEnent.front,0.5,{
-			y:0,
+			y:"0%",
 			opacity:1,
 			ease: "power4.out",
 		},0.85)
