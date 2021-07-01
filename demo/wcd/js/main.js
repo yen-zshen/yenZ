@@ -80,8 +80,8 @@ function pageChange(){
 		}else{
 			item.style.display = 'block';
 			setTimeout(function(){ item.style.opacity = '1' }, userStatus.pageChange);
-			
 		}
+		item.scrollTop = 0;
 	})
 	getStatus()
 }
@@ -97,6 +97,7 @@ function getStatus(){
 main.addEventListener('click',function(e){
 	let btnType = e.target.getAttribute('data-type');
 	let answerResult = e.target.getAttribute('data-result'); 
+
 	// console.log(e.target)
 
 	// click btn gameStart
