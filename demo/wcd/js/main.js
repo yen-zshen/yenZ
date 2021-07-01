@@ -7,7 +7,8 @@ const main = document.querySelector('main');
 let userStatus = {
 	'nowTopic' : 0,
 	'score' : 0,
-	'answerCorrect' : true
+	'answerCorrect' : true,
+	'pageChange' : 250
 }
 const ansPageContent =[
 	{
@@ -59,17 +60,20 @@ function pageChange(){
 	pages.forEach(function(item){
 		if( item.getAttribute('data-type') == 'hide'){
 			item.style.opacity = '0';
-			setTimeout(function(){ item.style.display = 'none' }, 500);
+			setTimeout(function(){ item.style.display = 'none' }, userStatus.pageChange);
 		}else{
 			item.style.display = 'block';
-			setTimeout(function(){ item.style.opacity = '1' }, 500);
+			setTimeout(function(){ item.style.opacity = '1' }, userStatus.pageChange);
 			
 		}
 	})
-	// let status = document.querySelector('.header .test');
-	// status.innerHTML = `<p>目前題目：${userStatus.nowTopic}</p><p>目前分數：${userStatus.score}</p>`
+	getStatus()
 }
 
+function getStatus(){
+	let status = document.querySelector('.header .test');
+	status.innerHTML = `<p>目前題目：${userStatus.nowTopic}</p><p>目前分數：${userStatus.score}</p>`
+}
 
 
 
@@ -121,7 +125,7 @@ main.addEventListener('click',function(e){
 			userStatus.score += 1;
 			userStatus.answerCorrect = true;
 		}else if(answerResult == 'no'){
-			userStatus.score -= 1;
+			// userStatus.score -= 1;
 			userStatus.answerCorrect = false;
 		}
 		setAnswerBox(userStatus.answerCorrect);
@@ -173,7 +177,6 @@ function setAnswerBox(data){
 function changeAnsPageContent(num){
 	let ansYt = document.getElementById('ansYt');
 	let ansTxt = document.getElementById('ansTxt');
-	console.log(ansYt)
 	ansYt.setAttribute('src',ansPageContent[num-1].ytLink);
 	ansTxt.textContent = ansPageContent[num-1].txt;
 }
@@ -183,6 +186,7 @@ function changeAnsPageContent(num){
 	
 
 	function topicMove(num){
+		let ptime = userStatus.pageChange / 1000;
 		let questionEnent ={
 			'back': '.situation.question0' + num+ ' .back',
 			'front': '.situation.question0' + num + ' .front'
@@ -194,38 +198,37 @@ function changeAnsPageContent(num){
 		TweenMax.set('.question .content .innerBox', {y:40, opacity:0});
 		TweenMax.set('.question .questionBox', {y:20, opacity:0});
 		TweenMax.set('.question .btnBlock', {y:20, opacity:0});
-		console.log('move')
+		// console.log('move')
 		let tl = new TimelineMax();
 		
-
-		tl.to(questionEnent.back,0.9,{
+		tl.to(questionEnent.back,0.8,{
 			y:0,
 			opacity:1,
 			ease: "power4.out",
-		},0.5)
+		},ptime) //0.5
 		.to(questionEnent.front,0.5,{
 			y:"0%",
 			opacity:1,
 			ease: "power4.out",
-		},0.85)
+		},ptime + 0.55) //0.8
 		.to('.question .content',0.5,{
 			y:0,
 			opacity:1,
 			ease: "power4.out"
-		},1.2)
+		},ptime + 0.95) //1.2
 		.to('.question .content .innerBox',0.5,{
 			y:0,
 			opacity:1,
 			ease: "power4.out"
-		},1.55)
+		},ptime + 1.3) //1.55
 		.to('.question .questionBox',0.5,{
 			y:0,
 			opacity:1,
 			ease: "power4.out"
-		},2)
+		},ptime + 1.75) //2
 		.to('.question .btnBlock',0.5,{
 			y:0,
 			opacity:1,
 			ease: "power4.out"
-		},2.15)	
+		},ptime + 1.9)	//2.15
 	}
