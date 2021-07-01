@@ -286,16 +286,34 @@ function changeResultPageContent(){
 	}
 
 	function homeAnimate(){
+		document.querySelector(".heartL").style.display = 'block';
+		document.querySelector(".heartR").style.display = 'block';
 		let ptime = userStatus.pageChange / 1000;
 		
 		TweenMax.set('.home .banner .people', {y:100, opacity:0,scale:0.85});
 		TweenMax.set('.home .banner .heart', {y:20, opacity:0});
+		// TweenMax.set('.home .banner .heartL', {x:0,y:0, opacity:0});
+		// TweenMax.set('.home .banner .heartR', {x:0,y:0, opacity:0});
 		TweenMax.set('.home .content', {y:150, opacity:1});
 		TweenMax.set('.home .content .heading h1', {y:-10, opacity:0,scale:0.5});
 		TweenMax.set('.home .content .heading h2', {y:-10, opacity:0,scale:0.75});
 		TweenMax.set('.home .content .gift', {y:20, opacity:0});
 		TweenMax.set('.home .btnBlock', {y:20, opacity:0});
 		let tlHome = new TimelineMax();	
+
+		// let tlHeart = new TimelineMax();	
+
+		// tlHeart.to('.home .banner .heartL',0,{
+		// 	x:0,
+		// 	y:0,
+		// 	opacity:1,
+		// 	ease: "power0"
+		// },ptime + 2)
+		// .to('.home .banner .heartL',0.5,{ x:-10, y:-40, opacity:0.85,ease: "power0"})
+		// .to('.home .banner .heartL',0.5,{ x:0, y:-80, opacity:0.65,ease: "power0"})
+		// .to('.home .banner .heartL',0.5,{ x:5, y:-110, opacity:0.5,ease: "power0"})
+		// .to('.home .banner .heartL',0.5,{ x:0, y:-130, opacity:0.25,ease: "power0"})
+		// .to('.home .banner .heartL',0.5,{ x:-5, y:-140, opacity:0,ease: "power0"})
 
 		
 		tlHome.to('.home .content',0.4,{
@@ -338,6 +356,8 @@ function changeResultPageContent(){
 			opacity:1,
 			ease: "power4.out",
 		},ptime + 1.6)
+
+		
 		
 	}
 
