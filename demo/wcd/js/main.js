@@ -13,43 +13,43 @@ let userStatus = {
 const ansPageContent =[
 	{
 		'ytLink' : "https://www.youtube.com/embed/mRE57pADCRY",
-		'txt' : "放在錢包的保險套，很多人拿來當成招桃花的一個護身符或是幸運符，但是放在錢包常常摩擦，容易導致保險套破裂，另外，放在機車後車箱或是車內的保險套，也都有可能因為高溫而導致變質，所以不管是放在錢包或是車上的保險套都不建議再使用！"
+		'txt' : "<p type='pages'>放在錢包的保險套，很多人拿來當成招桃花的一個護身符或是幸運符，但是放在錢包常常摩擦，容易導致保險套破裂，另外，放在機車後車箱或是車內的保險套，也都有可能因為高溫而導致變質，所以不管是放在錢包或是車上的保險套都不建議再使用！</p>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/Jc2ft2ZdmCE",
-		'txt' : "一般人可能不知道其實潤滑劑也分很多種，油性的潤滑劑除了一般市售的，還有人會用嬰兒油或是凡士林來替代，但這些『油性』的潤滑劑會跟乳膠保險套產生化學變化，導致保險套摩擦後破裂無法避孕。搭配保險套使用的潤滑劑，建議用水性或者是矽膠性，這樣保險套才不會摩擦而破裂。"
+		'txt' : "<p type='pages'>一般人可能不知道其實潤滑劑也分很多種，油性的潤滑劑除了一般市售的，還有人會用嬰兒油或是凡士林來替代，但這些『油性』的潤滑劑會跟乳膠保險套產生化學變化，導致保險套摩擦後破裂無法避孕。搭配保險套使用的潤滑劑，建議用水性或者是矽膠性，這樣保險套才不會摩擦而破裂。</p>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/IPP8EXA52VE",
-		'txt' : "事後避孕藥是屬於緊急避孕方式，例如遇到保險套破掉的狀況，就得趕緊使用事後避孕藥，而它的避孕效果與服用的時間有關："
+		'txt' : "<p type='pages'>事後避孕藥是屬於緊急避孕方式，例如遇到保險套破掉的狀況，就得趕緊使用事後避孕藥，而它的避孕效果與服用的時間有關：</p><ul><li><p type='pages'>24小時內就服用大概有95％的避孕效果</p></li><li><p type='pages'>24～48小時，避孕效果就只剩下8成</p></li><li><p type='pages'>超過48～72小時，避孕效果只剩下6成</p></li><li><p type='pages'>超過72小時後就不建議使用了</p></li></ul><p type='pages'>所以當遇到這樣緊急狀況時候，是越快使用越好。</p>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/mRE57pADCRY",
-		'txt' : "04_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+		'txt' : "<p type='pages'>許多年輕人貪圖事後避孕藥的方便，誤把事後避孕藥當成常規避孕藥使用，但這是錯的，就像典甄一樣，事後避孕藥吃太多，導致身體有強烈的副作用反應。</p><p type='pages'>事後避孕藥的劑量一般來說是常規避孕藥的8到10倍，容易導致身體不適，例如：噁心、頭暈、頭痛，或是腸胃的症狀，長期來講甚至可能造成月經混亂或荷爾蒙失調...等問題。</p>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/Jc2ft2ZdmCE",
-		'txt' : "05_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+		'txt' : "<p type='pages'>事後避孕藥它是利用荷爾蒙來抑制排卵，或者是延遲排卵，可是當妳服用事後避孕藥的時候，已經排卵了，那事後避孕藥就沒有效果了！</p><p type='pages'>女生排卵的徵兆：</p><ul><li><p type='pages'>有蛋白清的一些分泌物</p></li><li><p type='pages'>單側排卵處會有一些排卵痛</p></li><li><p type='pages'>排卵之前，有些人會有乳房脹痛的狀況</p></li></ul>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/IPP8EXA52VE",
-		'txt' : "06_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+		'txt' : "<p type='pages'>男生在性行為時，並不能完全控制自己的精液流出，有時候在不自覺的情況下，精液就流出來到女生的身體裡，也因此，當男生的性器官要接觸到女生的陰道時，就應該要帶上保險套，並且在行房的過程中全程配戴，這樣子才是保險套正確的使用時機。</p>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/mRE57pADCRY",
-		'txt' : "07_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+		'txt' : "<p type='pages'>雙重防護指的是『男生戴保險套，女生服用常規避孕藥』</p><p type='pages'>常見錯誤的觀念，以為雙重防護是男生戴兩層保險套，但戴兩層容易增加磨擦破裂的風險，因此不建議這樣使用；另外，女生服用常規避孕藥，只要按時間規律每天吃一顆，服用七天過後就會開始有避孕效果，如果以為多吃幾顆避孕效果會加倍，那是不正確的觀念，按照醫師醫囑使用即可喔！</p>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/Jc2ft2ZdmCE",
-		'txt' : "08_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+		'txt' : "<p type='pages'>女生服用常規避孕藥並不會導致不孕，在臨床上醫師還會先以口服避孕藥調經，幫助不孕症的治療，增加懷孕機率！而目前新型第四代黃體素的常規避孕藥，不僅降低水腫副作用，還有治療痘痘讓皮膚變好的效果，甚至能夠降低子宮內膜癌及卵巢癌的機會。</p>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/IPP8EXA52VE",
-		'txt' : "09_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+		'txt' : "<p type='pages'>停藥期還是有避孕效果的！另外要提醒各位小情侶，在21＋7天的劑型當中，基本上7天的停藥期間，月經就會來，而月經來的時候也不建議發生性行為，因為很容易造成感染與古盆腔發炎的問題。</p>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/IPP8EXA52VE",
-		'txt' : "10_先前報導，保險套因為不耐高溫，長時間放在皮夾裡會造成乳化變質，確實不太適合長時間放在密閉、容易過熱的空間。"
+		'txt' : "<p type='pages'>想起來就馬上吃，原本吃藥的時間也吃，等於這一天妳可能會吃兩顆！</p><p type='pages'>建議服用常規避孕藥的女生們，能多使用鬧鐘或是手機提醒的功能，養成固定時間服用常規避孕藥的習慣，能減少忘記服用的問題唷～</p>"
 	}
 ]
 pageChange();
@@ -143,16 +143,29 @@ main.addEventListener('click',function(e){
 
 	// click answer page btn nextTopic
 	if( btnType == 'nextTopic' ){
-		userStatus.nowTopic += 1;
-		pages.forEach(function(item){
-			if(item.classList == 'answer'){
-				item.setAttribute('data-type','hide')
-			}else if( item.classList == 'question' && item.getAttribute('data-num') == userStatus.nowTopic ){
-				item.setAttribute('data-type','show')
-			}
-		})
-		pageChange();
-		topicMove(userStatus.nowTopic);
+		if( userStatus.nowTopic == 10 ){
+			pages.forEach(function(item){
+				if(item.classList == 'answer'){
+					item.setAttribute('data-type','hide')
+				}else if( item.classList == 'result'  ){
+					item.setAttribute('data-type','show')
+					changeResultPageContent();
+				}
+			})
+			pageChange();
+		}else{
+			userStatus.nowTopic += 1;
+			pages.forEach(function(item){
+				if(item.classList == 'answer'){
+					item.setAttribute('data-type','hide')
+				}else if( item.classList == 'question' && item.getAttribute('data-num') == userStatus.nowTopic ){
+					item.setAttribute('data-type','show')
+				}
+			})
+			pageChange();
+			topicMove(userStatus.nowTopic);
+		}
+		
 	}
 
 	
@@ -178,7 +191,13 @@ function changeAnsPageContent(num){
 	let ansYt = document.getElementById('ansYt');
 	let ansTxt = document.getElementById('ansTxt');
 	ansYt.setAttribute('src',ansPageContent[num-1].ytLink);
-	ansTxt.textContent = ansPageContent[num-1].txt;
+	ansTxt.innerHTML = ansPageContent[num-1].txt;
+}
+
+function changeResultPageContent(){
+	let score = userStatus.score;
+	let scoreNum = document.getElementById('scoreNum');
+	scoreNum.textContent = score
 }
 
 
@@ -188,8 +207,8 @@ function changeAnsPageContent(num){
 	function topicMove(num){
 		let ptime = userStatus.pageChange / 1000;
 		let questionEnent ={
-			'back': '.situation.question0' + num+ ' .back',
-			'front': '.situation.question0' + num + ' .front'
+			'back': '.situation.question' + num+ ' .back',
+			'front': '.situation.question' + num + ' .front'
 		}
 		console.log( questionEnent.front )
 		TweenMax.set(questionEnent.front, {y:"-100%", opacity:1});
