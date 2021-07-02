@@ -222,18 +222,22 @@ function changeAnsPageContent(num){
 function changeResultPageContent(){
 	let score = userStatus.score * 10;
 	let scoreNum = document.getElementById('scoreNum');
+	let resultTxt = document.getElementById('ansTxt');
 	if( score < 60  ){
 		document.querySelector(".resultBox .result01").setAttribute('data-type','show')
 		document.querySelector(".resultBox .result02").setAttribute('data-type','hide')
 		document.querySelector(".resultBox .result03").setAttribute('data-type','hide')
+		resultTxt.textContent = '少年仔，你的避孕知識不夠正確欸，這種攸關人命的事情，還不趕快把剛剛醫師解說的觀念抄3遍！'
 	}else if( score >=60 && score < 80 ){
 		document.querySelector(".resultBox .result01").setAttribute('data-type','hide')
 		document.querySelector(".resultBox .result02").setAttribute('data-type','show')
 		document.querySelector(".resultBox .result03").setAttribute('data-type','hide')
+		resultTxt.textContent = '你擁有基本的避孕知識水平，牢記剛剛醫師們講的觀念，有朝一日你也能成為避孕大師！'
 	}else{
 		document.querySelector(".resultBox .result01").setAttribute('data-type','hide')
 		document.querySelector(".resultBox .result02").setAttribute('data-type','hide')
 		document.querySelector(".resultBox .result03").setAttribute('data-type','show')
+		resultTxt.textContent = '你的避孕知識非常充足，我想避孕對你來說不是什麼問題，記得！如果還沒有生育計畫，一定要好好避孕喔！'
 	}
 
 	scoreNum.textContent = score
