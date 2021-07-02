@@ -82,6 +82,8 @@ function pageChange(){
 			setTimeout(function(){ item.style.opacity = '1' }, userStatus.pageChange);
 		}
 		item.scrollTop = 0;
+		window.scrollTop = 0;
+		document.body.scrollTo = 0;
 	})
 	getStatus()
 }
@@ -131,6 +133,7 @@ main.addEventListener('click',function(e){
 				item.setAttribute('data-type','hide')
 			}else if( item.classList == 'question' && item.getAttribute('data-num') == userStatus.nowTopic ){
 				item.setAttribute('data-type','show')
+				stop();
 			}
 		})
 		pageChange();
@@ -152,7 +155,8 @@ main.addEventListener('click',function(e){
 			if(item.classList == 'question'){
 				item.setAttribute('data-type','hide')
 			}else if( item.classList == 'answer' ){
-				item.setAttribute('data-type','show')
+				item.setAttribute('data-type','show');
+				move();
 			}
 		})
 		pageChange();
@@ -179,7 +183,8 @@ main.addEventListener('click',function(e){
 				if(item.classList == 'answer'){
 					item.setAttribute('data-type','hide')
 				}else if( item.classList == 'question' && item.getAttribute('data-num') == userStatus.nowTopic ){
-					item.setAttribute('data-type','show')
+					item.setAttribute('data-type','show');
+					stop();
 				}
 			})
 			pageChange();
@@ -236,6 +241,7 @@ function changeResultPageContent(){
 
 	let mo=function(e){e.preventDefault();};
 	function stop(){
+		document.body.scrollTo = 0;
 		document.body.style.overflow='hidden';        
 		document.addEventListener("touchmove",mo,false);//禁止頁面滑動
 	}
@@ -246,7 +252,7 @@ function changeResultPageContent(){
 
 
 	function topicMove(num){
-		stop();
+		// stop();
 		let ptime = userStatus.pageChange / 1000;
 		let questionEnent ={
 			'back': '.situation.question' + num+ ' .back',
