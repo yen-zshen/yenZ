@@ -237,8 +237,9 @@ function changeResultPageContent(){
 
 
 	
-
+let mo=function(e){e.preventDefault();};
 	function topicMove(num){
+		document.addEventListener("touchmove",mo,false);//禁止頁面滑動
 		let ptime = userStatus.pageChange / 1000;
 		let questionEnent ={
 			'back': '.situation.question' + num+ ' .back',
