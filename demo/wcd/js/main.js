@@ -3,6 +3,7 @@
 let pages = document.querySelectorAll("section");
 const btn = document.querySelector('.btn');
 const main = document.querySelector('main');
+let mquery = Modernizr.mq('(max-width: 768px)');
 let userStatus = {
 	'nowTopic' : 0,
 	'score' : 0,
@@ -251,9 +252,12 @@ function changeResultPageContent(){
 
 	let mo=function(e){e.preventDefault();};
 	function stop(){
-		document.body.scrollTop = 0;
-		document.body.style.overflow='hidden';        
-		document.addEventListener("touchmove",mo,false);//禁止頁面滑動
+		if( Modernizr.mq('(max-width: 768px)') ){
+			document.body.scrollTop = 0;
+			document.body.style.overflow='hidden';        
+			document.addEventListener("touchmove",mo,false);//禁止頁面滑動
+		}
+		
 	}
 	function move(){
 		document.body.style.overflow='auto';//出現滾動條
