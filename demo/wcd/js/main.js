@@ -234,12 +234,19 @@ function changeResultPageContent(){
 	scoreNum.textContent = score
 }
 
-
-
-	
-let mo=function(e){e.preventDefault();};
-	function topicMove(num){
+	let mo=function(e){e.preventDefault();};
+	function stop(){
+		document.body.style.overflow='hidden';        
 		document.addEventListener("touchmove",mo,false);//禁止頁面滑動
+	}
+	function move(){
+		document.body.style.overflow='auto';//出現滾動條
+		document.removeEventListener("touchmove",mo,false);        
+}
+
+
+	function topicMove(num){
+		stop();
 		let ptime = userStatus.pageChange / 1000;
 		let questionEnent ={
 			'back': '.situation.question' + num+ ' .back',
