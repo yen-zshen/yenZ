@@ -83,7 +83,7 @@ function pageChange(){
 		}
 		item.scrollTop = 0;
 		window.scrollTop = 0;
-		document.body.scrollTo = 0;
+		document.body.scrollTop = 0;
 	})
 	getStatus()
 }
@@ -241,7 +241,7 @@ function changeResultPageContent(){
 
 	let mo=function(e){e.preventDefault();};
 	function stop(){
-		document.body.scrollTo = 0;
+		document.body.scrollTop = 0;
 		document.body.style.overflow='hidden';        
 		document.addEventListener("touchmove",mo,false);//禁止頁面滑動
 	}
