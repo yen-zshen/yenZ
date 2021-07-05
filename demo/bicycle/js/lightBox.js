@@ -31,9 +31,6 @@ $(document).ready(function () {
 		$('main').on('touchmove',function(el){
 			el.preventDefault();
 		},false)//禁止頁面滑動
-		$('main').on('scroll',function(el){
-			el.preventDefault();
-		},false)//禁止頁面滑動
 	}
 	
 	
@@ -43,6 +40,7 @@ $(document).ready(function () {
 		setTimeout(function () {
 			$(".sec_lightBox .inner").removeClass("show")
 		}, 250);
+		$('main').unbind('touchmove')
 		
 	}
 	
