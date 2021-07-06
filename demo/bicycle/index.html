@@ -75,10 +75,10 @@
 							</p>
 					</div>
 					<div class="btnGroup">
-						<a href="#" class="btn">
+						<a href="#secGame" class="btn">
 							<span>報名參賽</span>
 						</a>
-						<a href="#" class="btn">
+						<a href="#secVote" class="btn">
 							<span>線上應援抽好禮</span>
 						</a>
 					</div>
@@ -87,7 +87,7 @@
 
 			<!-- section 01  賽事說明
 			------------------------------------------>
-			<section class="sec01">
+			<section class="sec01" id="secGame">
 				<div class="container">
 					<div class="h2Box">
 						<h2>賽事說明</h2>
@@ -109,7 +109,7 @@
 							</div>
 					</div>
 					<div class="btnGroup">
-						<a href="#" class="btn">
+						<a href="#secActive" class="btn">
 							<span>活動獎項</span>
 						</a>
 						<a href="#" class="btn lb_btn" num="game">
@@ -121,7 +121,7 @@
 
 			<!-- section 02  線上應援抽好禮
 			------------------------------------------>
-			<section class="sec02">
+			<section class="sec02" id="secVote">
 				<div class="container">
 					<div class="h2Box">
 						<h2 class="type2">線上應援抽好禮</h2>
@@ -201,49 +201,49 @@
 
 			<!-- section 04  bicycle animate
 			------------------------------------------>
-			<section class="sec04">
+			<section class="sec04" id="VoteResult">
 				<div class="container">
 					<div class="start">START</div>
 					<div class="row">
 						<div class="col col01">
-							<div class="line"></div>
+							<div class="line" id='lineJerry'></div>
 							<div class="bicycle">
 								<img src="img/bicycle01.png" alt="">
 							</div>
 							<div class="name">
-								<p>哲睿 Jerry <span id="vote">386票</span></p>
+								<p>哲睿 Jerry <span class="vote" id="voteJerry"></span></p>
 							</div>
 						</div>
 						<div class="col col02">
-							<div class="line"></div>
+							<div class="line" id='lineMike'></div>
 							<div class="bicycle">
 								<img src="img/bicycle02.png" alt="">
 							</div>
 							<div class="name">
-								<p>好動夫妻 Mike <span id="vote">242票</span></p>
+								<p>好動夫妻 Mike <span class="vote" id="voteMike"></span></p>
 							</div>
 						</div>
 						<div class="col col03">
-							<div class="line"></div>
+							<div class="line" id="lineLinda"></div>
 							<div class="bicycle">
 								<img src="img/bicycle03.png" alt="">
 							</div>
 							<div class="name">
-								<p>Linda <span id="vote">463票</span></p>
+								<p>Linda <span class="vote" id="voteLinda"></span></p>
 							</div>
 						</div>
 						<div class="col col04">
-							<div class="line"></div>
+							<div class="line" id="lineElun"></div>
 							<div class="bicycle">
 								<img src="img/bicycle04.png" alt="">
 							</div>
 							<div class="name">
-								<p>一輪<span id="vote">278票</span></p>
+								<p>一輪<span class="vote" id="voteElun"></span></p>
 							</div>
 						</div>
 					</div>
 					<div class="btnGroup">
-						<a href="#" class="btn lb_btn" num="game">
+						<a href="#" class="btn lb_btn" num="vote">
 							<span>投票應援</span>
 						</a>
 					</div>
@@ -252,7 +252,7 @@
 
 			<!-- section 05  活動獎項
 			------------------------------------------>
-			<section class="sec05">
+			<section class="sec05" id="secActive">
 				<div class="container">
 				<div class="row">
 					<div class="col">
@@ -321,7 +321,7 @@
 				</div>
 					<div class="btnGroup">
 						<a href="#" class="btn">
-							<span>投票應援</span>
+							<span>了解更多產品資訊</span>
 						</a>
 					</div>
 				</div>
@@ -422,35 +422,34 @@
 									<div class="voteForm">
 										<div class="inputBox">
 											<p>姓名</p>
-											<input type="text" id="nameValue" placeholder="">
+											<input type="text" class="nameValue" placeholder="">
 										</div>
 										<div class="inputBox">
 											<p>ZWIFT ID <span class="remind">*必填！有ID才能參賽，完賽後核對ID才能領獎喔！</span></p>
-											
-											<input type="text" id="nameValue" placeholder="">
+											<input type="text" class="zwiftIDValue" placeholder="">
 										</div>
 										<div class="inputBox">
 											<p>手機</p>
-											<input type="tel" id="phoneValue" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="">
+											<input type="tel" class="phoneValue" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="">
 										</div>
 										<div class="inputBox">
 											<p>Mail</p>
-											<input type="email" id="emailValue" pattern=".+@globex\.com" placeholder="">
+											<input type="email" class="mailValue" pattern=".+@globex\.com" placeholder="">
 										</div>
 										<div class="inputBox">
 											<p>出生年月日</p>
-											<input type="text" id="agelValue" placeholder="ex. 1990/04/08">
+											<input type="text" class="ageValue" placeholder="ex. 1990/04/08">
 										</div>
 										<div class="inputBox">
 											<p>完賽贈品寄送地址</p>
-											<input type="text" id="addresslValue" placeholder="">
+											<input type="text" class="addressValue" placeholder="">
 										</div>
 										<div class="checkBox">
 											<input type="checkbox" id="privacyAgree" value="privacyAgree" checked="checked">
 											<label for="privacyAgree">我已經詳細閱讀活動辦法、注意事項及蒐集個人資料聲明。</label>
 										</div>
 										<div class="btnBox">
-											<div class="btnSubmit">確認送出</div>
+											<div class="btnSubmit" id="gameSubmit">確認送出</div>
 										</div>
 									</div>
 								</div>
@@ -466,11 +465,11 @@
 										<p>我的一票投給</p>
 										<div class="radioGroup">
 											<div class="radioBox">
-												<input type="radio" id="yt1" name="ytVote" value="Jerry">
+												<input type="radio" id="yt1" name="ytVote" value="哲睿 Jerry">
 												<label for="yt1">哲睿 Jerry</label>
 											</div>
 											<div class="radioBox">
-												<input type="radio" id="yt2" name="ytVote" value="Mike">
+												<input type="radio" id="yt2" name="ytVote" value="好動夫妻 Mike">
 												<label for="yt2">好動夫妻 Mike</label>
 											</div>
 											<div class="radioBox">
@@ -478,36 +477,36 @@
 												<label for="yt3">Linda</label>
 											</div>
 											<div class="radioBox">
-												<input type="radio" id="yt4" name="ytVote" value="yt4">
+												<input type="radio" id="yt4" name="ytVote" value="一輪">
 												<label for="yt4">一輪</label>
 											</div>
 										</div>
 										<div class="inputBox">
 											<p>姓名</p>
-											<input type="text" id="nameValue" placeholder="">
+											<input type="text" class="nameValue" placeholder="">
 										</div>
 										<div class="inputBox">
 											<p>手機</p>
-											<input type="tel" id="phoneValue" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="">
+											<input type="tel" class="phoneValue" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="">
 										</div>
 										<div class="inputBox">
 											<p>Mail</p>
-											<input type="email" id="emailValue" pattern=".+@globex\.com" placeholder="">
+											<input type="email" class="mailValue" pattern=".+@globex\.com" placeholder="">
 										</div>
 										<div class="inputBox">
 											<p>出生年月日</p>
-											<input type="text" id="agelValue" placeholder="ex. 1990/04/08">
+											<input type="text" class="ageValue" placeholder="ex. 1990/04/08">
 										</div>
 										<div class="inputBox">
 											<p>抽獎贈品寄送地址</p>
-											<input type="text" id="addresslValue" placeholder="">
+											<input type="text" class="addressValue" placeholder="">
 										</div>
 										<div class="checkBox">
 											<input type="checkbox" id="privacyAgree" value="privacyAgree" checked="checked">
 											<label for="privacyAgree">我已經詳細閱讀活動辦法、注意事項及蒐集個人資料聲明。</label>
 										</div>
 										<div class="btnBox">
-											<div class="btnSubmit">確認送出</div>
+											<div class="btnSubmit" id="voteSubmit">確認送出</div>
 										</div>
 									</div>
 								</div>
@@ -527,7 +526,7 @@
 						<input type="text" id="phoneValue" placeholder="phone">
 						<input type="text" id="emailValue" placeholder="email">
 						
-						<div class="btn">enter</div>
+						<div class="btn btnTest">enter</div>
 					</div>
 				</div>
 			</section>
@@ -553,7 +552,8 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/jquery.mCustomScrollbar.min.js"></script>
-	<script type="text/javascript" src="js/lightBox.js"></script>
+	<script type="text/javascript" src="assets/modernizr-custom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
 
