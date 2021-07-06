@@ -93,7 +93,7 @@
 
 function setTest(){
 	let status = document.querySelector('.header .test');
-	status.innerHTML = `<p>版本：7</p>`
+	status.innerHTML = `<p>版本：8</p>`
 }
 setTest();
 
@@ -446,6 +446,7 @@ console.log("lightbox");
 var lb_btn = $(".lb_btn");
 var tent = $(".sec_lightBox .tent")
 var closeBtn = $(".sec_lightBox .closeBtn");
+let scrollAfter ;
 
 lb_btn.on("click",function(e){
 	e.preventDefault();
@@ -464,7 +465,12 @@ function show_lightBox(num){
 	// 	alert('touch move fixed');
 	// 	el.preventDefault();
 	// },true)//禁止頁面滑動
-	$("body").css('overflow','hidden');
+	// $("body").css('overflow','hidden');
+	$('body').addClass('noscroll')
+	// console.log( scrollNow )
+	scrollAfter = scrollNow;
+	$('body').css('top',scrollNow - scrollNow - scrollNow) 
+
 }
 
 
@@ -475,7 +481,11 @@ function close_lightBox(){
 		$(".sec_lightBox .inner").removeClass("show")
 	}, 250);
 	// $('section').unbind('touchmove')
-	$("body").css('overflow','auto');
+	// $("body").css('overflow','auto');
+	$('body').removeClass('noscroll')
+	
+	$(window).scrollTop(scrollAfter);
+	// console.log(scrollAfter)
 }
 
 
