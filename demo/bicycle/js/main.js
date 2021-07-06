@@ -453,7 +453,7 @@ function show_lightBox(num){
 	$(".sec_lightBox .inner[data-type='" + num +"']").addClass("show");
 	$(".sec_lightBox").fadeIn(250);
 	tent.delay(250).fadeIn(250);
-	$('main').on('touchmove',function(el){
+	$('html').on('touchmove',function(el){
 		el.preventDefault();
 	},false)//禁止頁面滑動
 }
