@@ -93,7 +93,7 @@
 
 function setTest(){
 	let status = document.querySelector('.header .test');
-	status.innerHTML = `<p>版本：5</p>`
+	status.innerHTML = `<p>版本：6</p>`
 }
 setTest();
 
@@ -460,10 +460,10 @@ function show_lightBox(num){
 	$(".sec_lightBox .inner[data-type='" + num +"']").addClass("show");
 	$(".sec_lightBox").fadeIn(250);
 	tent.delay(250).fadeIn(250);
-	$(window).on('touchmove',function(el){
+	$('body').on('touchmove',function(el){
 		alert('touch move fixed');
 		// el.preventDefault();
-	},false)//禁止頁面滑動
+	},true)//禁止頁面滑動
 }
 
 
