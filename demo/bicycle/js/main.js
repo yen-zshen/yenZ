@@ -93,7 +93,7 @@
 
 function setTest(){
 	let status = document.querySelector('.header .test');
-	status.innerHTML = `<p>版本：6</p>`
+	status.innerHTML = `<p>版本：7</p>`
 }
 setTest();
 
@@ -460,10 +460,11 @@ function show_lightBox(num){
 	$(".sec_lightBox .inner[data-type='" + num +"']").addClass("show");
 	$(".sec_lightBox").fadeIn(250);
 	tent.delay(250).fadeIn(250);
-	$('body').on('touchmove',function(el){
-		alert('touch move fixed');
-		// el.preventDefault();
-	},true)//禁止頁面滑動
+	// $('body').on('touchmove',function(el){
+	// 	alert('touch move fixed');
+	// 	el.preventDefault();
+	// },true)//禁止頁面滑動
+	$("body").css('overflow','hidden');
 }
 
 
@@ -474,7 +475,7 @@ function close_lightBox(){
 		$(".sec_lightBox .inner").removeClass("show")
 	}, 250);
 	// $('section').unbind('touchmove')
-	
+	$("body").css('overflow','auto');
 }
 
 
