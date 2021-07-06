@@ -90,6 +90,13 @@
 // }
 
 
+
+function setTest(){
+	let status = document.querySelector('.header .test');
+	status.innerHTML = `<p>版本：2</p>`
+}
+setTest();
+
 // new
 //-----------------------------------------------------------------
 
@@ -453,7 +460,7 @@ function show_lightBox(num){
 	$(".sec_lightBox .inner[data-type='" + num +"']").addClass("show");
 	$(".sec_lightBox").fadeIn(250);
 	tent.delay(250).fadeIn(250);
-	$('html').on('touchmove',function(el){
+	$('body').on('touchmove',function(el){
 		el.preventDefault();
 	},false)//禁止頁面滑動
 }
