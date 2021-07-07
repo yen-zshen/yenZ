@@ -93,7 +93,7 @@
 
 function setTest(){
 	let status = document.querySelector('.header .test');
-	status.innerHTML = `<p>版本：11</p>`
+	status.innerHTML = `<p>版本：12</p>`
 }
 setTest();
 
@@ -538,7 +538,7 @@ window.addEventListener('scroll' ,function(){
 // 顯示投票結果
 function showVoteOnHtml(){
 	voteCount = { 'Jerry': 0,	'Mike' : 0,'Linda' : 0,'eLun' : 0,}
-
+	let initVote = 717;
 	ytArray.forEach(function(item){
 		if( item == '哲睿 Jerry' ){
 			voteCount.Jerry += 1;
@@ -553,10 +553,10 @@ function showVoteOnHtml(){
 		}
 	})
 
-	document.getElementById('voteJerry').textContent = voteCount.Jerry + "票";
-	document.getElementById('voteMike').textContent = voteCount.Mike + "票";
-	document.getElementById('voteLinda').textContent = voteCount.Linda + "票";
-	document.getElementById('voteElun').textContent = voteCount.eLun + "票";
+	document.getElementById('voteJerry').textContent = voteCount.Jerry + initVote + "票";
+	document.getElementById('voteMike').textContent = voteCount.Mike + initVote + "票";
+	document.getElementById('voteLinda').textContent = voteCount.Linda + initVote + "票";
+	document.getElementById('voteElun').textContent = voteCount.eLun + initVote + "票";
 
 	// scroll 
 	scrollNow = $(window).scrollTop();
