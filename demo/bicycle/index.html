@@ -260,6 +260,9 @@
 			------------------------------------------>
 			<section class="sec05" id="secActive">
 				<div class="container">
+					<div class="h2Box">
+						<h2>活動獎項</h2>
+					</div>
 				<div class="row">
 					<div class="col">
 						<div class="priceImg">
@@ -443,7 +446,7 @@
 										</div>
 										<div class="inputBox">
 											<p>Mail</p>
-											<input type="email" class="mailValue" pattern=".+@globex\.com" placeholder="">
+											<input type="email" class="mailValue" pattern=".+@globex\.com" placeholder="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 											<p class="notice" data-type="mail"></p>
 										</div>
 										<div class="inputBox">
@@ -497,27 +500,33 @@
 										</div>
 										<div class="inputBox">
 											<p>姓名</p>
-											<input type="text" class="nameValue" placeholder="">
+											<input type="text" class="nameValue" placeholder="" data-type="name">
+											<p class="notice" data-type="name"></p>
 										</div>
 										<div class="inputBox">
 											<p>手機</p>
-											<input type="tel" class="phoneValue" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="">
+											<input type="tel" class="phoneValue" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="" data-type="phone">
+											<p class="notice" data-type="phone"></p>
 										</div>
 										<div class="inputBox">
 											<p>Mail</p>
-											<input type="email" class="mailValue" pattern=".+@globex\.com" placeholder="">
+											<input type="email" class="mailValue" pattern=".+@globex\.com" placeholder="" data-type="mail">
+											<p class="notice" data-type="mail"></p>
 										</div>
 										<div class="inputBox">
 											<p>出生年月日</p>
-											<input type="text" class="ageValue" placeholder="ex. 1990/04/08">
+											<input type="text" class="ageValue" placeholder="ex. 1990/04/08" data-type="age">
+											<p class="notice" data-type="age"></p>
 										</div>
 										<div class="inputBox">
 											<p>抽獎贈品寄送地址</p>
-											<input type="text" class="addressValue" placeholder="">
+											<input type="text" class="addressValue" placeholder="" data-type="address">
+											<p class="notice" data-type="address"></p>
 										</div>
 										<div class="checkBox">
-											<input type="checkbox" id="privacyAgree" value="privacyAgree">
+											<input type="checkbox" id="privacyAgreeVote" value="privacyAgree">
 											<label for="privacyAgree">我已經詳細閱讀活動辦法、注意事項及蒐集個人資料聲明。</label>
+											<p class="notice" data-type="privacy"></p>
 										</div>
 										<div class="btnBox">
 											<div class="btnSubmit" id="voteSubmit">確認送出</div>
