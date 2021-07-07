@@ -93,7 +93,7 @@
 
 function setTest(){
 	let status = document.querySelector('.header .test');
-	status.innerHTML = `<p>版本：8</p>`
+	status.innerHTML = `<p>版本：10</p>`
 }
 setTest();
 
@@ -437,11 +437,11 @@ function veriVote(){
 				}
 				if( mail.value != "" ){
 					if( !regex.test(mail.value) ){
-						checkAry[3] = 0;
+						checkAry[2] = 0;
 						document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='mail']").textContent = "* 請填寫正確格式 sample@example.com";
 						console.log('email wrong')
 					}else if(regex.test(mail.value)){
-						checkAry[3] = 1;
+						checkAry[2] = 1;
 						document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='mail']").textContent = " ";
 					}
 				}
@@ -453,7 +453,7 @@ function veriVote(){
 	let regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	if( mail.value != "" ){
 		if( !regex.test(mail.value) ){
-			checkAry[3] = 0;
+			checkAry[2] = 0;
 			document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='mail']").textContent = "* 請填寫正確格式 sample@example.com";
 		}
 	}
@@ -461,11 +461,11 @@ function veriVote(){
 	mail.addEventListener('change',function(){
 		if( mail.value != "" ){
 			if( !regex.test(mail.value) ){
-				checkAry[3] = 0;
+				checkAry[2] = 0;
 				document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='mail']").textContent = "* 請填寫正確格式 sample@example.com";
 				console.log('email wrong')
 			}else if(regex.test(mail.value)){
-				checkAry[3] = 1;
+				checkAry[2] = 1;
 				document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='mail']").textContent = " ";
 			}
 		}
@@ -475,13 +475,13 @@ function veriVote(){
 	// privacy
 	let privacyAgreeVote = document.getElementById('privacyAgreeVote').checked;
 	if( privacyAgreeVote == false ){
-		checkAry[6] = 0;
+		checkAry[5] = 0;
 		document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='privacy']").textContent = '* 請勾選';
 	}
 	document.getElementById('privacyAgreeVote').addEventListener('change',function(){
 		privacyAgreeVote = document.getElementById('privacyAgreeVote').checked;
 		if( privacyAgreeVote == true ){
-			checkAry[6] = 1;
+			checkAry[5] = 1;
 			document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='privacy']").textContent = '';
 		}
 	})
