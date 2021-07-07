@@ -113,7 +113,8 @@ let inputValue = {
 }
 let userState = {
 	'fillInDataCount' : 0,
-	'voteAnimateCount' : 0
+	'voteAnimateCount' : 0,
+	'formFinish' : true,
 }
 
 // 傳 “報名資訊 game” 給 google sheet 
@@ -182,6 +183,7 @@ const voteSubmit = document.getElementById('voteSubmit')
 
 // 點選報名按鈕
 gameSubmit.addEventListener('click',function(){
+	userState.formFinish = true;
 	let inputFrameType = document.querySelector('.sec_lightBox .inner[data-type="game"]');
 	inputValue.name = inputFrameType.querySelector('.nameValue').value;
 	inputValue.zwiftID = inputFrameType.querySelector('.zwiftIDValue').value;
@@ -191,7 +193,14 @@ gameSubmit.addEventListener('click',function(){
 	inputValue.address = inputFrameType.querySelector('.addressValue').value;
 	console.log(inputValue);
 	userState.fillInDataCount +=1;
-	getGameData(); //檢查重複
+	veriGame();
+	if( userState.formFinish == false ){
+		alert('資料不完整')
+	}
+	else if(userState.formFinish == true){
+		getGameData(); //檢查重複
+	}
+	
 	// sendGameData();
 	// fillInInputValue();
 	// sending('game');
@@ -200,6 +209,10 @@ gameSubmit.addEventListener('click',function(){
 
 // 從 google sheet 取得 比賽報名資訊 ＋ 檢查是否有重複報名比賽
 function getGameData(){
+	let noticeAry = document.querySelectorAll(".notice")
+	noticeAry.forEach(function(item){
+		item.textContent = "";
+	})
 	$.ajax({
 		type: "GET",
 		url: "https://spreadsheets.google.com/feeds/list/1_EeNOtw8ftc2jH_7FPRc6c5CaZ6BGDmxiGzfIdK_TBI/od6/public/values?alt=json",
@@ -291,21 +304,49 @@ function sendFinish(name){
 	})
 }
 
-// 檢查是否有重複報名比賽
-// function checkGameRepeat(cArray){
-// 	let repeat = false;
-// 	cArray.forEach(function(data){
-// 		if(data.phone == inputValue[0].phone){
+// verification 驗證
+function veriGame(){
+	let checkAry = [1,1,1,1,1,1,1];
+	let inputFrameType = document.querySelector('.sec_lightBox .inner[data-type="game"]');
+	let name = inputFrameType.querySelector('.nameValue').value;
+	let zwiftID = inputFrameType.querySelector('.zwiftIDValue').value;
+	let phone = inputFrameType.querySelector('.phoneValue').value;
+	let mail = inputFrameType.querySelector('.mailValue').value;
+	let age = inputFrameType.querySelector('.ageValue').value;
+	let address = inputFrameType.querySelector('.addressValue').value;
+	let gameInput = [
+		{'name':'name','type':name,'notice':'* 請輸入姓名'},
+		{'name':'zwiftID','type':zwiftID,'notice':'* 請輸入 ZWIFT ID'},
+		{'name':'phone','type':phone,'notice':'* 請輸入電話'},
+		{'name':'mail','type':mail,'notice':'* 請輸入 mail'},
+		{'name':'age','type':age,'notice':'* 請輸入出生年月日'},
+		{'name':'address','type':address,'notice':'* 請輸入寄送地址'},
+	]
+	gameInput.forEach(function(data,index){
+		if( data.type == '' ){
+			checkAry[index] = 0;
+			document.querySelector(".sec_lightBox .inner[data-type='game'] .notice[data-type='"+ data.name +"']").textContent = data.notice;
+		}
+	})
+	let privacyAgreeGame = document.getElementById('privacyAgreeGame').checked;
+	if( privacyAgreeGame == false ){
+		checkAry[6] = 0;
+		document.querySelector(".sec_lightBox .inner[data-type='game'] .notice[data-type='privacy']").textContent = '* 請勾選';
+	}
+	console.log(checkAry)
+
+	checkAry.forEach(function(data){
+		if( data == 0 ){
+			userState.formFinish = false;
+			document.getElementById('mCSB_1_container').style.top = 0
+			document.getElementById('mCSB_1_dragger_vertical').style.top = 0
 			
-// 			repeat = true;
-// 		}
-// 	})
-// 	if(repeat == false){
-// 		send(inputValue[0].name,inputValue[0].phone,inputValue[0].email)
-// 	}else if(repeat == true){
-// 		alert('你已經投票過');
-// 	}
-// }
+		}
+	})
+
+	
+
+};
 
 
 
@@ -420,7 +461,20 @@ function bicycleAnimate(){
 }
 
 
-
+// 錨點 anchor
+let anchor = document.querySelectorAll('.anchor');
+anchor.forEach(function(item){
+	item.addEventListener('click',function(){
+		let targetAry = item.getAttribute('href').split('#');
+		let target = targetAry[1];
+		let targetTop = document.getElementById(target).offsetTop;
+		console.log(targetTop);
+		
+		$('html,body').animate({
+			scrollTop: targetTop
+		}, 500);
+	})
+})
 
 
 
@@ -499,4 +553,16 @@ $(".sec_lightBox").on("click", function (event) {
 });
 	
 	
+
+
+//cookie
+//------------------------------------------------------
+var cookie = $('.cookie')
+var know = $('.know')
+
+cookie.delay(500).slideDown(350);
+know.on('click', function () {
+	cookie.delay(300).slideUp(300);
+})
+
 

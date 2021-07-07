@@ -33,6 +33,12 @@
 
 	
 	<div class="wrapper">
+		<div class="cookie">
+			<div class="container flexBox">
+				<span clas="cookie_inn">本網站使用 Cookie 進行分析，以提供您個人化內容與廣告，繼續瀏覽本網站，即表示您同意此用途</span>
+				<span class="know">我知道了</span>
+			</div>
+		</div>
 		<header class="header" id="top">
 			<div class="test"></div>
 		</header>
@@ -75,10 +81,10 @@
 							</p>
 					</div>
 					<div class="btnGroup">
-						<a href="#secGame" class="btn">
+						<a href="#secGame" class="btn anchor">
 							<span>報名參賽</span>
 						</a>
-						<a href="#secVote" class="btn">
+						<a href="#secVote" class="btn anchor">
 							<span>線上應援抽好禮</span>
 						</a>
 					</div>
@@ -109,7 +115,7 @@
 							</div>
 					</div>
 					<div class="btnGroup">
-						<a href="#secActive" class="btn">
+						<a href="#secActive" class="btn anchor">
 							<span>活動獎項</span>
 						</a>
 						<a href="#" class="btn lb_btn" num="game">
@@ -422,32 +428,40 @@
 									<div class="voteForm">
 										<div class="inputBox">
 											<p>姓名</p>
-											<input type="text" class="nameValue" placeholder="">
+											<input type="text" class="nameValue" placeholder="" >
+											<p class="notice" data-type="name"></p>
 										</div>
 										<div class="inputBox">
 											<p>ZWIFT ID <span class="remind">*必填！有ID才能參賽，完賽後核對ID才能領獎喔！</span></p>
 											<input type="text" class="zwiftIDValue" placeholder="">
+											<p class="notice" data-type="zwiftID"></p>
 										</div>
 										<div class="inputBox">
 											<p>手機</p>
 											<input type="tel" class="phoneValue" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="">
+											<p class="notice" data-type="phone"></p>
 										</div>
 										<div class="inputBox">
 											<p>Mail</p>
 											<input type="email" class="mailValue" pattern=".+@globex\.com" placeholder="">
+											<p class="notice" data-type="mail"></p>
 										</div>
 										<div class="inputBox">
 											<p>出生年月日</p>
 											<input type="text" class="ageValue" placeholder="ex. 1990/04/08">
+											<p class="notice" data-type="age"></p>
 										</div>
 										<div class="inputBox">
 											<p>完賽贈品寄送地址</p>
 											<input type="text" class="addressValue" placeholder="">
+											<p class="notice" data-type="address"></p>
 										</div>
 										<div class="checkBox">
-											<input type="checkbox" id="privacyAgree" value="privacyAgree" checked="checked">
-											<label for="privacyAgree">我已經詳細閱讀活動辦法、注意事項及蒐集個人資料聲明。</label>
+											<input type="checkbox" id="privacyAgreeGame" value="privacyAgree" >
+											<label for="privacyAgreeGame" >我已經詳細閱讀活動辦法、注意事項及蒐集個人資料聲明。</label>
+											<p class="notice" data-type="privacy"></p>
 										</div>
+										
 										<div class="btnBox">
 											<div class="btnSubmit" id="gameSubmit">確認送出</div>
 										</div>
@@ -502,7 +516,7 @@
 											<input type="text" class="addressValue" placeholder="">
 										</div>
 										<div class="checkBox">
-											<input type="checkbox" id="privacyAgree" value="privacyAgree" checked="checked">
+											<input type="checkbox" id="privacyAgree" value="privacyAgree">
 											<label for="privacyAgree">我已經詳細閱讀活動辦法、注意事項及蒐集個人資料聲明。</label>
 										</div>
 										<div class="btnBox">
@@ -519,7 +533,7 @@
 
 			<!-- section 01  
 			------------------------------------------>
-			<section class="sec">
+			<!-- <section class="sec">
 				<div class="container">
 					<div class="block">
 						<input type="text" id="nameValue" placeholder="name">
@@ -529,10 +543,17 @@
 						<div class="btn btnTest">enter</div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 		
 			
 		</main>
+		<footer>
+			<div class="container">
+				<p>主辦單位：香港商香港利潔時有限公司台灣分公司</p>
+				<p>協辦單位：磅礡廣媒行銷有限公司</p>
+				<p>活動相關問題，歡迎聯繫 <a href="mailto:lunalin.pump@gmail.com">lunalin.pump@gmail.com</a></p>
+			</div>
+		</footer>
 		
 		<!-- GOTOTOP
 		-------------------------------------------------------------->
