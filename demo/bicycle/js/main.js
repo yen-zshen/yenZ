@@ -93,7 +93,7 @@
 
 function setTest(){
 	let status = document.querySelector('.header .test');
-	status.innerHTML = `<p>版本：10</p>`
+	status.innerHTML = `<p>版本：11</p>`
 }
 setTest();
 
