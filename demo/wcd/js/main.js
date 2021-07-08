@@ -191,6 +191,7 @@ main.addEventListener('click',function(e){
 			pageChange();
 			changeResultPageContent();
 			resultAnimate();
+			sendDataToGoogle();
 		}else{
 			userStatus.nowTopic += 1;
 			pages.forEach(function(item){
@@ -209,6 +210,7 @@ main.addEventListener('click',function(e){
 
 
 	if( btnType == 'fbShare' ){
+		userData.fbShare = true;
 		sendDataToGoogle();
 	}
 
@@ -621,6 +623,7 @@ function sendDataToGoogle() {
 				"gender": userData.gender,
 				"age": userData.age,
 				"phone": userData.phone,
+				'haveFbShare' : userData.fbShare,
 				"q1": qusArray[0],
 				"q2": qusArray[1],
 				"q3": qusArray[2],
