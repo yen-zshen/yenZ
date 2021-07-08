@@ -4,12 +4,23 @@ let pages = document.querySelectorAll("section");
 const btn = document.querySelector('.btn');
 const main = document.querySelector('main');
 let mquery = Modernizr.mq('(max-width: 768px)');
+let userData = {
+	'name' : "",
+	"gender" : "",
+	"age" : "",
+	"phone" : "",
+	'qArray' : [0,0,0,0,0,0,0,0,0,0],
+	'fbShare' : false,
+	'formFinish' :false
+}
+//userStatus ---------------------------------
 let userStatus = {
 	'nowTopic' : 0,
 	'score' : 0,
 	'answerCorrect' : true,
 	'pageChange' : 250
 }
+// answer content -----------------------------
 const ansPageContent =[
 	{
 		'ytLink' : "https://www.youtube.com/embed/-IwaVw9pY8U?mute=1&autoplay=1",
@@ -53,8 +64,7 @@ const ansPageContent =[
 	}
 ]
 
-
-// loading
+// loading ------------------------------------
 window.addEventListener("load", function(e) {
 	console.log("finish loading");
 	pages.forEach(function(item){
@@ -67,9 +77,6 @@ window.addEventListener("load", function(e) {
 	pageChange();
 	homeAnimate();
 })
-
-
-// pageChange();
 
 function pageChange(){
 	pages = document.querySelectorAll("section");
@@ -103,7 +110,7 @@ main.addEventListener('click',function(e){
 
 	// console.log(e.target)
 
-	// click btn gameStart
+	// click btn gameStart ------------------------------------
 	if( btnType == 'gameStart' ){
 		pages.forEach(function(item){
 			if(item.classList == 'home'){
@@ -115,7 +122,7 @@ main.addEventListener('click',function(e){
 		pageChange();
 		infotmationAnimate();
 	}
-	// click btn informationFinish
+	// click btn informationFinish ------------------------------------
 	if( btnType == 'informationFinish' ){
 		pages.forEach(function(item){
 			if(item.classList == 'information'){
@@ -124,9 +131,13 @@ main.addEventListener('click',function(e){
 				item.setAttribute('data-type','show')
 			}
 		})
-		pageChange();
+		userData.formFinish = true;
+		saveDataToArray();
+		if( userData.formFinish == true ){
+			pageChange();
+		}
 	}
-	// click btn storyIntro
+	// click btn storyIntro ------------------------------------
 	if( btnType == 'storyIntro' ){
 		userStatus.nowTopic += 1;
 		pages.forEach(function(item){
@@ -141,11 +152,12 @@ main.addEventListener('click',function(e){
 		topicMove(1);
 	}
 
-	// click question page btn answerYes
+	// click question page btn Answer ------------------------------------
 	if( btnType == 'answerBtn' ){
 		if( answerResult == 'yes'){
 			userStatus.score += 1;
 			userStatus.answerCorrect = true;
+			userData.qArray[userStatus.nowTopic-1] = 1
 		}else if(answerResult == 'no'){
 			// userStatus.score -= 1;
 			userStatus.answerCorrect = false;
@@ -165,7 +177,7 @@ main.addEventListener('click',function(e){
 		answerAnimate();
 	}
 
-	// click answer page btn nextTopic
+	// click answer page btn nextTopic ------------------------------------
 	if( btnType == 'nextTopic' ){
 		if( userStatus.nowTopic == 10 ){
 			pages.forEach(function(item){
@@ -193,6 +205,11 @@ main.addEventListener('click',function(e){
 			topicMove(userStatus.nowTopic);
 		}
 		
+	}
+
+
+	if( btnType == 'fbShare' ){
+		sendDataToGoogle();
 	}
 
 	
@@ -227,6 +244,7 @@ function changeResultPageContent(){
 	let resultTxt = document.getElementById('resultTxt');
 	let fbLink = document.getElementById('fbLink');
 	console.log(resultTxt)
+	console.log(userData.qArray)
 	if( score < 60  ){
 		document.querySelector(".resultBox .result01").setAttribute('data-type','show')
 		document.querySelector(".resultBox .result02").setAttribute('data-type','hide')
@@ -455,7 +473,7 @@ function changeResultPageContent(){
 		TweenMax.set('.result .resultBox ', {y:30, opacity:0});
 		TweenMax.set('.result .resultBox img', {y:0, opacity:0,scale:0.5});
 		TweenMax.set('.result .scoreNumBox', {y:20, opacity:0});
-		TweenMax.set('.result #ansTxt', {y:20, opacity:0});
+		TweenMax.set('.result #resultTxt', {y:20, opacity:0});
 		TweenMax.set('.result .btnBlock', {y:20, opacity:0});
 		// console.log('move')
 		let tl = new TimelineMax();
@@ -476,7 +494,7 @@ function changeResultPageContent(){
 			opacity:1,
 			ease: "power4.out",
 		},ptime + 0.8)
-		.to('.result #ansTxt',0.5,{
+		.to('.result #resultTxt',0.5,{
 			y:0,
 			opacity:1,
 			ease: "bonus",
@@ -487,3 +505,144 @@ function changeResultPageContent(){
 			ease: "power4.out",
 		},ptime + 1.4)
 	}
+
+	// let formData = {
+	// 	'name': '',
+	// 	'gender': '',
+	// 	'age': '',
+	// 	'phone': '',
+	// }
+	let checkAry = [1,1,1];
+
+	function veriForm(){
+		console.log('veriForm')
+		//verify
+		let nameID = document.getElementById('formName');
+		let phoneID = document.getElementById('formPhone');
+		console.log(nameID)
+		//name
+		if( nameID.value == '' ){
+			console.log('name none')
+			checkAry[0] = 0;
+			document.getElementById('nameBox').classList.add('empty');
+		}
+		nameID.addEventListener('change',function(){
+			console.log('name change')
+				if( nameID.value != '' ){
+				checkAry[0] = 1;
+				document.getElementById('nameBox').classList.remove('empty')
+			}
+		})
+
+		//phone
+		if( phoneID.value == '' ){
+			console.log('phone none')
+			checkAry[1] = 0;
+			document.getElementById('phoneBox').classList.add('empty');
+		}
+		phoneID.addEventListener('change',function(){
+			if( phoneID.value != '' ){
+				checkAry[1] = 1;
+				document.getElementById('phoneBox').classList.remove('empty')
+			}
+		})
+
+		// privacy
+		let agree = document.getElementById('agree').checked;
+		if( agree == false ){
+			checkAry[2] = 0;
+			document.querySelector(".agree").classList.add('empty');
+		}
+		document.getElementById('agree').addEventListener('change',function(){
+			agree = document.getElementById('agree').checked;
+			if( agree == true ){
+				console.log('pchange true')
+				checkAry[2] = 1;
+				document.querySelector(".agree").classList.remove('empty');
+			}
+		})
+
+	}
+
+	function saveDataToArray(){
+		console.log('saveDataToArray');
+		let genderAry = document.getElementsByName('gender')
+		genderAry.forEach(function(item){
+			if(item.checked){
+				userData.gender = item.value
+			}
+		})
+		userData.name = document.getElementById('formName').value;
+		userData.age = document.getElementById('formAge').value;
+		userData.phone = document.getElementById('formPhone').value;
+
+		if( userData.name == '' ){
+			checkAry[0] = 0;
+		}
+		if( userData.phone == '' ){
+			checkAry[1] = 0;
+		}
+
+		let agree = document.getElementById('agree').checked;
+		if( agree == false ){
+			checkAry[2] = 0;
+		}
+
+		checkAry.forEach(function(data){
+			if( data == 0 ){
+				userData.formFinish = false;
+				
+			}
+		})
+		veriForm();
+
+		
+		
+	}
+
+
+	// 傳 “報名資訊 game” 給 google sheet 
+//------------------------------------------------------------
+function sendDataToGoogle() { 
+	let qusArray = [];
+	userData.qArray.forEach(function(item,index){
+		if( item == 0 ){
+			qusArray[index] = '錯誤'
+		}else if( item == 1 ){
+			qusArray[index] = '正確'
+		}
+	})
+	console.log(userData)
+	console.log(qusArray)
+	$.ajax({
+		url: "https://script.google.com/macros/s/AKfycbyhWXr0iGo1LaLYjHSqCyy_deGvYykJYCJ1RUpPdo5C7TRQ0qXw/exec",
+		data: {
+				"name": userData.name,
+				"gender": userData.gender,
+				"age": userData.age,
+				"phone": userData.phone,
+				"q1": qusArray[0],
+				"q2": qusArray[1],
+				"q3": qusArray[2],
+				"q4": qusArray[3],
+				"q5": qusArray[4],
+				"q6": qusArray[5],
+				"q7": qusArray[6],
+				"q8": qusArray[7],
+				"q9": qusArray[8],
+				"q10": qusArray[9],
+				'fbShare':'點選分享按鈕'
+		},
+		success: function(response) {
+			if(response == "success"){
+				console.log('success')
+				// alert("報名成功！");
+				// fillInInputValue();
+				// sendFinish('game');
+				// close_lightBox();
+			}
+		},
+	});
+	
+  
+};
