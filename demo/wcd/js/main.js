@@ -74,6 +74,11 @@ window.addEventListener("load", function(e) {
 			item.setAttribute('data-type','show')
 		}
 	})
+	$(".sec_lightBox .inner").mCustomScrollbar({
+		axis:"y",
+		theme:"dark-3",
+	});
+
 	pageChange();
 	homeAnimate();
 })
@@ -649,3 +654,73 @@ function sendDataToGoogle() {
 	
   
 };
+
+
+
+//------------------------------------------------------
+//------------------------------------------------------
+//lightBox
+//------------------------------------------------------
+//------------------------------------------------------
+
+
+
+var lb_btn = $(".lb_btn");
+console.log(lb_btn)
+var tent = $(".sec_lightBox .tent")
+var closeBtn = $(".sec_lightBox .closeBtn");
+let scrollAfter ;
+
+lb_btn.on("click",function(e){
+	e.preventDefault();
+	show_lightBox();
+});
+closeBtn.on("click",close_lightBox);
+
+
+function show_lightBox(){
+	$(".sec_lightBox").css({'display':"block","opacity":"1"});
+	tent.delay(250).fadeIn(250);
+	// $('body').on('touchmove',function(el){
+	// 	alert('touch move fixed');
+	// 	el.preventDefault();
+	// },true)//禁止頁面滑動
+	// $("body").css('overflow','hidden');
+	// $('body').addClass('noscroll')
+	// scrollAfter = scrollNow;
+	// $('body').css('top',scrollNow - scrollNow - scrollNow) 
+
+}
+
+
+function close_lightBox(){
+	tent.fadeOut(250);
+	$(".sec_lightBox").fadeOut(250);
+	setTimeout(function () {
+		$(".sec_lightBox .inner").removeClass("show")
+	}, 250);
+	// $('section').unbind('touchmove')
+	// $("body").css('overflow','auto');
+	$('body').removeClass('noscroll')
+	
+	$(window).scrollTop(scrollAfter);
+}
+
+
+//點選空白處
+//------------------------------------------------------
+$(".sec_lightBox").on("click", function (event) {
+	// 目標區域: tent
+	if (!tent.is(event.target) && tent.has(event.target).length === 0) {
+		close_lightBox();
+	}
+});
+	
+
+let iAgree = document.getElementById('iAgree');
+iAgree.addEventListener('click',function(){
+	close_lightBox();
+	document.getElementById('agree').checked = true;
+	document.querySelector(".agree").classList.remove('empty');
+})
+	
