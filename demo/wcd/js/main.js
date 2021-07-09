@@ -681,10 +681,10 @@ closeBtn.on("click",close_lightBox);
 function show_lightBox(){
 	$(".sec_lightBox").css({'display':"block","opacity":"1"});
 	tent.delay(250).fadeIn(250);
-	// $('body').on('touchmove',function(el){
-	// 	alert('touch move fixed');
-	// 	el.preventDefault();
-	// },true)//禁止頁面滑動
+	$('body').on('touchmove',function(el){
+		alert('touch move fixed');
+		el.preventDefault();
+	},true)//禁止頁面滑動
 	// $("body").css('overflow','hidden');
 	// $('body').addClass('noscroll')
 	// scrollAfter = scrollNow;
