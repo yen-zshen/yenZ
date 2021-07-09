@@ -93,7 +93,7 @@ function pageChange(){
 		window.scrollTop = 0;
 		document.body.scrollTop = 0;
 	})
-	getStatus()
+	// getStatus()
 }
 
 function getStatus(){
