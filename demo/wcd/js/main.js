@@ -568,7 +568,7 @@ function changeResultPageContent(){
 				document.querySelector(".agree").classList.remove('empty');
 			}
 		})
-
+		console.log(checkAry)
 	}
 
 	function saveDataToArray(){
@@ -722,5 +722,6 @@ iAgree.addEventListener('click',function(){
 	close_lightBox();
 	document.getElementById('agree').checked = true;
 	document.querySelector(".agree").classList.remove('empty');
+	checkAry[2] = 1;
 })
 	
