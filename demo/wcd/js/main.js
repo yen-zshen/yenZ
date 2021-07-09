@@ -179,6 +179,7 @@ main.addEventListener('click',function(e){
 		})
 		pageChange();
 		changeAnsPageContent(userStatus.nowTopic);
+		ytPlay();
 		answerAnimate();
 	}
 
@@ -194,6 +195,7 @@ main.addEventListener('click',function(e){
 				}
 			})
 			pageChange();
+			ytPass();
 			changeResultPageContent();
 			resultAnimate();
 			sendDataToGoogle();
@@ -208,6 +210,7 @@ main.addEventListener('click',function(e){
 				}
 			})
 			pageChange();
+			ytPass();
 			topicMove(userStatus.nowTopic);
 		}
 		
@@ -224,6 +227,20 @@ main.addEventListener('click',function(e){
 
 })
 
+function ytPass(){
+	console.log('ytPAss')
+	let ansYt = document.getElementById('ansYt');
+	setTimeout(function(){ 
+		ansYt.setAttribute('src','');
+	}, userStatus.pageChange);
+}
+function ytPlay(){
+	// console.log('ytPlay')
+	// let movie = document.getElementById("ytmovie")
+	// setTimeout(function(){ 
+	// 	movie.style.display = 'block';
+	// }, userStatus.pageChange);
+}
 
 function setAnswerBox(data){
 	let answerBox = document.querySelector('.answerBox');
