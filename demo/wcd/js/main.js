@@ -150,10 +150,11 @@ main.addEventListener('click',function(e){
 				item.setAttribute('data-type','hide')
 			}else if( item.classList == 'question' && item.getAttribute('data-num') == userStatus.nowTopic ){
 				item.setAttribute('data-type','show')
-				stop();
+				
 			}
 		})
 		pageChange();
+		stop();
 		topicMove(1);
 	}
 
