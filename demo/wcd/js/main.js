@@ -295,6 +295,7 @@ function changeResultPageContent(){
 	let mo=function(e){e.preventDefault();};
 	function stop(){
 		if( Modernizr.mq('(max-width: 768px)') ){
+			window.top = 0;
 			document.body.scrollTop = 0;
 			document.body.style.overflow='hidden';        
 			document.addEventListener("touchmove",mo,false);//禁止頁面滑動
