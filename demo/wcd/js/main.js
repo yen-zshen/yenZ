@@ -56,7 +56,7 @@ const ansPageContent =[
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/EwpUMZDBHSs?mute=1&autoplay=1",
-		'txt' : "<p type='pages'>停藥期還是有避孕效果的！另外要提醒各位小情侶，在21＋7天的劑型當中，基本上7天的停藥期間，月經就會來，而月經來的時候也不建議發生性行為，因為很容易造成感染與古盆腔發炎的問題。</p>"
+		'txt' : "<p type='pages'>停藥期還是有避孕效果的！另外要提醒各位小情侶，在21＋7天的劑型當中，基本上7天的停藥期間，月經就會來，而月經來的時候也不建議發生性行為，因為很容易造成感染與骨盆腔發炎的問題。</p>"
 	},
 	{
 		'ytLink' : "https://www.youtube.com/embed/JFduTQ7xM-0?mute=1&autoplay=1",
