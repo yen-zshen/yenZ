@@ -1,101 +1,7 @@
 
-//https://script.google.com/macros/s/AKfycbwdn9QAKNWZBGwCeE-eKetP5pPs7fFS-3JqapKIwwrsNg41F_k/exec
-//在 google sheet 更新程式碼後，記得改版本 Project version:
-//1zNJXjOlfO0yLfPJJov9EKYhto_bM_TsTrPrNkD8SPFA
-
-//get
-//https://docs.google.com/spreadsheets/d/e/2PACX-1vTpokvDv_j-ZIDgBXWsjrBPplcgM9-xYDf6hgz2l5TIxee09VQvWRAlqMWKFNH3fBoxfmhW6uP3wmtt/pubhtml
-
-
-//比賽報名
-//https://script.google.com/macros/s/AKfycby1PSFHCsl48Ut2yhvG0CqzQKotDkzOO-GvU6NMYZdRt9AMxWk/exec
-
-//投票
-//https://script.google.com/macros/s/AKfycbwijAQfVeQe_zebBHRrUa95W5b0gIGenrspLvO_chABkp1TGZpi/exec
-
-
-// function send(name,phone,email) {
-//   $.ajax({
-//     url: "https://script.google.com/macros/s/AKfycbwdn9QAKNWZBGwCeE-eKetP5pPs7fFS-3JqapKIwwrsNg41F_k/exec",
-//     data: {
-//         "name": name,
-//         "phone": phone,
-//         "email": email
-//     },
-//     success: function(response) {
-//       if(response == "success"){
-//         alert("投票成功！");
-//       }
-//     },
-//   });
-// };
-
-// let inputValue = [{
-// 	'name' : document.querySelector('#nameValue').value,
-// 	'phone' : document.querySelector('#phoneValue').value,
-// 	'email' : document.querySelector('#emailValue').value
-// }]
-
-// const sendButton = document.querySelector('.btnTest');
-
-// sendButton.addEventListener('click', function(){
-// 	inputValue = [{
-// 		'name' : document.querySelector('#nameValue').value,
-// 		'phone' : document.querySelector('#phoneValue').value,
-// 		'email' : document.querySelector('#emailValue').value
-// 	}]
-// 	get();
-// });
 
 
 
-// let cDataJson ;
-
-// function get(){
-// 	$.ajax({
-// 		type: "GET",
-// 		url: "https://spreadsheets.google.com/feeds/list/1zNJXjOlfO0yLfPJJov9EKYhto_bM_TsTrPrNkD8SPFA/od6/public/values?alt=json",
-// 		dataType: "json", 
-// 		cache: false,
-// 		success: function(object){
-// 			let cArray = [];
-// 			cDataJson = object.feed.entry;
-// 			cDataJson.forEach(function(data){
-// 				cArray.push({
-// 					'name':data.gsx$姓名.$t,
-// 					'phone':data.gsx$電話.$t,
-// 					'email':data.gsx$email.$t
-// 				})
-// 			})
-// 			checkRepeat(cArray)
-// 		}
-// 	})
-// }
-
-
-
-// function checkRepeat(cArray){
-// 	let repeat = false;
-// 	cArray.forEach(function(data){
-// 		if(data.phone == inputValue[0].phone){
-			
-// 			repeat = true;
-// 		}
-// 	})
-// 	if(repeat == false){
-// 		send(inputValue[0].name,inputValue[0].phone,inputValue[0].email)
-// 	}else if(repeat == true){
-// 		alert('你已經投票過');
-// 	}
-// }
-
-
-
-function setTest(){
-	let status = document.querySelector('.header .test');
-	status.innerHTML = `<p>版本：12</p>`
-}
-setTest();
 
 // new
 //-----------------------------------------------------------------
@@ -129,7 +35,6 @@ function sendGameData() {
 		// 沒有重複
 		}else if( inputValue.idRepeat == false  ){
 			sending('game');
-			// console.log('no repeat')
 			$.ajax({
 				url: "https://script.google.com/macros/s/AKfycby1PSFHCsl48Ut2yhvG0CqzQKotDkzOO-GvU6NMYZdRt9AMxWk/exec",
 				data: {
@@ -181,30 +86,33 @@ function sendVoteData() {
 const gameSubmit = document.getElementById('gameSubmit');
 const voteSubmit = document.getElementById('voteSubmit')
 
+document.querySelector('.gameFinish').addEventListener('click',function(e){
+	e.preventDefault();
+	alert('很抱歉參賽名額已滿，沒關係！去投票也有機會抽到好禮喔！')
+})
+document.querySelector('.voteFinish').addEventListener('click',function(e){
+	e.preventDefault();
+	alert('應援活動已結束，感謝您的支持！ 得獎名單將於7/20公布於本網頁中喔！')
+})
 // 點選報名按鈕
 gameSubmit.addEventListener('click',function(){
-	userState.formFinish = true;
-	let inputFrameType = document.querySelector('.sec_lightBox .inner[data-type="game"]');
-	inputValue.name = inputFrameType.querySelector('.nameValue').value;
-	inputValue.zwiftID = inputFrameType.querySelector('.zwiftIDValue').value;
-	inputValue.phone = inputFrameType.querySelector('.phoneValue').value;
-	inputValue.mail = inputFrameType.querySelector('.mailValue').value;
-	inputValue.age = inputFrameType.querySelector('.ageValue').value;
-	inputValue.address = inputFrameType.querySelector('.addressValue').value;
-	console.log(inputValue);
-	userState.fillInDataCount +=1;
-	veriGame();
-	if( userState.formFinish == false ){
-		alert('資料不完整')
-	}
-	else if(userState.formFinish == true){
-		getGameData(); //檢查重複
-	}
-	
-	// sendGameData();
-	// fillInInputValue();
-	// sending('game');
-	
+	// alert('報名已滿');
+	// userState.formFinish = true;
+	// let inputFrameType = document.querySelector('.sec_lightBox .inner[data-type="game"]');
+	// inputValue.name = inputFrameType.querySelector('.nameValue').value;
+	// inputValue.zwiftID = inputFrameType.querySelector('.zwiftIDValue').value;
+	// inputValue.phone = inputFrameType.querySelector('.phoneValue').value;
+	// inputValue.mail = inputFrameType.querySelector('.mailValue').value;
+	// inputValue.age = inputFrameType.querySelector('.ageValue').value;
+	// inputValue.address = inputFrameType.querySelector('.addressValue').value;
+	// userState.fillInDataCount +=1;
+	// veriGame();
+	// if( userState.formFinish == false ){
+	// 	alert('資料不完整')
+	// }
+	// else if(userState.formFinish == true){
+	// 	getGameData(); //檢查重複
+	// }
 })
 
 // 從 google sheet 取得 比賽報名資訊 ＋ 檢查是否有重複報名比賽
@@ -227,8 +135,6 @@ function getGameData(){
 				}
 			})
 			inputValue.checkFinish = true;
-			console.log('checkFinish')
-			console.log(inputValue)
 			if( inputValue.checkFinish == true ){
 				sendGameData();
 				// fillInInputValue();
@@ -240,30 +146,30 @@ function getGameData(){
 
 // 點選投票按鈕
 voteSubmit.addEventListener('click',function(){
-	userState.formFinish = true;
-	let ytAry = document.getElementsByName('ytVote')
-		ytAry.forEach(function(item){
-			if(item.checked){
-				inputValue.youtuber = item.value;
-			}
-		})
-	let inputFrameType = document.querySelector('.sec_lightBox .inner[data-type="vote"]');
-	inputValue.name = inputFrameType.querySelector('.nameValue').value;
-	inputValue.phone = inputFrameType.querySelector('.phoneValue').value;
-	inputValue.mail = inputFrameType.querySelector('.mailValue').value;
-	inputValue.age = inputFrameType.querySelector('.ageValue').value;
-	inputValue.address = inputFrameType.querySelector('.addressValue').value;
-	console.log(inputValue);
-	userState.fillInDataCount +=1;
-	veriVote();
-	if( userState.formFinish == false ){
-		alert('資料不完整')
-	}
-	else if(userState.formFinish == true){
-		sendVoteData();
-		fillInInputValue();
-		sending('vote');
-	}
+	alert('應援活動已結束，感謝您的支持！ 得獎名單將於7/20公布於本網頁中喔！')
+	// userState.formFinish = true;
+	// let ytAry = document.getElementsByName('ytVote')
+	// 	ytAry.forEach(function(item){
+	// 		if(item.checked){
+	// 			inputValue.youtuber = item.value;
+	// 		}
+	// 	})
+	// let inputFrameType = document.querySelector('.sec_lightBox .inner[data-type="vote"]');
+	// inputValue.name = inputFrameType.querySelector('.nameValue').value;
+	// inputValue.phone = inputFrameType.querySelector('.phoneValue').value;
+	// inputValue.mail = inputFrameType.querySelector('.mailValue').value;
+	// inputValue.age = inputFrameType.querySelector('.ageValue').value;
+	// inputValue.address = inputFrameType.querySelector('.addressValue').value;
+	// userState.fillInDataCount +=1;
+	// veriVote();
+	// if( userState.formFinish == false ){
+	// 	alert('資料不完整')
+	// }
+	// else if(userState.formFinish == true){
+	// 	sendVoteData();
+	// 	fillInInputValue();
+	// 	sending('vote');
+	// }
 	
 	
 	
@@ -344,7 +250,6 @@ function veriGame(){
 					if( !regex.test(mail.value) ){
 						checkAry[3] = 0;
 						document.querySelector(".sec_lightBox .inner[data-type='game'] .notice[data-type='mail']").textContent = "* 請填寫正確格式 sample@example.com";
-						console.log('email wrong')
 					}else if(regex.test(mail.value)){
 						checkAry[3] = 1;
 						document.querySelector(".sec_lightBox .inner[data-type='game'] .notice[data-type='mail']").textContent = " ";
@@ -368,13 +273,11 @@ function veriGame(){
 			if( !regex.test(mail.value) ){
 				checkAry[3] = 0;
 				document.querySelector(".sec_lightBox .inner[data-type='game'] .notice[data-type='mail']").textContent = "* 請填寫正確格式";
-				console.log('email wrong')
 			}else if(regex.test(mail.value)){
 				checkAry[3] = 1;
 				document.querySelector(".sec_lightBox .inner[data-type='game'] .notice[data-type='mail']").textContent = " ";
 			}
 		}
-		console.log(checkAry)
 	})
 
 	// privacy
@@ -391,7 +294,6 @@ function veriGame(){
 		}
 	})
 
-	// console.log(checkAry)
 	checkAry.forEach(function(data){
 		if( data == 0 ){
 			userState.formFinish = false;
@@ -439,7 +341,6 @@ function veriVote(){
 					if( !regex.test(mail.value) ){
 						checkAry[2] = 0;
 						document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='mail']").textContent = "* 請填寫正確格式 sample@example.com";
-						console.log('email wrong')
 					}else if(regex.test(mail.value)){
 						checkAry[2] = 1;
 						document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='mail']").textContent = " ";
@@ -463,13 +364,11 @@ function veriVote(){
 			if( !regex.test(mail.value) ){
 				checkAry[2] = 0;
 				document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='mail']").textContent = "* 請填寫正確格式 sample@example.com";
-				console.log('email wrong')
 			}else if(regex.test(mail.value)){
 				checkAry[2] = 1;
 				document.querySelector(".sec_lightBox .inner[data-type='vote'] .notice[data-type='mail']").textContent = " ";
 			}
 		}
-		console.log(checkAry)
 	})
 
 	// privacy
@@ -486,7 +385,6 @@ function veriVote(){
 		}
 	})
 
-	// console.log(checkAry)
 	checkAry.forEach(function(data){
 		if( data == 0 ){
 			userState.formFinish = false;
@@ -514,7 +412,6 @@ function getVoteData(){
 			ytDataJson.forEach(function(data){
 				ytArray.push(data.gsx$youtuber.$t)
 			})
-			console.log(ytArray)
 			userState.voteAnimateCount = 0; 
 			showVoteOnHtml();
 			// checkRepeat(ytArray)
@@ -549,7 +446,6 @@ function showVoteOnHtml(){
 		}else if( item == '一輪' ){
 			voteCount.eLun += 1;
 		}else{
-			// console.log('other')
 		}
 	})
 
@@ -567,7 +463,6 @@ function showVoteOnHtml(){
 		if( userState.voteAnimateCount == 0 ){
 			bicycleAnimate();
 			userState.voteAnimateCount +=1;
-			// console.log(userState.voteAnimateCount)
 		}
 		
 	}
@@ -579,7 +474,6 @@ function showVoteOnHtml(){
 function bicycleAnimate(){
 	let count = ytArray.length;
 	let duration = 1.5;
-	// console.log( `window height : ${wHeight} ` )
 	TweenMax.set('#lineJerry', {height:"100"});
 	TweenMax.set('#lineMike', {height:"100"});
 	TweenMax.set('#lineLinda', {height:"100"});
@@ -603,8 +497,6 @@ function bicycleAnimate(){
 		ease: "power4.out",
 	},0.6) 
 
-	// console.log('jerry :' +  ((voteCount.Jerry / count) * wHeight) + 100)
-
 	
 }
 
@@ -616,7 +508,6 @@ anchor.forEach(function(item){
 		let targetAry = item.getAttribute('href').split('#');
 		let target = targetAry[1];
 		let targetTop = document.getElementById(target).offsetTop;
-		console.log(targetTop);
 		
 		$('html,body').animate({
 			scrollTop: targetTop
@@ -644,7 +535,6 @@ $(window).on("load", function () {
 });
 
 
-console.log("lightbox");
 var lb_btn = $(".lb_btn");
 var tent = $(".sec_lightBox .tent")
 var closeBtn = $(".sec_lightBox .closeBtn");
@@ -659,7 +549,6 @@ closeBtn.on("click",close_lightBox);
 
 
 function show_lightBox(num){
-	console.log("show")
 	$(".sec_lightBox .inner[data-type='" + num +"']").addClass("show");
 	$(".sec_lightBox").fadeIn(250);
 	tent.delay(250).fadeIn(250);
@@ -669,7 +558,6 @@ function show_lightBox(num){
 	// },true)//禁止頁面滑動
 	// $("body").css('overflow','hidden');
 	$('body').addClass('noscroll')
-	// console.log( scrollNow )
 	scrollAfter = scrollNow;
 	$('body').css('top',scrollNow - scrollNow - scrollNow) 
 
@@ -687,7 +575,6 @@ function close_lightBox(){
 	$('body').removeClass('noscroll')
 	
 	$(window).scrollTop(scrollAfter);
-	// console.log(scrollAfter)
 }
 
 
