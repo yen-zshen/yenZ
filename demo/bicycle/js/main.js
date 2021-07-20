@@ -88,7 +88,7 @@ const voteSubmit = document.getElementById('voteSubmit')
 
 document.querySelector('.gameFinish').addEventListener('click',function(e){
 	e.preventDefault();
-	alert('很抱歉參賽名額已滿，沒關係！去投票也有機會抽到好禮喔！')
+	alert('活動已結束，感謝您的支持！')
 })
 document.querySelector('.voteFinish').addEventListener('click',function(e){
 	e.preventDefault();
