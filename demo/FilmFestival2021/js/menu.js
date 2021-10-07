@@ -13,15 +13,15 @@ window.addEventListener("load", function(e) {
 	let mainElement = document.querySelector('main')
 	
 	setTimeout(function(){ 
-		lineBox.classList.add('stop');
+		// lineBox.classList.add('stop');
 	}, 0);
 	setTimeout(function(){ 
 		mainElement.classList.remove('load')
 	}, 500);
 	setTimeout(function(){ 
-		loadingElement.style.opacity = '0';
+		// loadingElement.style.opacity = '0';
 	}, 1000);
-	setTimeout(function(){ loadingElement.style.display = 'none' }, 1500);
+	// setTimeout(function(){ loadingElement.style.display = 'none' }, 1500);
 
 })
 
@@ -61,6 +61,39 @@ menuCloseBtn.addEventListener('click',function(){
   closeBtn.classList.remove('show');
   mainLogo.classList.remove('open')
 })
+
+
+
+
+
+
+$('.sectionMenu ul').on( 'click','li',function(){
+	$(this).addClass('show');
+	$(this).siblings().removeClass('show');
+	console.log($(this).find('.listTitle span').text())
+})
+
+
+
+
+
+if (navigator.userAgent.match(/Android/i)
+	|| navigator.userAgent.match(/webOS/i)
+	|| navigator.userAgent.match(/iPhone/i)
+	|| navigator.userAgent.match(/iPad/i)
+	|| navigator.userAgent.match(/iPod/i)
+	|| navigator.userAgent.match(/BlackBerry/i)
+	|| navigator.userAgent.match(/Windows Phone/i)
+	){
+		// phone 裝置
+			// window.location.href = 'mobile.html';
+	}else{
+
+	}
+
+
+
+
 
 
 
