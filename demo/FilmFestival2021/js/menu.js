@@ -13,15 +13,15 @@ window.addEventListener("load", function(e) {
 	let mainElement = document.querySelector('main')
 	
 	setTimeout(function(){ 
-		// lineBox.classList.add('stop');
+		lineBox.classList.add('stop');
 	}, 0);
 	setTimeout(function(){ 
 		mainElement.classList.remove('load')
 	}, 500);
 	setTimeout(function(){ 
-		// loadingElement.style.opacity = '0';
+		loadingElement.style.opacity = '0';
 	}, 1000);
-	// setTimeout(function(){ loadingElement.style.display = 'none' }, 1500);
+	setTimeout(function(){ loadingElement.style.display = 'none' }, 1500);
 
 })
 
