@@ -12,6 +12,8 @@ areaBox.on('click',function(){
     let num = $(this).parent().attr('data-num');
     $('.inforContent[data-type="' + num + '"]').addClass('active')
     $('.inforContent[data-type="' + num + '"]').parent().siblings().find('.inforContent').removeClass('active')
+  }else{
+    
   }
 })
 
