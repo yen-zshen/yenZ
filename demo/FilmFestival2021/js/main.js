@@ -27,18 +27,18 @@ $(document).ready(function() {
 		// fullpagedata.height = 1000;
 		// if( Modernizr.mq('(max-width: 3000px)')  ){
 
-		// }else if( Modernizr.mq('(max-width: 1600px)') ){
+		// }else if( Modernizr.mq('(max-width: 1685px)') ){
 		// 	if(Modernizr.mq('(max-height: 1000px)') ){
-		// 		console.log('1600 1000');
+		// 		console.log('1685 1000');
 		// 		fullpage_scroll();
 		// 	}else{
 		// 		fullpage_slide();
 		// 	}
 		// }
-		if (Modernizr.mq('(min-width: 1600px)') ) {
+		if (Modernizr.mq('(min-width: 1685px)') ) {
 			fullpagedata.height = 1000;
 			if(Modernizr.mq('(max-height: 1000px)') ){
-				console.log('1600 1000');
+				console.log('1685 1000');
 				fullpage_scroll();
 			}else{ 	fullpage_slide(); 	}
 
