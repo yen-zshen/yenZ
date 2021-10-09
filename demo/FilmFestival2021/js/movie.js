@@ -199,12 +199,15 @@ function removeMovieBlock(){
 
 let nowIndex = document.querySelector('.countIndex');
 let count = swiper.realIndex +1;
-nowIndex.textContent = 1+ '/6' 
+nowIndex.textContent =  '1/6' 
 
 swiper.on('slideChange', function () {
   console.log('slide changed');
   console.log(swiper.realIndex);
   count = swiper.realIndex +1
+  if( count >6 ){
+    count = 1;
+  }
   nowIndex.textContent = count+ '/6' 
 });
 

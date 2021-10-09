@@ -14,14 +14,14 @@ window.addEventListener("load", function(e) {
 	
 	setTimeout(function(){ 
 		lineBox.classList.add('stop');
-	}, 0);
+	}, 1000);
 	setTimeout(function(){ 
 		mainElement.classList.remove('load')
-	}, 500);
+	}, 1500);
 	setTimeout(function(){ 
 		loadingElement.style.opacity = '0';
-	}, 1000);
-	setTimeout(function(){ loadingElement.style.display = 'none' }, 1500);
+	}, 2000);
+	setTimeout(function(){ loadingElement.style.display = 'none' }, 2500);
 
 })
 

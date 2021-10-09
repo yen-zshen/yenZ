@@ -153,6 +153,22 @@ $(document).ready(function() {
 	
 	
 	
+	let scrollDown01 = $('#scrollDown01');
+	let scrollDown02 = $('#scrollDown02');
+	
+	
+	scrollDown01.on('click',function(){
+		console.log('success')
+		fullpage_api.moveTo(2);
+		
+	})
+	scrollDown02.on('click',function(){
+		fullpage_api.moveTo(3);
+	})
+
+
+
+	//end
 
 });
 
@@ -175,6 +191,20 @@ $(document).ready(function() {
 
 
 
+
+
+
+let areaBox = $('.areaGroup .infoGroup');
+
+areaBox.on('click',function(){
+	if( !$(this).hasClass('active') ){
+		$(this).addClass('active');
+		$(this).siblings().removeClass('active')
+	}else{
+		$(this).removeClass('active');
+	}
+	
+})
 
 
 
