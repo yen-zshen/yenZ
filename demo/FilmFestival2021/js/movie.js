@@ -179,7 +179,7 @@ function removeMovieBlock(){
         swiper.removeSlide(2);
         swiper.removeSlide(6);
         console.log('remove')
-      }, 1000);
+      }, 2000);
       
       IsRemoveSlide = true;
       IsAddSlide = false;
