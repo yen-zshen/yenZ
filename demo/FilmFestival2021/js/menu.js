@@ -1,5 +1,6 @@
 
 
+
 const btn = document.querySelector(".loadingBlock .btn");
 const btnAnain = document.querySelector('.loadingBlock .btn.again');
 const lineBox = document.querySelector('.loadingBlock .box')
@@ -20,8 +21,16 @@ window.addEventListener("load", function(e) {
 	}, 1500);
 	setTimeout(function(){ 
 		loadingElement.style.opacity = '0';
+		AOS.init({
+      // easing: 'ease-in-sine',
+			offset:100,
+			duration: 1500, //動畫時間，範圍：0~ 3000
+  });
 	}, 2000);
-	setTimeout(function(){ loadingElement.style.display = 'none' }, 2500);
+	setTimeout(function(){ 
+		loadingElement.style.display = 'none' ;
+		// AOS.init();
+	}, 2500);
 
 })
 

@@ -6,14 +6,18 @@
 let areaBox = $('.areaBox h4');
 
 areaBox.on('click',function(){
-  if( !$(this).hasClass('active') ){
-    $(this).addClass('active');
-    $(this).parent().siblings().find('h4').removeClass('active');
-    let num = $(this).parent().attr('data-num');
-    $('.inforContent[data-type="' + num + '"]').addClass('active')
-    $('.inforContent[data-type="' + num + '"]').parent().siblings().find('.inforContent').removeClass('active')
-  }else{
-    
+  
+  if(!Modernizr.mq('(max-width: 768px)')){
+    if( !$(this).hasClass('active') ){
+      $(this).addClass('active');
+      $(this).parent().siblings().find('h4').removeClass('active');
+      let num = $(this).parent().attr('data-num');
+      $('.inforContent[data-type="' + num + '"]').fadeIn(500);
+      $('.inforContent[data-type="' + num + '"]').addClass('active');
+      $('.inforContent[data-type="' + num + '"]').parent().siblings().find('.inforContent').removeClass('active').fadeOut(0);
+    }else{
+      
+    }
   }
 })
 
