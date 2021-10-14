@@ -82,10 +82,12 @@ const swiper = new Swiper('.swiper', {
 });
 
 
-let movieLink = document.querySelectorAll('.movieLink');
-movieLink.forEach(function(item,index){
+let movieClick = document.querySelectorAll('.movieClick');
+movieClick.forEach(function(item,index){
   item.addEventListener('click',function(){
-    console.log('movieLink')
+    let link = item.getAttribute('data-href');
+    console.log(link)
+    window.location = link;
   })
 })
 
