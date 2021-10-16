@@ -32,6 +32,11 @@ window.addEventListener("load", function(e) {
 		// AOS.init();
 	}, 2500);  // before 2500
 
+	$(".sectionMenu ul").mCustomScrollbar({
+		axis:"y",
+		theme:"inset-2-dark",
+		scrollButtons:{ enable: true },
+	});
 })
 
 
