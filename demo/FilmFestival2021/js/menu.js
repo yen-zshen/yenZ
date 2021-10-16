@@ -15,22 +15,22 @@ window.addEventListener("load", function(e) {
 	
 	setTimeout(function(){ 
 		lineBox.classList.add('stop');
-	}, 1000);
+	}, 1000);  // before 1000
 	setTimeout(function(){ 
 		mainElement.classList.remove('load')
-	}, 1500);
+	}, 1500);  // before 1500
 	setTimeout(function(){ 
 		loadingElement.style.opacity = '0';
 		AOS.init({
       // easing: 'ease-in-sine',
 			offset:100,
-			duration: 1500, //動畫時間，範圍：0~ 3000
+			duration: 1500, //動畫時間，範圍：0~ 3000  
   });
-	}, 2000);
+	}, 2000);  // before 2000
 	setTimeout(function(){ 
 		loadingElement.style.display = 'none' ;
 		// AOS.init();
-	}, 2500);
+	}, 2500);  // before 2500
 
 })
 
