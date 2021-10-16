@@ -34,8 +34,9 @@ window.addEventListener("load", function(e) {
 
 	$(".sectionMenu ul").mCustomScrollbar({
 		axis:"y",
-		theme:"inset-2-dark",
-		scrollButtons:{ enable: true },
+		theme:"dark-3",
+		scrollButtons:{ enable: false },
+		theme:"my-theme",
 	});
 })
 
