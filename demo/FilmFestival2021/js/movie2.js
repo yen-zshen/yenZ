@@ -69,7 +69,7 @@ const swiper = new Swiper('.swiper', {
       
     },
     1200: {
-      slidesPerView: 4,
+      slidesPerView: 3,
       spaceBetween: 0,
       centeredSlides: false,
       grid: {
@@ -87,7 +87,8 @@ movieClick.forEach(function(item,index){
   item.addEventListener('click',function(){
     let link = item.getAttribute('data-href');
     console.log(link)
-    window.location = link;
+    // window.location = link;
+    window.open(link);
   })
 })
 
@@ -109,10 +110,10 @@ let movieBlockDec02 = `<div class="swiper-slide movieBlockDecorate" >
   <span>MOVIE</span>
 </div>
 </div>`
-removeMovieBlock();
+// removeMovieBlock();
 $(window).resize(function(){
   fnReLoad();
-  removeMovieBlock();
+  // removeMovieBlock();
 
 });
 
