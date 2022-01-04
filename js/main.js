@@ -16,7 +16,7 @@ const app = {
 				title: '朋友家小孩超可愛',
 				time:'2021.01.31'
 			},{
-				photo: 'catList3.JPG',
+				photo: 'catList3.jpg',
 				title: '貓咪名叫米漿',
 				time:'2020.12.19'
 			}],
