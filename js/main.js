@@ -1,5 +1,8 @@
 
-const wrapper = document.querySelector('.wrapper');
+const wrapper = document.querySelector('body');
+window.scrollY = 0;
+// let top2 = document.querySelector('body')
+// console.log(window.scrollTop)
 
 const app = {
 	data(){
@@ -79,6 +82,8 @@ const app = {
 	},
 	methods:{
 		clickList(num){
+			// console.log('click' , window.pageYOffset)
+			let top = document.querySelector('#app')
 			
 			this.boardClass = 'hide';
 			let newAry = [];
@@ -88,7 +93,13 @@ const app = {
 			})
 
 			setTimeout(() => {
-				wrapper.scrollTop = 0;
+				// let top = document.querySelector('.section')
+				// console.log(top.scrollTop)
+				// document.body.scrollTop = 0;
+				// window.pageYOffset = 0;
+				window.scrollTo(0,0);
+				let top = document.querySelector('.wrapper')
+				
 				this.menuAry = newAry;
 				this.boardClass = 'show';
 			}, this.boardTime);
