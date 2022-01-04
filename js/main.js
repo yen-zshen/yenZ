@@ -10,16 +10,25 @@ const app = {
 			menuAry:['true','false','false','false'],
 			boardClass:'show',
 			boardTime:300,
+			nowSlideId:'p1',
+			nowSlideNum:10,
+			nowSlideType:false,
 			photoList:[{
+				id:'p1',
+				num:10,
 				photo: 'p1-1.JPG',
 				title: '婚攝體驗',
 				time:'2021.10.16'
 			},{
+				id:'p2',
+				num:7,
 				photo: 'child.JPG',
 				title: '朋友家小孩超可愛',
 				time:'2021.01.31'
 			},{
-				photo: 'catList3.jpg',
+				id:'p3',
+				num:11,
+				photo: 'catList2.jpg',
 				title: '貓咪名叫米漿',
 				time:'2020.12.19'
 			}],
@@ -42,6 +51,14 @@ const app = {
 			},
 			],
 			creationList:[{
+				img:'golden.png',
+				name:'金馬Ｘ司法',
+				link:'https://yen-zshen.github.io/yenZ/demo/FilmFestival2021/index.html'
+			},{
+				img:'bicycle.png',
+				name:'MoveFree 益節躍動盃踩台賽',
+				link:'https://yen-zshen.github.io/yenZ/demo/bicycle/'
+			},{
 				img:'draw.png',
 				name:'愛畫畫',
 				link:'http://demo.summersjr.com/up/yen/draw/'
@@ -77,7 +94,7 @@ const app = {
 				img:'eos.png',
 				name:'microsoft windows 10 終止支援',
 				link:'http://demo.summersjr.com/up/yen/microsoft/190128eos_v2/181121eos/shift/'
-			},]
+			}],
 		}
 	},
 	methods:{
@@ -103,6 +120,28 @@ const app = {
 				this.menuAry = newAry;
 				this.boardClass = 'show';
 			}, this.boardTime);
+		},
+		setPhotoId(id,num){
+			console.log('set')
+			this.nowSlideId = id;
+			this.nowSlideNum = num;
+			this.nowSlideType = true;
+			swiper2.disable();
+			setTimeout(() => {
+				swiper2.enable();
+				swiper2.slideTo( 0 , 0 , true ); 
+			}, 250);
+			// swiper2.updateAutoHeight(1000)
+			// swiper2.updateSize();
+			// swiper2.init('.contentSwiper')
+			// swiper2.slideTo( 0 , 0 , true );  //OK
+			// swiper2.updateAutoHeight(0)
+			// swiper2.disable()  //OK
+			// console.log(swiper2)
+		},
+		closeSlideContent(){
+			console.log('close')
+			this.nowSlideType = false;
 		}
 	},
 	mounted() {
@@ -114,7 +153,7 @@ const app = {
 Vue.createApp(app).mount('#app');
 
 
-const swiper = new Swiper('.swiper', {
+let swiper = new Swiper('.listSwiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
@@ -131,3 +170,19 @@ const swiper = new Swiper('.swiper', {
   },
 
 });
+
+let swiper2 = new Swiper('.contentSwiper', {
+  autoHeight: true,
+	loop: false,
+	navigation: {
+		nextEl: ".swiper-button-next",
+		prevEl: ".swiper-button-prev",
+	},
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true,
+	},
+});
+
+// swiper2.loop = 'true';
+// console.log(swiper2)
