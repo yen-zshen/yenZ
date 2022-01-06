@@ -156,7 +156,7 @@
 											<!-- Slides -->
 											<div class="swiper-slide" v-for="item in photoList">
 												<img :src="`./img/photography/${item.photo}`" alt="">
-												<p><span class="time">{{item.time}} </span> {{item.title}} &nbsp;  <span class="more" @click="setPhotoId(item.id,item.num)">more</span></p>
+												<p><span class="time">{{item.time}} </span> <span class="title">{{item.title}}</span> <span class="more" @click="setPhotoId(item.id,item.num)">more</span></p>
 											</div>
 										</div>
 										<div class="swiper-button-prev"></div>
@@ -173,7 +173,9 @@
 											<!-- Slides -->
 											<div class="swiper-slide" v-for="item in outdoorList">
 												<img :src="`./img/photography/${item.photo}`" alt="">
-												<p><span class="time">{{item.time}} </span> {{item.title}} &nbsp;  <span class="more">more</span></p>
+												<p><span class="time">{{item.time}} </span> <span class="title">{{item.title}}</span> 
+													<!-- <span class="more">more</span> -->
+													</p>
 											</div>
 										</div>
 										<div class="swiper-button-prev"></div>
