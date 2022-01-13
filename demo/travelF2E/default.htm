@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="Zh-Hant-TW">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+	<title>旅遊網站</title>
+
+	<!-- FB 社群圖片 -->
+	<meta property="og:image" content="" />
+	<link rel="image_src" href="" />
+	<!-- 頁籤 icon -->
+	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="shortcut icon" />
+	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+
+	
+	<!--[if lt IE 9]>
+	<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+
+
+<body>
+
+	
+	<div class="wrapper" id="app">
+		
+		<main>
+		
+			<!-- 1440 1280 -->
+			<!-- menu -->
+			<section class="secMenu" :data-type="menuType">
+				<div class="container">
+					<div class="logo">
+						<img src="img/logoImg.png" alt="">
+						<span>Travel Taiwan</span>
+					</div>
+					<!-- <div class="menuBar">
+						<ul>
+							<li>首頁</li>
+							<li>景點導覽</li>
+							<li>觀光活動</li>
+						</ul>
+					</div> -->
+				</div>
+			</section>
+			<!-- section searchArea
+			------------------------------------------>
+			<section class="secSearchArea" data-type="index">
+				<div class="container">
+					<div class="group">
+						<h2>Welcome to Travel Taiwan</h2>
+						<select name="" id="" class="category" v-model="searchBar.selectType">
+							<option value="" selected disabled>選擇類別</option>
+							<option :value="item.title" v-for='(item,key) in searchBar.types' :key="item.title" >{{item.title}}</option>
+						</select>
+						<select name="" id="" class="city" v-model="searchBar.selectCity">
+							<option value="" selected disabled>選擇縣市</option>
+							<option :value="item.en" v-for='(item,key) in searchBar.citys' :key="item" >{{item.ch}}</option>
+						</select>
+						<div class="icon_search" @click='clickSearch'>
+							<div class="icon">
+								<img src="img/icon_search.png" alt="">
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			<!-- section secRender
+			------------------------------------------>
+			<section class="secRender" data-sec="search" data-type="index">
+				<div class="container">
+					<div class="title">
+						<h3>{{h2City}}{{h2Type}}</h3>
+						<p>台灣的各個美景，都美不勝收。<br>等你一同來發現這座寶島的奧妙！</p>
+					</div>
+					<div class="cardGroup">
+						<div class="card" v-for='(item,key) in productList' :key="item.id">
+							<div class="imgBlock">
+								<div class="img" :style="`background-image: url('${item.image}');`"></div>
+							</div>
+							<div class="info">
+								<h4>{{item.name}}</h4>
+								<div class="time" v-if='item.time'>{{item.time}}</div>
+								<div class="place">{{item.address}}</div>
+							</div>
+							<div class="btn" @click="clickMore(item.id)">了解更多</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="group">
+							<h5>{{ modalContent[0].name }}</h5>
+							<div class="place">{{ modalContent[0].address }}</div>
+							<div class="description">
+								<p>{{ modalContent[0].description }}</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+			<!-- section secCategory
+			------------------------------------------>
+			<!-- <section class="secRender" data-sec="category" data-type="index">
+				<div class="container">
+					<div class="title">
+						<h3>活動類別</h3>
+						<p>各種不同的活動內容<br>邀請您一銅來共襄盛舉！</p>
+					</div> 
+					<div class="cardGroup">
+						<div class="card" v-for="(item,key) in searchBar.types[1].detail" :key="key" :style="`background-image: url('./img/img4-${key+1}.png');`">
+							<p>{{item}}</p>
+						</div>
+					</div>
+				</div>
+			</section> -->
+			<section class='footer'>
+
+			</section>
+
+		
+			
+		</main>
+		
+		<!-- GOTOTOP
+		-------------------------------------------------------------->
+		<!-- <div class="scrollbar">
+			<div class="container">
+				<div class="goTopBtn hvr-bob">
+					<img src="img/icon_top.svg" alt="">
+					<span>TOP</span>
+				</div>
+			</div>
+		</div> -->
+		
+
+		
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.global.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
