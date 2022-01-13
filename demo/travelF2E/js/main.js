@@ -147,7 +147,7 @@ const app = {
     },
     filterImg(img){
       if(img.PictureUrl1 == undefined){
-        return '../img/imageNone.png'
+        return './img/imageNone.png'
       }else{ return img.PictureUrl1; }
     },
     filterCityChName(str){
