@@ -1,4 +1,23 @@
-AOS.init();
+
+let winH = window.innerHeight;
+const aosLine = document.querySelector('.aosLine');
+aosLine.style.bottom = `${ winH/2 }px`;
+
+AOS.init({
+  offset:winH/2,
+});
+
+
+window.addEventListener('resize',function(){
+  winH = window.innerHeight;
+  console.log(winH)
+  AOS.init({
+    offset:winH/2,
+  });
+  aosLine.style.bottom = `${ winH/2 }px`;
+})
+
+
 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
