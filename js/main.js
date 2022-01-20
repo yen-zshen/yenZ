@@ -79,6 +79,10 @@ const app = {
 				name:'擎宇英文',
 				link:'http://demo.summersjr.com/up/yen/english/default.htm'
 			},{
+				img:'summers.png',
+				name:'夏天廣告文案頁',
+				link:'http://demo.summersjr.com/up/yen/summers/copywritings/'
+			},{
 				img:'ai_school.png',
 				name:'AI 商學院 - 課程',
 				link:'http://demo.summersjr.com/up/yen/nccu/member/'
@@ -86,10 +90,6 @@ const app = {
 				img:'ai_vip.png',
 				name:'AI 商學院 - VIP',
 				link:'http://demo.summersjr.com/up/yen/microsoft/nccu/AIBS/invitation/vip.htm?vip=wahlee'
-			},{
-				img:'summers.png',
-				name:'夏天廣告文案頁',
-				link:'http://demo.summersjr.com/up/yen/summers/copywritings/'
 			},{
 				img:'outlook.png',
 				name:'microsoft outlook apps',
