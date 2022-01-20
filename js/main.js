@@ -51,6 +51,10 @@ const app = {
 			},
 			],
 			creationList:[{
+				img:'twn.png',
+				name:'二手精品網站',
+				link:'https://yen-zshen.github.io/yenZ/demo/twn/index.html'
+			},{
 				img:'travel.png',
 				name:'交通部旅遊網站練習',
 				link:'https://yen-zshen.github.io/yenZ/demo/travelF2E/default.htm'
