@@ -15,7 +15,8 @@ let winH = 0;
 window.addEventListener('resize',function(){
   aosOffset();
 })
-window.addEventListener('click',aosLineOpen)
+aosBtn.addEventListener('click',aosLineOpen);
+
 qaBtn.forEach(function(item){
   item.addEventListener('click',function(){
     let state = item.getAttribute('data-type');
