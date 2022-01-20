@@ -1,40 +1,21 @@
 
-let winH = window.innerHeight;
+
+// DOM
 const aosLine = document.querySelector('.aosLine');
-aosLine.style.bottom = `${ winH/2 }px`;
-
-AOS.init({
-  offset:winH/2,
-});
-
-
-window.addEventListener('resize',function(){
-  winH = window.innerHeight;
-  console.log(winH)
-  AOS.init({
-    offset:winH/2,
-  });
-  aosLine.style.bottom = `${ winH/2 }px`;
-})
-
-
-
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  // loop: true,
-	autoplay: {
-		delay: 3000,
-	},
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-});
-
+const aosBtn = document.querySelector('.aosBtn');
 const qaDetail = document.querySelectorAll('.qaDetail');
 const qaBtn = document.querySelectorAll('.qaBtn');
 
+
+// data
+let winH = 0;
+
+
+// event
+window.addEventListener('resize',function(){
+  aosOffset();
+})
+window.addEventListener('click',aosLineOpen)
 qaBtn.forEach(function(item){
   item.addEventListener('click',function(){
     let state = item.getAttribute('data-type');
@@ -44,8 +25,32 @@ qaBtn.forEach(function(item){
 })
 
 
+
+// methods 
+function aosOffset(){
+  winH = window.innerHeight;
+  console.log(winH)
+  AOS.init({
+    offset:winH/2,
+  });
+  aosLine.style.bottom = `${ winH/2 }px`;
+}
+
+function aosLineOpen(){
+  console.log('click')
+  let type = document.querySelector('.aosBtn').getAttribute('data-type');;
+  if( type == 'open' ){
+    aosBtn.setAttribute('data-type','close');
+    aosLine.setAttribute('data-type','close');
+    aosBtn.textContent = 'line close';
+  }else{
+    aosBtn.setAttribute('data-type','open');
+    aosLine.setAttribute('data-type','open');
+    aosBtn.textContent = 'line open';
+  }
+}
+
 function changeQA(state,num,item){
-  // console.log("click",state,item)
   let detailState = '';
   if(state == 'close'){
     detailState = 'open';
@@ -66,3 +71,36 @@ function changeQA(state,num,item){
   })
 }
 
+
+function init(){
+  
+  aosOffset();
+  AOS.init({
+    offset:winH/2,
+  });
+}
+
+
+
+
+init();
+
+
+
+
+
+
+
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  // loop: true,
+	autoplay: {
+		delay: 3000,
+	},
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
