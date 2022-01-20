@@ -32,12 +32,12 @@ function changeQA(state,num,item){
     detailState = 'open';
     setTimeout(function(){
       item.setAttribute('data-type','open');
-    },500)
+    },250)
   }else if( state == 'open' ){
     detailState = 'close';
     setTimeout(function(){
       item.setAttribute('data-type','close');
-    },500)
+    },250)
   }
   qaDetail.forEach(function(item){
     let qaNum = item.getAttribute('data-num');
@@ -46,3 +46,4 @@ function changeQA(state,num,item){
     }
   })
 }
+
