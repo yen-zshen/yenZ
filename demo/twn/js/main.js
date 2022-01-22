@@ -30,11 +30,12 @@ qaBtn.forEach(function(item){
 // methods 
 function aosOffset(){
   winH = window.innerHeight;
+  let height = (winH / 2) - 30;
   console.log(winH)
   AOS.init({
-    offset:winH/2,
+    offset:height,
   });
-  aosLine.style.bottom = `${ winH/2 }px`;
+  aosLine.style.bottom = `${ height }px`;
 }
 
 function aosLineOpen(){
@@ -77,7 +78,7 @@ function init(){
   
   aosOffset();
   AOS.init({
-    offset:winH/2,
+    offset:(winH / 2) - 30,
   });
 }
 
@@ -98,7 +99,7 @@ const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   // loop: true,
 	autoplay: {
-		delay: 3000,
+		delay: 1500,
 	},
   // And if we need scrollbar
   scrollbar: {
