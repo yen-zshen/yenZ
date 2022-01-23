@@ -13,10 +13,11 @@
 	<!-- <meta property="og:image" content="https://www.microsoft.com/taiwan/promo/office-365-business/img/fb.jpg" />
 	<link rel="image_src" href="https://www.microsoft.com/taiwan/promo/office-365-business/img/fb.jpg" /> -->
 	<!-- 頁籤 icon -->
-	<link href="img/icon.ico" rel="shortcut icon" />
-	<link href="img/icon.ico" rel="icon" type="image/x-icon" />
+	<link href="img/iconYpng.ico" rel="shortcut icon" />
+	<link href="img/iconYpng.ico" rel="icon" type="image/x-icon" />
 
-	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+	<!-- <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" /> -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/all.css">
 
 	
@@ -29,244 +30,118 @@
 
 <body>
 
-	
 	<div class="wrapper" id="app">
-		<!-- section 01 
-			------------------------------------------>
-			<div class="leftArea">
-				<div class="logo">
-					<img src="img/yenz.png" alt="">
-				</div>
-				<ul class="list">
-					<li @click="clickList(1)" :class="menuAry[0]">ABOUT</li>
-					<li @click="clickList(2)" :class="menuAry[1]">SKILL</li>
-					<li @click="clickList(3)" :class="menuAry[2]">HOBBY</li>
-					<li @click="clickList(4)" :class="menuAry[3]">CREATION</li>
-				</ul>
-			</div>
-			
-			<div class="board" :class="boardClass">
-				<div class="content">
-					<div class="section" data-sec="about" :data-state="menuAry[0]">
+		<div class="webBlock">
+			<span></span><span></span><span></span><span></span>
+			<div class="cat" v-if="cat" :style="`top:${mouseData.nowY + 20}px;left:${mouseData.nowX + 20}px`"></div>
+		</div>
+		<main>
+			<section class="sec01" >
+				<div class="container" >
+					<div class="content">
 						<div class="group">
-							<h2>About</h2>
-							<div class="block">
-								<div class="row"></div>
-								<div class="photo">
+							<div class="left">
+								<h1 :style="`transform:translate(${ (mouseData.nowX - mouseData.winW/2) *-20 / mouseData.winW }px,${ (mouseData.nowY - mouseData.winH/2) *-20 / mouseData.winH }px)`">Hello</h1>
+								<div class="photo" :style="`transform:translate(${ (mouseData.nowX - mouseData.winW/2) *-50 / mouseData.winW }px,${ (mouseData.nowY - mouseData.winH/2) *-50 / mouseData.winH }px)`">
 									<img src="img/yen01.png" alt="">
-								</div>
-								<p>沈姸孜 &nbsp; Yen-tzu Shen</p>
-							</div>
-							<div class="block">
-								<p>Tel : 0955761622</p>
-								<p>Mail : dianna0904@gmail.com</p>
-								<p>Birthday : 1993 / 09 / 04</p>
-							</div>
-						</div>
-						<div class="group" id="experience"> 
-							<h2>Experience</h2>
-							<div class="block">
-								<div class="row">
-									<div class="col img">
-										<img src="img/summersLogo.jpg" alt="">
-									</div>
-									<div class="col">
-										<p><b>夏天廣告公司</b> - 網頁切版師</p>
-										<p class="time">2018 / 11 - 2021 / 05</p>
-									</div>
-									<div class="col full"> 
-										<p><b>一、負責公司與網頁有關的所有案子：</b></p>
-										<ul>
-											<li>與專案設計師、PM 溝通與討論網頁架構。</li>
-											<li>將設計提供的 psd 檔建置成 RWD 網頁與 eDM，並符合 SEO 優化。</li>
-											<li>與 AE 研究 google analytics 與 gtag 的埋入與廣告成效。</li>
-											<li>維護客戶的網站。</li>
-											<li>協助網頁圖片的修圖。</li>
-											<li>大型網站後台操作（例如：趨勢內部作業系統、wordpress  操作）。</li>
-										</ul>
-										<p><b>二、協助研究新技術：</b></p>
-										<ul>
-											<li>微軟 power platform 技術研究，並實作遠端請假系統。</li>
-											<li>學習使用 figma，並教導設計師使用。</li>
-											<li>教導設計簡單的網頁切版（html / css）。</li>
-											<li>為了網頁體驗優化，學習 google analytics，並與專案人員討論。</li>
-										</ul>
-										<p><b>三、其他：</b></p>
-										<ul>
-											<li>因對攝影有興趣，有過攝影與製作影片的經驗。</li>
-											<li>協助設計與製作 facebook 成效電子報。</li>
-											<li>協助 PM 統整資料（使用 Excel）。</li>
-										</ul>
-									</div>
+									<div class="squre" :style="`transform:translate(${ (mouseData.nowX - mouseData.winW/2) *-40 / mouseData.winW }px,${ (mouseData.nowY - mouseData.winH/2) *-40 / mouseData.winH }px)`" @click="clickSqure"></div>
 								</div>
 							</div>
-							<div class="block">
-								<div class="row">
-									<div class="col img">
-										<img src="https://www.ddm.org.tw/files/file_pool/1/0k198563650703266658/logo.png" alt="">
-									</div> 
-									<div class="col">
-										<p><b>法鼓山</b> - 網站後台操作</p>
-										<p class="time">2017/07 - 2018/06</p>
-									</div>
-									<div class="col full">
-										<ul>
-											<li>協助上架官網資訊</li>
-											<li>製作節慶一頁式網頁</li>
-											<li>協助網頁圖片修圖</li>
-										</ul>
-									</div>
-								</div>
+							<div class="info" :style="`transform:translate(${ (mouseData.nowX - mouseData.winW/2) *-25 / mouseData.winW }px,${ (mouseData.nowY - mouseData.winH/2) *-25 / mouseData.winH }px)`">
+								<p>沈姸孜 Yen  &nbsp;/ 1993.09.04</p>
+								<p>TEL<br>0955761722</p>
+								<p>MAIL<br>dianna0904@gmail.com</p>
 							</div>
-							<div class="block">
-								<div class="row">
-									<div class="col img">
-										<img src="https://www.satana.com.tw/images/logo.png" alt="">
-									</div>
-									<div class="col">
-										<p><b>聯野有限公司</b></p>
-										<p class="time">2016/09 - 2017/04</p>
-										<p>行政助理</p>
-									</div>
-									<div class="col full">
-										<ul>
-											<li>客服窗口</li>
-											<li>每日各項報表製作</li>
-											<li>協助官網商品上架</li>
-											<li>製作產品圖片與產品說明</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-					</div>	
-					<div class="section" data-sec="skill" :data-state="menuAry[1]" >
-						<div class="group">
-							<h2>Skill</h2>
-							<div class="block">
-								<ul>
-									<li><span>了解 HTML5 / CSS(SCSS) / javaScript(ES6) / JQuery / RWD 等前端網頁技術及工具使用</span> <a href="http://demo.summersjr.com/up/yen/english/default.htm" target="_blank">demo</a></li>
-									<li><span>了解如何運用第三方套件（輪播工具、燈箱工具...）</span> <a href="http://demo.summersjr.com/up/yen/xlta/" target="_blank">demo</a></li>
-									<li><span>運用 TweenMax 打造動態網頁</span> <a href="http://demo.summersjr.com/up/yen/summers/copywritings/" target="_blank">demo</a></li>
-									<li><span>運用 table 標籤來製作網頁 eDM</span> <a href="https://demo.summersjr.com/up/yen/microsoft_edm/2021/210204_envision/210204_envision-pv.html" target="_blank">demo</a></li>
-									<li><span>了解網頁 SEO 優化的 html 結構</span></li>
-									<li><span>運用 GA、GTM 的埋入達到網頁的追蹤</span></li>
-									<li><span>運用 Vue.js 與 axios 來串接 API </span><a href="https://yen-zshen.github.io/yenZ/demo/travelF2E/default.htm" target="_blank">demo</a></li>
-									<li><span>了解如何購買網域、網址</span></li>
-									<li><span>了解 PhotoShop 切版、修圖</span></li>
-									<li><span>具備良好溝通協調能力，能與專案設計師等相關人員協同執行專案</span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="section" data-sec="hobby" :data-state="menuAry[2]">
-						<div class="group">
-							<h2>Hobby</h2>
-							<div class="block">
-								<h3>photography</h3>
-								<div class="box">
-									<div class="swiper listSwiper" >
-										<!-- Additional required wrapper -->
-										<div class="swiper-wrapper">
-											<!-- Slides -->
-											<div class="swiper-slide" v-for="item in photoList">
-												<img :src="`./img/photography/${item.photo}`" alt="">
-												<p><span class="time">{{item.time}} </span> <span class="title">{{item.title}}</span> <span class="more" @click="setPhotoId(item.id,item.num)">more</span></p>
-											</div>
-										</div>
-										<div class="swiper-button-prev"></div>
-										<div class="swiper-button-next"></div>
-									</div>
-								</div>
-							</div>
-							<div class="block">
-								<h3>outdoor</h3>
-								<div class="box">
-									<div class="swiper listSwiper">
-										<!-- Additional required wrapper -->
-										<div class="swiper-wrapper">
-											<!-- Slides -->
-											<div class="swiper-slide" v-for="item in outdoorList">
-												<img :src="`./img/photography/${item.photo}`" alt="">
-												<p><span class="time">{{item.time}} </span> <span class="title">{{item.title}}</span> 
-													<!-- <span class="more">more</span> -->
-													</p>
-											</div>
-										</div>
-										<div class="swiper-button-prev"></div>
-										<div class="swiper-button-next"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="group" :class="{open:nowSlideType}" data-type="content">
-							<span class="back" @click="closeSlideContent">back</span>
-							<div class="swiper contentSwiper">
-								<!-- Additional required wrapper -->
-								<div class="swiper-wrapper">
-									<!-- Slides -->
-									<div class="swiper-slide" v-for="n in nowSlideNum">
-										<img :src="`./img/photography/${nowSlideId}/${n}.jpg`" alt="">
-									</div>
-								</div>
-								<div class="swiper-button-prev"></div>
-								<div class="swiper-button-next"></div>
-							</div>
-						</div>
-					</div>
-					<div class="section" data-sec="creation" :data-state="menuAry[3]">
-						<div class="group">
-							<h2>Creation</h2>
-							<h3>網頁切版</h3>
-							<hr>
-							<div class="row row1">
-								<div class="col" v-for="item in creationList">
-									<img :src="`img/creation/${item.img}`" alt="">
-									<a :href="item.link" target="_blank"><span>{{item.name}}</span></a>
-								</div>
-							</div>
-
-							<!-- <div class="row row2">
-								<a href="http://demo.summersjr.com/up/yen/draw/" target="_blank" class="col">
-									<p>愛畫畫</p>
-								</a>
-								<a href="http://demo.summersjr.com/up/yen/xlta/" target="_blank" class="col">
-									<p>Xlta</p>
-								</a>
-								<a href="http://demo.summersjr.com/up/yen/english/default.htm" target="_blank" class="col">
-									<p>擎宇英文</p>
-								</a>
-								<a href="http://demo.summersjr.com/up/yen/nccu/member/" target="_blank" class="col">
-									<p>AI 商學院 - 課程</p>
-								</a>
-								<a href="http://demo.summersjr.com/up/yen/microsoft/nccu/AIBS/invitation/vip.htm?vip=wahlee" target="_blank" class="col">
-									<p>AI 商學院 - VIP</p>
-								</a>
-								<a href="http://demo.summersjr.com/up/yen/summers/copywritings/" target="_blank" class="col">
-									<p>夏天廣告文案頁</p>
-								</a>
-								<a href="http://demo.summersjr.com/up/yen/microsoft/outlook/" target="_blank" class="col">
-									<p>microsoft outlook apps</p>
-								</a>
-								<a href="http://demo.summersjr.com/up/yen/microsoft/190305keymouse/" target="_blank" class="col">
-									<p>微軟時尚滑鼠</p>
-								</a>
-								<a href="http://demo.summersjr.com/up/yen/microsoft/190128eos_v2/181121eos/shift/" target="_blank" class="col">
-									<p>microsoft windows 10 終止支援</p>
-								</a>
-							</div> -->
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
+			<section class="sec02">
+				<div class="container">
+					<h2>SKILL</h2>
+					<div class="content">
+						<div class="group" data-order='1' data-aos="fade-down-right">
+							<h3>響應式網站製作</h3>
+							<ul>
+								<li>追求在每個尺寸的畫面都能完美呈現 
+									（運用 HTML5 / CSS(SCSS) / JavaScript(ES6) / JQuery）。</li>
+								<li>打造動態網頁
+									（運用 JavaScript、TweenMax、JS 套件，如：輪播工具…）。</li>
+								<li>能夠運用 Vue.js 與 axios 套件來串接 API。</li>
+								<li>運用 table 標籤來製作網頁 eDM。</li>
+							</ul>
+						</div>
+						<div class="group" data-order='2' data-aos="fade-up-left">
+							<h3>配合行銷方面</h3>
+							<ul>
+								<li>具備 Google Analytics 知識，了解如何透過 Google Tag Manager 
+									來抓取使用者行為。</li>
+								<li>了解網頁 SEO 優化的 html 結構與 meta 標籤。</li>
+							</ul>
+						</div>
+						<div class="group" data-order='3' data-aos="fade-up">
+							<h3>其他</h3>
+							<ul>
+								<li>熟悉使用 PhotoShop 與 Figma 進行網頁切版。</li>
+								<li>具備良好溝通協調能力，能與專案設計師等相關人員協同執行專案。</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="sec03">
+				<div class="container" data-aos="flip-left">
+					<h2>CREATION</h2>
+					<div class="box" >
+						<div class="row">
+							<div class="photo">
+								<div class="img">
+									<img :src="`img/creation/${nowCreation[0].img}`" alt="">
+								</div>
+							</div>
+							<div class="info">
+								<h3>{{nowCreation[0].name}}</h3>
+								<ul>
+									<li v-for="(item,index) in nowCreation[0].detail" ::key="index">{{item}}</li>
+								</ul>
+								<p class="designer">設計師：{{nowCreation[0].designer}}</p>
+								<div class="tags">
+									<span v-for="(item,index) in nowCreation[0].tags" ::key="index">{{item}}</span>
+								</div>
+								<a :href="nowCreation[0].link" target="_blank" class="link">Web Link >>></a>
+							</div>
+						</div>
+					</div>
+					<ul class="creationList" >
+						<li v-for="(item,index) in creationList" ::key="index" :data-num="index+1" @click="clickCreationList(index)" :class="item.select == 'true' ? 'select':''" >{{item.name}}</li>
+					</ul>
+				</div>
+			</section>
+			<section class="sec04">
+				<div class="container">
+					<h2>HOBBY</h2>
+					<p>Photography <br> outdoor<br><br>
+						<a href="https://vsco.co/yenzzzzzz/gallery" target="_blank"> >>> </a><br><br><br>
+						&<br> CAT </p>
+
+				</div>
+			</section>
+			<footer>
+				<p>ヽ(=^ Φ ω Φ ^=)丿</p>
+
+			</footer>
+		</main>
 
 	</div>
 
 	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.global.js"></script>
-	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.global.js"></script> -->
+	<!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->
+	
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script type="module" src="js/main.js"></script>
 </body>
 
 </html>
