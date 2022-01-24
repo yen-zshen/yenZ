@@ -1,8 +1,8 @@
 
 
 // DOM
-const aosLine = document.querySelector('.aosLine');
-const aosBtn = document.querySelector('.aosBtn');
+// const aosLine = document.querySelector('.aosLine');
+// const aosBtn = document.querySelector('.aosBtn');
 const qaDetail = document.querySelectorAll('.qaDetail');
 const qaBtn = document.querySelectorAll('.qaBtn');
 
@@ -15,7 +15,7 @@ let winH = 0;
 window.addEventListener('resize',function(){
   aosOffset();
 })
-aosBtn.addEventListener('click',aosLineOpen);
+// aosBtn.addEventListener('click',aosLineOpen);
 
 qaBtn.forEach(function(item){
   item.addEventListener('click',function(){
@@ -35,22 +35,22 @@ function aosOffset(){
   AOS.init({
     offset:height,
   });
-  aosLine.style.bottom = `${ height }px`;
+  // aosLine.style.bottom = `${ height }px`;
 }
 
-function aosLineOpen(){
-  console.log('click')
-  let type = document.querySelector('.aosBtn').getAttribute('data-type');;
-  if( type == 'open' ){
-    aosBtn.setAttribute('data-type','close');
-    aosLine.setAttribute('data-type','close');
-    aosBtn.textContent = 'line close';
-  }else{
-    aosBtn.setAttribute('data-type','open');
-    aosLine.setAttribute('data-type','open');
-    aosBtn.textContent = 'line open';
-  }
-}
+// function aosLineOpen(){
+//   console.log('click')
+//   let type = document.querySelector('.aosBtn').getAttribute('data-type');;
+//   if( type == 'open' ){
+//     aosBtn.setAttribute('data-type','close');
+//     aosLine.setAttribute('data-type','close');
+//     aosBtn.textContent = 'line close';
+//   }else{
+//     aosBtn.setAttribute('data-type','open');
+//     aosLine.setAttribute('data-type','open');
+//     aosBtn.textContent = 'line open';
+//   }
+// }
 
 function changeQA(state,num,item){
   let detailState = '';
