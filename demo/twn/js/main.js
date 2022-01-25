@@ -99,7 +99,7 @@ const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   // loop: true,
 	autoplay: {
-		delay: 1500,
+		delay:3000,
 	},
   // And if we need scrollbar
   scrollbar: {
