@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="Zh-Hant-TW">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+	<title>TITLE</title>
+
+	<meta name="description" content="description" />
+
+	<meta property="og:title" content="title"/>
+	<meta property="og:site_name" content="title"/>
+
+	<meta property="og:description" content="description"/>
+
+	<!-- 域名全稱或者網站地址 -->
+	<meta name="url" content="https://www.">
+	<meta name="googlebot" content="index,follow"><!-- Google Specific -->
+
+
+	<!-- FB 社群圖片 -->
+	<meta property="og:image" content="https://yen-zshen.github.io/yenZ/demo/twn/img/fb.png" />
+	<link rel="image_src" href="https://yen-zshen.github.io/yenZ/demo/twn/img/fb.png" />
+	
+	<!-- 頁籤 icon -->
+	<!-- <link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="shortcut icon" />
+	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="icon" type="image/vnd.microsoft.icon" /> -->
+
+	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/all.css?v0124">
+
+	
+	<!--[if lt IE 9]> 
+	<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+
+
+<body>
+
+	
+	<div class="wrapper" id="app">
+	<!--	cookie-->
+		<!-- <div class="cookie">
+			<div class="container">
+				<span>本網站使用 Cookie 進行分析，以提供您個人化內容與廣告，繼續瀏覽本網站，即表示您同意此用途</span>
+				<span class="know">我知道了</span>
+			</div>
+		</div> -->
+		
+		<!-- <header class="header" id="top">
+			<div class="logo">
+				<img src="img/logo.svg" alt="">
+			</div>
+		</header> -->
+		<!-- <div class="aosLine" data-type="open"><span>動畫高度測試</span></div>
+		<div class="aosBtn" data-type="open">line show</div> -->
+		<main>
+		
+			<section data-sec="kv">
+				<div class="container">
+					<div class="text-block">
+						<div class="logo">
+							<img src="img/logo.png" alt="">
+						</div>
+						<div class="title">
+							<img src="img/kv-title.png" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section data-sec="intro">
+				<div class="container">
+					<div class="block">
+						<p><sup>從</sup>少女蛻變成女人的過程中，女性展現出努力、勇敢、堅強的一面，<br>
+							在人生不同的階段，她們或許面臨著不同的問題，但唯獨「經痛」困擾著各年齡層的女性… </p>
+						<p><span>正視身體發出的警訊</span>，<span>讓疼痛不再</span>，無論是哪個年紀的妳，都能散發自身光彩。</p>
+					</div>
+					<div class="img-block">
+						<div class="line">
+							<div class="img"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section data-sec="test">
+				<div class="container">
+					<div class="row">
+						<div class="intro-block">
+							<h2>1分鐘經痛量表</h2>
+							<div class="img">
+								<img src="img/img-clock.png" alt="">
+							</div>
+							<p class="p1">懂你的痛</p>
+							<p class="p2">檢測妳是否有子宮內膜異位症風險</p>
+							<p class="p3">＊本測驗結果並非用於診斷子宮內膜異位症，
+								請與您的婦產科醫生討論測驗結果。</p>
+						</div>
+						<div class="test-block" v-if="!finish">
+							<div v-for="item in testData" :key="item.num">
+								<div class="content" v-if="item.num == now && item.num < 6">
+									<div class="num">0{{item.num}}</div>
+									<div class="img" :data-img="item.num">
+										<img :src="`img/test-img${item.num}.png`" alt="">
+									</div>
+									<div v-html="item.content"></div>
+									<!-- <p>您是否<b>經常</b>在<b class="red">經期前或經期期間</b>出現骨盆腔疼痛或腰痛，
+										且這種疼痛影響了您的日常活動，或需要藥物治療<br>
+										<sub>（例如：服用止痛藥）？</sub></p> -->
+									<div class="btn-block" :class="[{'three' : item.num >= 3}]" >
+										<div class="btn" data-status="yes" @click="clickBtn(item.num,'是')">是</div>
+										<div class="btn" data-status="no" @click="clickBtn(item.num,'否')">否</div>
+										<div class="btn" data-status="no" @click="clickBtn(item.num,'不確定')" v-if="item.num>=3">不確定/不清楚</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="test-block finish" v-if="finish">
+							<div class="content">
+								<h3>測驗結果</h3>
+								<div class="row">
+									<div class="col" v-for="(item,index) in answer">
+										<p class="index">0{{index + 1}}</p>
+										<div class="circle" :class="[{'yes' : item == '是'}]"><span>{{item}}</span></div>
+									</div>
+								</div>
+								<p class="bottom">如果您對這些問題中的一個或多個回答「<b>是</b>」，您可能
+									患有子宮內膜異位症，請進一步諮詢您的婦產科醫生。</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section data-sec="movie">
+				<div class="container">
+					<div class="row">
+						<div class="movie-block">
+							<div class="picture">
+								<div class="line">
+									<div class="img"></div>
+								</div>
+								<div class="btn">播放影片</div>
+							</div>
+						</div>
+						<div class="intro">
+							<div class="title">第一部：20代</div>
+							<h2>獻給努力的妳</h2>
+							<p>正值青春年華的時刻，24歲的Wendy對工作充滿熱忱，但一切似乎沒有想像中的容易…</p>
+						</div>
+						<div class="decorate">
+							<div class="people">
+								<img src="img/img-movie-people1.png" alt="">
+							</div>
+							<div class="line">
+								<img class="pc_show" src="img/img-movie-line1.png" alt="">
+								<img class="mobile_show" src="img/img-movie-line1-mobile.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="row row2">
+						<div class="intro">
+							<div class="title">第二部：30代</div>
+							<h2>獻給勇敢的妳</h2>
+							<p>35歲的佳欣，已度過兩年甜蜜的婚姻，但700多天的日子裡，她不斷的等待，為什麼寶寶始終還沒來…</p>
+						</div>
+						<div class="movie-block">
+							<div class="picture">
+								<div class="line">
+									<div class="img"></div>
+								</div>
+								<div class="btn">播放影片</div>
+							</div>
+						</div>
+						<div class="decorate">
+							<div class="people">
+								<img src="img/img-movie-people2.png" alt="">
+							</div>
+							<div class="line">
+								<img class="pc_show" src="img/img-movie-line2.png" alt="">
+								<img class="mobile_show" src="img/img-movie-line2-mobile.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="row row3">
+						<div class="movie-block">
+							<div class="picture">
+								<div class="line">
+									<div class="img"></div>
+								</div>
+								<div class="btn">播放影片</div>
+							</div>
+						</div>
+						<div class="intro">
+							<div class="title">第一部：20代</div>
+							<h2>獻給努力的妳</h2>
+							<p>正值青春年華的時刻，24歲的Wendy對工作充滿熱忱，但一切似乎沒有想像中的容易…</p>
+						</div>
+						<div class="decorate">
+							<div class="people">
+								<img src="img/img-movie-people3.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section data-sec="about">
+				<div class="container">
+					<h2>相關資訊</h2>
+					<div class="row">
+						<div class="col">
+							<a href="#">
+								<img src="img/icon-pdf.png" alt="">
+							</a>
+							<h3>衛教手冊下載 </h3>
+							<p>點擊圖示，下載PDF</p>
+						</div>
+						<div class="col">
+							<img src="img/icon-home.png" alt="">
+							<h3>地址  </h3>
+							<p>110台北市信義區<br>
+								吳興街252號生殖醫學中心</p>
+						</div>
+						<div class="col">
+							<img src="img/icon-tel.png" alt="">
+							<h3>電話 </h3>
+							<p>02-2736-1661#3023</p>
+						</div>
+						<div class="col">
+							<img src="img/icon-fax.png" alt="">
+							<h3>傳真 </h3>
+							<p>02-2735-8406</p>
+						</div>
+						<div class="col mail">
+							<a href="mailto:endometriosis.tw@gmail.com">
+								<img src="img/icon-mail.png" alt="">
+							</a>
+							<h3>E-mail </h3>
+							<p>endometriosis.tw@gmail.com</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		
+			<footer>
+				<div class="container">
+					<p><span class="p2">台灣子宮內膜異位症學會、<span class="inblock">台灣拜耳股份有限公司</span> 共同關心妳</span><br>
+						提醒您：本網站內容僅可幫助您了解相關病因，但無法取代醫師面對面的診斷，本網站無法為民眾對內容之應用負責。<br>
+						如有問題，請向您的醫師提出，獲得進一步諮詢。</p>
+				</div>
+			</footer>
+			
+		</main>
+		
+		<!-- GOTOTOP
+		-------------------------------------------------------------->
+		<!-- <div class="scrollbar">
+			<div class="container">
+				<div class="goTopBtn hvr-bob">
+					<img src="img/icon_top.svg" alt="">
+					<span>TOP</span>
+				</div>
+			</div>
+
+		</div> -->
+		
+
+		<!-- footer
+      -------------------------------------------------------------->
+
+	</div>
+
+	<!-- <script src="https://unpkg.com/vue@next"></script> -->
+	<!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->
+	<!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.4.2/lottie.min.js"></script> -->
+	<!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+	<!-- <script src="https://docs.lottiefiles.com/lottie-js/"></script> -->
+
+	<script type="module" src="js/main.js"></script>
+</body>
+
+</html>
