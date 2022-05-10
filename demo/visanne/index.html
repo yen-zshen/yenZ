@@ -107,24 +107,31 @@
 						</div>
 						<div class="test-block" v-if="!finish">
 							<div v-for="item in testData" :key="item.num">
-								<div class="content" v-if="item.num == now && item.num < 6">
-									<div class="num">0{{item.num}}</div>
-									<div class="img" :data-img="item.num">
-										<img :src="`img/test-img${item.num}.png`" alt="">
+								<!-- <transition> -->
+									<div class="content" 
+										v-if="item.num == now && item.num < 6"
+										:class="[{ 'show' : item.num == show && item.num < 6 },
+														{ 'leave' : item.num == leave && item.num < 6 }]">
+										<div class="num">0{{item.num}}</div>
+										<div class="img" :data-img="item.num">
+											<img :src="`img/test-img${item.num}.png`" alt="">
+										</div>
+										<div v-html="item.content"></div>
+										<!-- <p>您是否<b>經常</b>在<b class="red">經期前或經期期間</b>出現骨盆腔疼痛或腰痛，
+											且這種疼痛影響了您的日常活動，或需要藥物治療<br>
+											<sub>（例如：服用止痛藥）？</sub></p> -->
+										<div class="btn-block" :class="[{'three' : item.num >= 3}]" >
+											<div class="btn" data-status="yes" @click="clickBtn(item.num,'是')">是</div>
+											<div class="btn" data-status="no" @click="clickBtn(item.num,'否')">否</div>
+											<div class="btn" data-status="no" @click="clickBtn(item.num,'不確定')" v-if="item.num>=3">不確定/不清楚</div>
+										</div>
 									</div>
-									<div v-html="item.content"></div>
-									<!-- <p>您是否<b>經常</b>在<b class="red">經期前或經期期間</b>出現骨盆腔疼痛或腰痛，
-										且這種疼痛影響了您的日常活動，或需要藥物治療<br>
-										<sub>（例如：服用止痛藥）？</sub></p> -->
-									<div class="btn-block" :class="[{'three' : item.num >= 3}]" >
-										<div class="btn" data-status="yes" @click="clickBtn(item.num,'是')">是</div>
-										<div class="btn" data-status="no" @click="clickBtn(item.num,'否')">否</div>
-										<div class="btn" data-status="no" @click="clickBtn(item.num,'不確定')" v-if="item.num>=3">不確定/不清楚</div>
-									</div>
-								</div>
+								
+								<!-- </transition> -->
 							</div>
 						</div>
-						<div class="test-block finish" v-if="finish">
+						<div class="test-block finish" v-show="finish"
+								>
 							<div class="content">
 								<h3>測驗結果</h3>
 								<div class="row">

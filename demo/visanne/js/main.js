@@ -10,6 +10,8 @@ const app = {
 		return{
 			message:'123',
       now:1,
+      show:1,
+      leave:1,
       finish:false,
       imgW:140,
       lightBox:false,
@@ -46,11 +48,22 @@ const app = {
   methods: {
     clickBtn(num,status){
       this.answer[num-1] = status;
+      // let _this = this;
       if( this.now < 6 ){
-        this.now =num+1;
-        if( this.now == 6 ){
-          this.finish = true;
-        }
+        this.leave = num+1
+        setTimeout(() => {
+          this.now =num+1;
+          console.log('now:' , this.now)
+          if( this.now == 6 ){
+            console.log('finish')
+            this.finish = true;
+            return;
+          }
+        }, 500);
+        setTimeout(() => {
+          this.show =num+1;
+          console.log('show')
+        }, 520);
       }
     },
     openLightBox(){
@@ -58,6 +71,14 @@ const app = {
       this.lightBox = !this.lightBox
     }
   },
+  // watch:{
+  //   testData(nVal,oVal){
+  //     console.log( oVal );
+  //     setTimeout(() => {
+  //       console.log(nVal)
+  //     }, 500);
+  //   }
+  // }
 }
 
 
