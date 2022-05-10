@@ -12,12 +12,13 @@ const app = {
       now:1,
       finish:false,
       imgW:140,
+      lightBox:false,
       answer:['是','是','是','是','是'],
       testData:[
         {
           num:1,
           content:`<p>您是否<b>經常</b>在<b class="red">經期前或經期期間</b>出現骨盆腔疼痛或腰痛，
-          且這種疼痛影響了您的日常活動，或需要藥物治療<br>
+          <br>且這種疼痛影響了您的日常活動，或需要藥物治療<br>
           <sub>（例如：服用止痛藥）？</sub></p>`
         },
         {
@@ -51,7 +52,10 @@ const app = {
           this.finish = true;
         }
       }
-      
+    },
+    openLightBox(){
+      console.log('open lightBox')
+      this.lightBox = !this.lightBox
     }
   },
 }

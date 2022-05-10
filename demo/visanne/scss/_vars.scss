@@ -4,6 +4,13 @@ $font_bold:'Segoe UI semibold', Helvetica, Arial, '微軟正黑體', 'Microsoft 
 
 $container_width:1140px;
 
+$color_main: #666;
+$color_main2: #888;
+$color_bg: #ccc;
+$color-blue: #ccc;
+$color-green: #ccc;
+$color-red: #ccc;
+
 	@mixin container_style($width, $padding_width) {
 		width: 100%;
 		max-width: $width + $padding_width*2;
@@ -11,6 +18,8 @@ $container_width:1140px;
 		padding: 0 $padding_width;
 //		border: 1px solid red;
 	}
+
+
 
 
 
