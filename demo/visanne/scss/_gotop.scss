@@ -3,34 +3,36 @@
 //------------------------------------------------------
 .scrollbar {
 	position: fixed;
-	width: 100%;
-	bottom: 10px;
+	width: 100%; 
+	bottom: 0px;
 	left: 0;
+  // border: 1px solid #ff0000;
 	.container {
 		position: relative;
-		max-width: 1217px;
+		max-width: 1350px;
 //		border: 1px solid red;
 	}
 }
 
 .goTopBtn{
 	position: absolute;
+	right: 0px;	bottom: 10px;
+	font-size: 0.5rem;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	display: block;
 	text-align: center;
-	width: 35px;	height: 51px;
-	right: 0px;	bottom: 10px;
-	font-size: 0.5rem;
+	width: 66px;	height: 66px;
+  border-radius: 50%;
 	color: #ffffff;
-	background-color: #5a5a5a;
+	background-color: rgba(#FFD527,0.5);
 	font-weight: 600;
 	opacity: 0;
 	-webkit-transition: all 0.25s;
 	transition: all 0.25s;
 	cursor: pointer;
 	z-index: 99999;
-	padding: 10px 0 0 0;
+	padding: 11px 0 0 0;
 	margin-right: 10px;
 //	box-shadow: 4px 4px 1px -2px rgba(255, 255, 255, 0.5);
 }
@@ -40,13 +42,13 @@
 
 .goTopBtn{
 	img {
-		width: 100%; max-width: 12px;
+		width: 100%; max-width: 16px;
 		display: block;
 		margin-right: auto;
 		margin-left: auto;
 	}
 	span{
-		font-size: 12px; line-height: 2;
+		font-size: 16px; line-height: 2;
 		color: #ffffff; font-weight: bold;
 		display: block;
 	}

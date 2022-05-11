@@ -32,7 +32,7 @@ $(document).ready(function () {
 	//TOP扭點選後回到最上方
 	$(".goTopBtn").on("click", function () {
 		$('html,body').animate({
-			scrollTop: $("#top").offset().top
+			scrollTop: $("#app").offset().top
 		}, 500);
 	});
 

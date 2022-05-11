@@ -214,11 +214,29 @@ section{
       }
       .test-block{
         width: 68%; max-width: 773px;
+        height: 600px;
+        position: relative;
         .content{
           width: 100%; height: 100%;
           border-radius: 60px;
           background-color: #F5F8E5;
           padding: 30px;
+          opacity: 0;
+          transition: all 0.5s;
+          position: absolute;
+          top: 50%; left: 0;
+          transform: translateY(-50%);
+          &.leave{
+            opacity: 0;
+            transition: all 0.5s;
+          }
+          &.leave.show{
+            opacity: 1;
+            transition: all 0.5s 0.5s;
+          }
+        }
+        &.finish{
+          .content{opacity: 1;}
         }
         .num{
           width: 70px; height: 70px;
@@ -253,6 +271,9 @@ section{
           text-align: center;
           margin: 50px auto 30px auto;
           display: flex; justify-content: center;
+          position: absolute;
+          left: 0; bottom: 20px;
+          width: 100%; 
           .btn{
             width: 180px; height: 60px;
             text-align: center;
@@ -326,6 +347,13 @@ section{
         }
       }
     }
+    @include width_pcs{
+      .row{
+        .text-block{
+          height: 700px;
+        }
+      }
+    }
     @include width_pad{
       .row{
         flex-direction: column;
@@ -374,6 +402,7 @@ section{
           }
         }
         .test-block{
+          height: 460px;
           .content{
             border-radius: 30px; padding: 15px;
           }
@@ -653,6 +682,7 @@ section{
       .movie-block{
         padding-bottom: 30px;
         .picture{  
+          margin-top: 10px;
           padding: 7px 4px;  
           .img{ height: 200px; }
           .line{ padding: 7px; }
@@ -681,7 +711,7 @@ section{
       }
       .decorate{
         .people img{ width: 86px; }
-        .line{width: 130px;}
+        .line{width: 90px; margin: 0px auto}
       }
       .row2,.row3{
         .intro{
@@ -689,7 +719,7 @@ section{
         }
         .decorate{
           .people {  margin: 0 auto  }
-          .line{  margin: 10px auto  }
+          .line{  margin: 0px auto  }
         }
       }
     }
@@ -769,7 +799,6 @@ footer{
   background-color: #F5F8E5;
   padding: 40px 0 52px;
   margin-top: 144px;
-
   p{
     font-size: 16px; line-height: 2;
     color: #EF1B1B;
@@ -783,6 +812,7 @@ footer{
   }
   @include width_pad{
     padding: 33px 0 50px;
+    margin-top: 50px;
     p{
       font-size: 14px;
       span.p2{
@@ -790,4 +820,31 @@ footer{
       }
     }
   }
+  @include width_mobile{
+    margin-top: 20px;
+  }
 }
+
+
+
+$time : 0.25s;
+
+	.v-leave {
+		opacity: 1;
+	}
+	.v-leave-active {
+		transition: opacity $time;
+	}
+	.v-leave-to {
+		opacity: 0;
+	}
+	.v-enter {
+		opacity: 0;
+	}
+	.v-enter-active {
+		transition: opacity $time ;
+		// transition-delay: 0.5s;
+	}
+	.v-enter-to {
+		opacity: 1;
+	}
