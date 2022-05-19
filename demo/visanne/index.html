@@ -7,14 +7,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-	<title>TITLE</title>
+	<title>1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會</title>
 
-	<meta name="description" content="description" />
+	<meta name="description" content="1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會" />
 
-	<meta property="og:title" content="title"/>
-	<meta property="og:site_name" content="title"/>
+	<meta property="og:title" content="1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會"/>
+	<meta property="og:site_name" content="1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會"/>
 
-	<meta property="og:description" content="description"/>
+	<meta property="og:description" content="1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會"/>
 
 	<!-- 域名全稱或者網站地址 -->
 	<meta name="url" content="https://www.">
@@ -26,10 +26,10 @@
 	<link rel="image_src" href="https://yen-zshen.github.io/yenZ/demo/twn/img/fb.png" />
 	
 	<!-- 頁籤 icon -->
-	<!-- <link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="shortcut icon" />
-	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="icon" type="image/x-icon" />
-	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-	<link href="https://www.microsoft.com/taiwan/surface/images/favicon.ico" rel="icon" type="image/vnd.microsoft.icon" /> -->
+	<link href="img/icon.ico" rel="shortcut icon" />
+	<link href="img/icon.ico" rel="icon" type="image/x-icon" />
+	<link href="img/icon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="img/icon.ico" rel="icon" type="image/vnd.microsoft.icon" />
 
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -73,30 +73,115 @@
 						<div class="title">
 							<img src="img/kv-title.png" alt="">
 						</div>
+						<div class="btn-block">
+							<div class="btn">她們與經痛的故事</div>
+							<div class="btn">1分鐘經痛評估表</div>
+						</div>
 					</div>
 				</div>
 			</section>
 
-			<section data-sec="intro">
+			<section data-sec="intro" >
 				<div class="container">
 					<div class="block">
 						<p><sup>從</sup>少女蛻變成女人的過程中，女性展現出努力、勇敢、堅強的一面，<br>
 							在人生不同的階段，她們或許面臨著不同的問題，但唯獨「經痛」困擾著各年齡層的女性… </p>
 						<p><span>正視身體發出的警訊</span>，<span>讓疼痛不再</span>，無論是哪個年紀的妳，都能散發自身光彩。</p>
 					</div>
-					<div class="img-block">
+					<!-- <div class="img-block">
 						<div class="line">
 							<div class="img"></div>
+						</div>
+					</div> -->
+				</div>
+			</section>
+
+			<section data-sec="movie" id="sec_movie">
+				<div class="container">
+					<h2>她們與經痛的故事</h2>
+					<div class="row">
+						<div class="movie-block">
+							<div class="picture">
+								<div class="line">
+									<div class="img" @click="openLightBox('yt')">
+										<img src="img/movie-play.png" alt="">
+									</div>
+								</div>
+								<!-- <div class="btn" @click="openLightBox">播放影片</div> -->
+							</div>
+						</div>
+						<div class="intro">
+							<div class="people">
+								<img src="img/img-movie-people1.png" alt="">
+								<div class="title">第一部：20代</div>
+							</div>
+							<h3>獻給努力的妳</h3>
+							<p>正值青春年華的時刻，24歲的Wendy對工作充滿熱忱，但一切似乎沒有想像中的容易…</p>
+						</div>
+						<div class="decorate">
+							<div class="line">
+								<img class="pc_show" src="img/img-movie-line1.png" alt="">
+								<img class="mobile_show" src="img/img-movie-line1-mobile.png" alt="">
+								<!-- <img class="" src="img/img-movie-line1-mobile.png" alt=""> -->
+							</div>
+						</div>
+					</div>
+					<div class="row row2">
+						<div class="intro">
+							<div class="people">
+								<img src="img/img-movie-people2.png" alt="">
+								<div class="title">第二部：30代</div>
+							</div>
+							<h3>獻給勇敢的妳</h3>
+							<p>35歲的佳欣，已度過兩年甜蜜的婚姻，但700多天的日子裡，她不斷的等待，為什麼寶寶始終還沒來…</p>
+						</div>
+						<div class="movie-block">
+							<div class="picture">
+								<div class="line">
+									<div class="img" @click="openLightBox('yt')">
+										<img src="img/movie-play.png" alt="">
+									</div>
+								</div>
+								<!-- <div class="btn">播放影片</div> -->
+							</div>
+						</div>
+						<div class="decorate">
+							<div class="line">
+								<img class="pc_show" src="img/img-movie-line2.png" alt="">
+								<img class="mobile_show" src="img/img-movie-line2-mobile.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="row row3">
+						<div class="movie-block">
+							<div class="picture">
+								<div class="line">
+									<div class="img" @click="openLightBox('yt')">
+										<img src="img/movie-play.png" alt="">
+									</div>
+								</div>
+								<!-- <div class="btn">播放影片</div> -->
+							</div>
+						</div>
+						<div class="intro">
+							<div class="people">
+								<img src="img/img-movie-people3.png" alt="">
+								<div class="title">第三部：40代</div>
+							</div>
+							<h3>獻給堅強的妳</h3>
+							<p>人生每個階段都有難以訴說的難題，即便是為人母的佩佩，再怎麼堅強，這個時候也渴望被體諒…</p>
 						</div>
 					</div>
 				</div>
 			</section>
+ 
 
-			<section data-sec="test">
+			<section data-sec="test" id="sec_test">
 				<div class="container">
+					<h2>1分鐘經痛評估表</h2>
 					<div class="row">
 						<div class="intro-block">
-							<h2>1分鐘經痛量表</h2>
+							
 							<div class="img">
 								<img src="img/img-clock.png" alt="">
 							</div>
@@ -140,6 +225,7 @@
 										<div class="circle" :class="[{'yes' : item == '是'}]"><span>{{item}}</span></div>
 									</div>
 								</div>
+								<p class="history" @click="openLightBox('history')">回顧作答歷程</p>
 								<p class="bottom">如果您對這些問題中的一個或多個回答「<b>是</b>」，您可能
 									患有子宮內膜異位症，請進一步諮詢您的婦產科醫生。</p>
 							</div>
@@ -148,84 +234,7 @@
 				</div>
 			</section>
 
-			<section data-sec="movie">
-				<div class="container">
-					<div class="row">
-						<div class="movie-block">
-							<div class="picture">
-								<div class="line">
-									<div class="img" @click="openLightBox">
-										<img src="img/movie-play.png" alt="">
-									</div>
-								</div>
-								<!-- <div class="btn" @click="openLightBox">播放影片</div> -->
-							</div>
-						</div>
-						<div class="intro">
-							<div class="people">
-								<img src="img/img-movie-people1.png" alt="">
-								<div class="title">第一部：20代</div>
-							</div>
-							<h2>獻給努力的妳</h2>
-							<p>正值青春年華的時刻，24歲的Wendy對工作充滿熱忱，但一切似乎沒有想像中的容易…</p>
-						</div>
-						<div class="decorate">
-							<div class="line">
-								<img class="pc_show" src="img/img-movie-line1.png" alt="">
-								<img class="mobile_show" src="img/img-movie-line1-mobile.png" alt="">
-								<!-- <img class="" src="img/img-movie-line1-mobile.png" alt=""> -->
-							</div>
-						</div>
-					</div>
-					<div class="row row2">
-						<div class="intro">
-							<div class="people">
-								<img src="img/img-movie-people2.png" alt="">
-								<div class="title">第二部：30代</div>
-							</div>
-							<h2>獻給勇敢的妳</h2>
-							<p>35歲的佳欣，已度過兩年甜蜜的婚姻，但700多天的日子裡，她不斷的等待，為什麼寶寶始終還沒來…</p>
-						</div>
-						<div class="movie-block">
-							<div class="picture">
-								<div class="line">
-									<div class="img" @click="openLightBox">
-										<img src="img/movie-play.png" alt="">
-									</div>
-								</div>
-								<!-- <div class="btn">播放影片</div> -->
-							</div>
-						</div>
-						<div class="decorate">
-							<div class="line">
-								<img class="pc_show" src="img/img-movie-line2.png" alt="">
-								<img class="mobile_show" src="img/img-movie-line2-mobile.png" alt="">
-							</div>
-						</div>
-					</div>
-					<div class="row row3">
-						<div class="movie-block">
-							<div class="picture">
-								<div class="line">
-									<div class="img" @click="openLightBox">
-										<img src="img/movie-play.png" alt="">
-									</div>
-								</div>
-								<!-- <div class="btn">播放影片</div> -->
-							</div>
-						</div>
-						<div class="intro">
-							<div class="people">
-								<img src="img/img-movie-people3.png" alt="">
-								<div class="title">第三部：40代</div>
-							</div>
-							<h2>獻給堅強的妳</h2>
-							<p>人生每個階段都有難以訴說的難題，即便是為人母的佩佩，再怎麼堅強，這個時候也渴望被體諒…</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
+			
 			<section data-sec="about">
 				<div class="container">
 					<h2>相關資訊</h2>
@@ -265,14 +274,31 @@
 			</section>
 
 			<!-- sec_lightBox -->
-			<section class="sec_lightBox" v-if="lightBox">
+			<section class="sec_lightBox" v-if="lightBox"> <!-- v-if="lightBox" -->
 				<div class="content">
 					<div class="tent">
 						<div class="closeBtn" @click="openLightBox">
 							<span></span><span></span>
 						</div>
 						<div class="scroll_tent">
-							<iframe width="100%" height="500" src="https://www.youtube.com/embed/H5MmjD6tavA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div v-if="lb_type == 'yt'">
+								<iframe v-if="lb_type == 'yt'" width="100%" height="500" src="https://www.youtube.com/embed/H5MmjD6tavA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+							<!-- <div v-if="lb_type == 'history'" class="lb-history">
+								<p>history</p>
+							</div> -->
+							<div v-if="lb_type == 'history'" class="lb-history">
+								<div class="block">
+									<div class="group" v-for="item in testData" ::key="item.num">
+										<p class="question">
+											{{item.text}}
+										</p>
+										<p class="answer">
+											Ans: {{answer[item.num-1]}}
+										</p>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
