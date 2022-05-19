@@ -76,6 +76,13 @@ const app = {
       console.log('open lightBox')
       this.lb_type = type
       this.lightBox = !this.lightBox
+    },
+    scroll(section){
+      // let h = document.getElementById(section);
+      // console.log(h.offsetTop)
+      $('html,body').animate({
+        scrollTop: $(`#${section}`).offset().top - 20
+      }, 500);
     }
   },
   // watch:{
