@@ -25,6 +25,14 @@ $(document).ready(function () {
 		}
 		window_scrollTop = this_scrollTop;
 		// console.log("之後的window_scrollTop : " + window_scrollTop);
+		
+		// $(".active-icon").addClass('scroll')
+		// window.setTimeout( ()=>{
+		// 	console.log( 'no scroll' )
+		// 	$(".active-icon").removeClass('scroll')
+		// },1500 )
+
+		
 
 	}); //onscroll的END
 
@@ -33,6 +41,13 @@ $(document).ready(function () {
 	$(".goTopBtn").on("click", function () {
 		$('html,body').animate({
 			scrollTop: $("#app").offset().top
+		}, 500);
+	});
+
+	//active 
+	$(".active-icon").on("click", function () {
+		$('html,body').animate({
+			scrollTop: $("#sec_test").offset().top
 		}, 500);
 	});
 
