@@ -215,11 +215,12 @@ const app = {
 		resize(){
 			this.mouseData.winH = window.innerHeight;
 			this.mouseData.winW = window.innerWidth;
+			console.log('width:' ,window.innerHeight);
 		}
 	},
 	mounted() {
 		this.nowCreation[0] = this.creationList[0];
-		this.resize();
+		this.resize(); 
 		window.addEventListener("mousemove", e => { this.getMouse(e) });
 		window.addEventListener('resize', this.resize)
 		AOS.init();
