@@ -9,31 +9,51 @@
 
 	<title>1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會</title>
 
-	<meta name="description" content="1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會" />
+	<meta name="description" content="嚴重經痛可能是子宮內膜異位症的警訊，輕忽將導致疾病惡化。透過1分鐘的時間，檢測自己是否有子宮內膜異位症的風險。" />
 
 	<meta property="og:title" content="1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會"/>
 	<meta property="og:site_name" content="1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會"/>
 
-	<meta property="og:description" content="1分鐘經痛評估表 - 經痛不再痛 - 台灣子宮內膜異位症學會"/>
+	<meta property="og:description" content="嚴重經痛可能是子宮內膜異位症的警訊，輕忽將導致疾病惡化。透過1分鐘的時間，檢測自己是否有子宮內膜異位症的風險。"/>
 
 	<!-- 域名全稱或者網站地址 -->
-	<meta name="url" content="https://www.">
+	<meta name="url" content="https://www.endometriosis-check.com">
 	<meta name="googlebot" content="index,follow"><!-- Google Specific -->
 
 
 	<!-- FB 社群圖片 -->
-	<meta property="og:image" content="https://yen-zshen.github.io/yenZ/demo/visanne/img/fb.png" />
-	<link rel="image_src" href="https://yen-zshen.github.io/yenZ/demo/visanne/img/fb.png" />
+	<meta property="og:image" content="https://www.endometriosis-check.com/img/fb.jpg" />
+	<link rel="image_src" href="https://www.endometriosis-check.com/img/fb.jpg" />
 	
 	<!-- 頁籤 icon -->
-	<link href="img/icon.ico" rel="shortcut icon" />
-	<link href="img/icon.ico" rel="icon" type="image/x-icon" />
-	<link href="img/icon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-	<link href="img/icon.ico" rel="icon" type="image/vnd.microsoft.icon" />
+	<link href="https://www.endometriosis-check.com/img/icon.ico" rel="shortcut icon" />
+	<link href="https://www.endometriosis-check.com/img/icon.ico" rel="icon" type="image/x-icon" />
+	<link href="https://www.endometriosis-check.com/img/icon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="https://www.endometriosis-check.com/img/icon.ico" rel="icon" type="image/vnd.microsoft.icon" />
 
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/all.css?v0124">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180950799-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180950799-2');
+</script>
+
+
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5SJKM6N');</script>
+	<!-- End Google Tag Manager -->
 
 	
 	<!--[if lt IE 9]> 
@@ -44,7 +64,10 @@
 
 
 <body>
-
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SJKM6N"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 	
 	<div class="wrapper" id="app">
 	<!--	cookie-->
@@ -74,8 +97,8 @@
 							<img src="img/kv-title.png" alt="">
 						</div>
 						<div class="btn-block">
-							<div class="btn" @click="scroll('sec_movie')">她們與經痛的故事</div>
-							<div class="btn" @click="scroll('sec_test')">1分鐘經痛評估表</div>
+							<div id="btn01" class="btn" @click="scroll('sec_movie')">她們與經痛的故事</div>
+							<div id="btn02" class="btn" @click="scroll('sec_test')">1分鐘經痛評估表</div>
 						</div>
 					</div>
 				</div>
@@ -103,8 +126,8 @@
 						<div class="movie-block" >
 							<div class="picture">
 								<div class="line">
-									<div class="img" @click="openLightBox('yt')">
-										<img src="img/movie-play.png" alt="">
+									<div class="img" @click="openLightBox('yt1')" id="clickMovie01">
+										<img id="clickMovie01" src="img/movie-play.png" alt="">
 									</div>
 								</div>
 								<!-- <div class="btn" @click="openLightBox">播放影片</div> -->
@@ -138,8 +161,8 @@
 						<div class="movie-block">
 							<div class="picture">
 								<div class="line">
-									<div class="img" @click="openLightBox('yt')">
-										<img src="img/movie-play.png" alt="">
+									<div class="img" @click="openLightBox('yt2')" id="clickMovie02">
+										<img id="clickMovie02" src="img/movie-play.png" alt="">
 									</div>
 								</div>
 								<!-- <div class="btn">播放影片</div> -->
@@ -156,8 +179,8 @@
 						<div class="movie-block">
 							<div class="picture">
 								<div class="line">
-									<div class="img" @click="openLightBox('yt')">
-										<img src="img/movie-play.png" alt="">
+									<div class="img" @click="openLightBox('yt3')" id="clickMovie03">
+										<img id="clickMovie03" src="img/movie-play.png" alt="">
 									</div>
 								</div>
 								<!-- <div class="btn">播放影片</div> -->
@@ -205,9 +228,9 @@
 										<!-- <p>您是否<b>經常</b>在<b class="red">經期前或經期期間</b>出現骨盆腔疼痛或腰痛，
 											且這種疼痛影響了您的日常活動，或需要藥物治療<br>
 											<sub>（例如：服用止痛藥）？</sub></p> -->
-										<div class="btn-block" :class="[{'three' : item.num >= 3}]" >
-											<div class="btn" data-status="yes" @click="clickBtn(item.num,'是')">是</div>
-											<div class="btn" data-status="no" @click="clickBtn(item.num,'否')">否</div>
+										<div class="btn-block" :class="[{'three' : item.num >= 3}]">
+											<div class="btn" :id="`btnTextYes${item.num}`" data-status="yes" @click="clickBtn(item.num,'是')">是</div>
+											<div class="btn" :id="`btnTextNo${item.num}`" data-status="no" @click="clickBtn(item.num,'否')">否</div>
 											<div class="btn" data-status="no" @click="clickBtn(item.num,'不確定')" v-if="item.num>=3">不確定/不清楚</div>
 										</div>
 									</div>
@@ -240,7 +263,7 @@
 					<h2>相關資訊</h2>
 					<div class="row">
 						<div class="col">
-							<a href="#">
+							<a target="_blank" href="asset/遠離子宮內膜異位症所帶來的疼痛.pdf">
 								<img src="img/icon-pdf.png" alt="">
 							</a>
 							<h3>衛教手冊下載 </h3>
@@ -274,15 +297,24 @@
 
 
 			<!-- sec_lightBox -->
-			<section class="sec_lightBox" v-if="lightBox"> <!-- v-if="lightBox" -->
+			<section 
+				class="sec_lightBox" 
+				v-if="lightBox" 
+				> <!-- v-if="lightBox" -->
 				<div class="content">
 					<div class="tent">
 						<div class="closeBtn" @click="openLightBox">
 							<span></span><span></span>
 						</div>
 						<div class="scroll_tent">
-							<div v-if="lb_type == 'yt'">
-								<iframe v-if="lb_type == 'yt'" width="100%" height="500" src="https://www.youtube.com/embed/H5MmjD6tavA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div v-if="lb_type == 'yt1'">
+								<iframe width="100%" height="500" src="https://www.youtube.com/embed/r9E88f9HlT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+							<div v-else-if="lb_type == 'yt2'">
+								<iframe width="100%" height="500" src="https://www.youtube.com/embed/Hk1IJ2qfjkM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+							<div v-else-if="lb_type == 'yt3'">
+								<iframe width="100%" height="500" src="https://www.youtube.com/embed/5Ib2As7Vxko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</div>
 							<!-- <div v-if="lb_type == 'history'" class="lb-history">
 								<p>history</p>
