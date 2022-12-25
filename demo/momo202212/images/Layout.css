@@ -1,0 +1,179 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*基本*/
+body{ margin:0; padding:0;}
+
+
+/*全BOX版面*/
+.WRAPPER { position: relative; display:block; margin: 0 auto; padding: 0; width:100%;  min-width:1220px; overflow:hidden; font-family:"微軟正黑體","Microsoft JhengHei",Helvetica; background:#40a0e500;}
+.WRAPPER img { border:0px; vertical-align:top;}
+.WRAPPER a { text-decoration:none;}
+		@media screen and (max-width:767px){
+		.WRAPPER { min-width: inherit; padding-bottom:0px; }
+		.WRAPPER img {  width:100%;  height:auto;}
+	}
+.Area.Area_bottom{padding-bottom: 58px;}
+	@media screen and (max-width:767px){
+		.WRAPPER { padding-bottom:0; min-width: inherit; min-height:100vh; overflow:hidden; background-color: #e02d33; }
+		.WRAPPER img {  width:100%;  height:auto;}
+		.titleh2{     position: absolute;  height: 30vw;  width: 100%; top: 8vw; margin-left: 0;}
+       .Area.Area_bottom{padding-bottom: 0;}
+	}
+
+	
+/*背景*/
+.bgtop  { z-index:-50; position:absolute; top:0; left:0; width:100%; min-width:1220px; height:100%; background: url(bg1_12.png) no-repeat center top ;}
+	@media screen and (max-width:767px){
+		.bgtop { min-width: inherit;  background: url() no-repeat center 40px; background-size:100%;}
+	}
+
+.bg02  { z-index:-50; position:absolute; top: 1180px; left:0; width:100%; min-width:1220px; height:100%; background: url(bg2_12.png) no-repeat center top ;}
+	@media screen and (max-width:767px){
+		.bgtop { min-width: inherit;  background: url() no-repeat center 40px; background-size:100%;}
+	}
+.bg03  { z-index:-50; position:absolute; top: 2580px;; left:0; width:100%; min-width:1220px; height:100%; background: url(bg3_12.png) no-repeat center top ;}
+	@media screen and (max-width:767px){
+		.bgtop { min-width: inherit;  background: url() no-repeat center 40px; background-size:100%;}
+	}		
+.bg04  { z-index:-50; position:absolute; top: 4240px; left:0; width:100%; min-width:1220px; height:100%; background: url(bg4_12.png) no-repeat center top ;}
+	@media screen and (max-width:767px){
+		.bgtop { min-width: inherit;  background: url() no-repeat center 40px; background-size:100%;}
+	}	
+.bg05  { z-index: -50; position:absolute; top: 5799px; left:0; width:100%; min-width:1220px; height:100%; background: url(bg5.jpg) no-repeat center top ;}
+	@media screen and (max-width:767px){
+		.bgtop { min-width: inherit;  background: url() no-repeat center 40px; background-size:100%;}
+	}	
+
+	.bg02, .bg03, .bg04 {
+		background-size: 2000px auto;
+	}
+
+
+
+
+/*區塊_all*/
+.Area { position: relative; margin:0 auto; padding:0; border-radius:0; text-align:center; }
+.Area a { display:block;} 
+.Area .go_bt {
+  -webkit-transition: all 0.4s ease;
+     -moz-transition: all 0.4s ease;
+      -ms-transition: all 0.4s ease;
+       -o-transition: all 0.4s ease;
+          transition: all 0.4s ease;}
+.Area .go_bt:hover {
+  -webkit-transform:scale(0.95);
+     -moz-transform:scale(0.95);
+      -ms-transform:scale(0.95);
+       -o-transform:scale(0.95);
+          transform:scale(0.95);}
+.Area1220 { margin:0 auto; width:1220px;}
+.Area960 { margin:0 auto; width:960px;}
+		.Area_1bn { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_1bn a { float:left; margin:0 0 2% 0; padding:0; width:100%; list-style: none;}
+		.Area_2bn { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_2bn a { float:left; margin:0 1% 2%; padding:0; width:48%; list-style: none;}
+		.Area_3bn { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_3bn a { float:left; margin:0 1% 2% ; padding:0; width:31.3%; list-style: none;}
+		.Area_1bn_nopadding { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_1bn_nopadding a { float:left; margin:0; padding:0; width:100%; list-style: none;}
+		.Area_2bn_nopadding { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_2bn_nopadding a { float:left; margin:0; padding:0; width:50%; list-style: none;}
+		.Area_3bn_nopadding { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_3bn_nopadding a { float:left; margin:0; padding:0; width:33.3%; list-style: none;}
+	@media screen and (max-width:767px){
+		.Area1220 { width:100%;}
+		.Area960 { width:100%;}
+		/*區塊_切割*/
+		.Area_1bn { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_1bn a { float:left; margin:0 0 2% 0; padding:0; width:100%; list-style: none;}
+		.Area_2bn { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_2bn a { float:left; margin:0 1% 2%; padding:0; width:48%; list-style: none;}
+		.Area_3bn { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_3bn a { float:left; margin:0 1% 2% ; padding:0; width:31.3%; list-style: none;}
+		.Area_1bn_nopadding { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_1bn_nopadding a { float:left; margin:0; padding:0; width:100%; list-style: none;}
+		.Area_2bn_nopadding { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_2bn_nopadding a { float:left; margin:0; padding:0; width:50%; list-style: none;}
+		.Area_3bn_nopadding { margin: 0 auto; padding:0; overflow:hidden;}
+		.Area_3bn_nopadding a { float:left; margin:0; padding:0; width:33.3%; list-style: none;}
+	}
+
+
+/*版頭*/
+.Area_top {}
+.Area_top .momologo { z-index:2; position: absolute;top: 15px; left::40px;}
+.Area_top .momologo a { display:block; width:200px; height:30px; background: url(momo_logo.png) no-repeat;}
+.Area_top .momologo a:hover{ background: url(momo_logo_on.png) no-repeat;}
+	@media screen and (max-width:767px){
+		.Area_top { height: auto;}
+		.Area_top .momologo { display:none}
+	}
+
+/*1.登記*/
+.Area01 { height: 100%; z-index: 1; }
+.Area01 .box_daji { overflow: hidden;  }
+.Area01 .box_daji2 { overflow: hidden; }
+.Area01 .box { position: relative;}
+.Area01 .box2 { position: relative;}
+
+.Area01 ul.book li .txt1 {display:block;position: absolute; left: 291px; bottom: 41px; z-index: 9; margin: 0 auto; font-family: "Century Gothic","Microsoft JhengHei","微軟正黑體", Arial, sans-serif;line-height: 1.5; text-align: left;}
+.Area01 ul.book li  p { height: 25px; text-align: left; color:#ffffff; background:#777777; border-radius:60px; padding:0 10px;}
+ul.book  { display: block; width:1220px; position:relative; margin:0 0 0 0;   padding:0 0 0 0;  box-sizing:border-box;  text-decoration: none; overflow: hidden;  list-style: none; text-align:center; }
+ul.book li a { display:block; margin: 0 5px;}
+ul.book li { position:relative; width: auto; padding:0; margin:0 auto;  text-decoration:none; display:block; list-style:none;  text-align:center; display:inline-block ; margin-left: -12px;}
+ul.book li .txt2 {display:block;position: absolute; left: 115px; bottom: 61px; z-index: 9; margin: 0 auto; font-family: "Century Gothic","Microsoft JhengHei","微軟正黑體", Arial, sans-serif;line-height: 1.5; text-align: left;}
+
+
+@media screen and (max-width:767px){
+  .Area01 {height: 100%;  background-color: #d8b66e;}
+  .Area01 .box{ padding-bottom: 0; height: 31.5vw;}
+  .Area01 .box2{ padding-bottom: 0; height:33.5vw;}
+  .Area01 .box_daji { height: 100%; }
+  .Area01 .box_daji2 { height: 100%; }
+
+
+
+}
+
+
+	/*手機登記按鈕*/
+	.book_box {  position:relative;}
+	.book_box a { display:block; width:100%; height:100%;}
+	.book_ { }
+	.book_ .count { margin: 0; padding: 0;  color:#ffffff; text-align: left; font: bold 3vw/5vw "Century Gothic", Arial, "Microsoft JhengHei"; background: #5a5a5a; border-radius:60px; padding:0 4%;}	
+	.book_ .count2 { margin: 0; padding: 0;  color:#ffffff; text-align: left; font: bold 3vw/5vw "Century Gothic", Arial, "Microsoft JhengHei"; background: #5a5a5a; border-radius:60px; padding:0 4%;}	
+
+	/*1品*/		
+	.book_01 { position:absolute; width:62.50%;  height: 100%;  top: 0vw;left:0vw; z-index: 5;}
+	.book_01 .count { position: absolute;    top:78.5%; left:57%;}
+	.book_01 .count2 { position: absolute;    top:69.5%; left:53%;}
+
+	.post { position: absolute; width: 37.50%;  height: 50%;  top: 0; left: 62.4%;}
+	.list { position: absolute; width: 37.50%;  height: 50%;  top: 50%; left: 62.4%; }
+
+
+
+	
+/*隱鑶*/
+.for_pc {}
+.for_phone { display:none !important;}
+	@media screen and (max-width:767px){
+		.for_pc { display:none !important;}
+		.for_phone { display: inherit !important;}
+	}
+
+ul {  
+		list-style: none;
+		}
+
+.go_bt {
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.main04{
+	top:118px;
+}
