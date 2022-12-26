@@ -1134,8 +1134,8 @@ html {
 .PD_layout[data-pd-h3="3"] .PD h3,
 .PD_layout[data-pd-h3="4"] .PD h3,
 .PD_layout[data-pd-h3="6"] .PD h3 {
-  margin-bottom: 0.5em;
-  padding: 0 1em;
+  margin-bottom: 0.6em;
+  padding: 0em 1em;
   color: #000;
   background-color: #FFD600;
 }
@@ -1144,7 +1144,7 @@ html {
   /* border-radius: 2em; */
   border-bottom-left-radius: 1.25em;
   border-bottom-right-radius: 1.25em;
-  padding: 0.375em 0.75em;
+  padding: 0.45em 0.75em;
   max-height: 100%;
 }
 
