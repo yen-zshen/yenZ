@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="人物著色" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="160.334px" height="160.334px" viewBox="0 0 160.334 160.334" enable-background="new 0 0 160.334 160.334"
+	 xml:space="preserve">
+<g>
+	<circle fill="#FFC2C4" cx="80.167" cy="80.167" r="80.167"/>
+	
+		<path fill="#FFFFFF" stroke="#36AF9B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M92.997,46h-51c-5.522,0-11,3.477-11,9v21c0,5.523,5.478,11,11,11h2.181l-3.848,14l16.471-14h36.196c5.522,0,9-5.477,9-11V55
+		C101.997,49.477,98.52,46,92.997,46z"/>
+	
+		<path fill="#FFC2C4" stroke="#36AF9B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M72.997,70h51c5.522,0,9,3.477,9,9v21c0,5.523-3.478,11-9,11h-2.181l3.848,14l-16.471-14H72.997c-5.522,0-11-5.477-11-11V79
+		C61.997,73.477,67.475,70,72.997,70z"/>
+</g>
+</svg>
