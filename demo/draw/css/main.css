@@ -9,6 +9,11 @@
   opacity: 0.8;
 }
 
+.header.fixed .logo {
+  padding: 10px 0;
+  width: 260px;
+}
+
 .sect-price > .topic {
   font-family: 'Noto Sans TC', sans-serif;
 }
