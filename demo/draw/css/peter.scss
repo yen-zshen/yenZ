@@ -18,7 +18,7 @@
         text-align: center;
         margin-bottom: 100px;
         position: relative;
-        &::before {
+        .topic-tips{
             content: '預收20%訂金';
             font-size: 20px;
             line-height: 2;
@@ -26,53 +26,70 @@
             color: #FBAF3A;
             border-radius: 20px;
             border: 1px solid #FBAF3A;
-            width: 8.5em;
             text-align: center;
-            // margin: 0 auto 40px auto;
             position: absolute;
             bottom: -90%; 
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
             background-color: #fff;
-        }
-        &::after {
-            content: "";
-            width: 13em; 
-            height: 1px;
-            position: absolute;
-            bottom: -45%; 
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #FBAF3A;
+            letter-spacing: normal;
+            // padding: 0 1em;
+            width: 100%; 
+            max-width: 505px;
+            &:before, &:after {
+                content: '';
+                width: 2em;
+                height: 1px;
+                background-color: #FBAF3A;
+                position: absolute;
+                top: 50%; 
+            }
+            &:after {
+                left: auto;
+                right: -2em;
+            }
         }
 
-        @media screen and (max-width: 1199px) {
+        @media screen and (max-width: 1000px) {
             font-size: 36px;
             line-height: 48px;
             margin-bottom: 80px;
-            &::before {
+            .topic-tips {
                 font-size: 18px;
                 line-height: 1.8; 
-                bottom: -95%;
-            }
-            &::after {
-                bottom: -55%;
+                bottom: -100%;
+                max-width: 460px;
+                &:before, &:after {
+                    width: 1.25em;
+                    left: -1.25em;
+                }
+                &::after {
+                    left: auto;
+                    right: -1.25em;
+                }
             }
         }
 
         @media screen and (max-width: 767px) {
             font-size: 24px;
             line-height: 36px;
-            // letter-spacing: -.5px;
-            margin-bottom: 70px;
-            &::before {
-                font-size: 16px;
-                line-height: 1.8; 
-                bottom: -105%;
+            margin-bottom: 90px;
+            .topic-tips{
+                bottom: -125%;
             }
-            &::after {
-                bottom: -60%;
+        }
+        @media screen and (max-width: 560px) {
+            margin-bottom: 120px;
+            .topic-tips {
+                width: calc(100% - 30px - 2em);
+                max-width: 300px;
+                border-radius: 40px;
+                bottom: -200%;
+                font-size: 14px;
+            }
+            .arrow {
+                display: none;
             }
         }
         @media screen and (max-width: 400px) {

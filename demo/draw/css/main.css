@@ -14,6 +14,12 @@
   width: 260px;
 }
 
+@media screen and (max-width: 560px) {
+  .kv .container {
+    overflow: hidden;
+  }
+}
+
 .sect-price > .topic {
   font-family: 'Noto Sans TC', sans-serif;
 }
