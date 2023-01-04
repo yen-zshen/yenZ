@@ -54,6 +54,7 @@
   background-color: #FBAF3A;
   position: absolute;
   top: 50%;
+  left: -2em;
 }
 
 .sect-price > .topic .topic-tips:after {
