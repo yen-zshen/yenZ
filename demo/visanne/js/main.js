@@ -20,7 +20,7 @@
 const app = {
 	data(){
 		return{
-			message:'123',
+			msg:['', '', ''],
       now:1,
       show:1,
       leave:1,
@@ -99,14 +99,18 @@ const app = {
     },
     clickToCopy(num) {
       console.log('click to copy');
-      if (num == 1) {
+      if (num == '1') {
         navigator.clipboard.writeText('https://youtu.be/xrSTIegew1U');
-      } else if (num == 2) {
+      } else if (num == '2') {
         navigator.clipboard.writeText('https://youtu.be/TklhanTSYjQ');
       } else {
         navigator.clipboard.writeText('https://youtu.be/GcuZr6SkOF8');
       }
-      alert('已成功複製影片網址')
+      this.msg[num-1] = '已複製連結';
+      setTimeout(() => {
+        this.msg = ['', '', '']
+      }, 3000);
+      
     },
     clickEndBtn() {
       window.open('https://www.endometriosis-check.com/location/')
