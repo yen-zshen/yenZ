@@ -31,6 +31,8 @@
 	<link href="https://www.endometriosis-check.com/img/icon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 	<link href="https://www.endometriosis-check.com/img/icon.ico" rel="icon" type="image/vnd.microsoft.icon" />
 
+	<link rel="stylesheet" href="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.css" />
+
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/all.css">
@@ -44,6 +46,7 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-180950799-2');
+	gtag('config', 'G-LTEEN5BENS');
 </script>
 
 
@@ -55,6 +58,7 @@
 	})(window,document,'script','dataLayer','GTM-5SJKM6N');</script>
 	<!-- End Google Tag Manager -->
 
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v16.0" nonce="PnBFjxAw"></script>
 	
 	<!--[if lt IE 9]> 
 	<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -70,21 +74,6 @@
 	<!-- End Google Tag Manager (noscript) -->
 	
 	<div class="wrapper" id="app">
-	<!--	cookie-->
-		<!-- <div class="cookie">
-			<div class="container">
-				<span>本網站使用 Cookie 進行分析，以提供您個人化內容與廣告，繼續瀏覽本網站，即表示您同意此用途</span>
-				<span class="know">我知道了</span>
-			</div>
-		</div> -->
-		
-		<!-- <header class="header" id="top">
-			<div class="logo">
-				<img src="img/logo.svg" alt="">
-			</div>
-		</header> -->
-		<!-- <div class="aosLine" data-type="open"><span>動畫高度測試</span></div>
-		<div class="aosBtn" data-type="open">line show</div> -->
 		<main>
 		
 			<section data-sec="kv">
@@ -111,11 +100,6 @@
 							在人生不同的階段，她們或許面臨著不同的問題，但唯獨「經痛」困擾著各年齡層的女性… </p>
 						<p><span>正視身體發出的警訊</span>，<span>讓疼痛不再</span>，無論是哪個年紀的妳，都能散發自身光彩。</p>
 					</div>
-					<!-- <div class="img-block">
-						<div class="line">
-							<div class="img"></div>
-						</div>
-					</div> -->
 				</div>
 			</section>
 
@@ -128,6 +112,17 @@
 								<div class="line">
 									<div class="img" @click="openLightBox('yt1')" id="clickMovie01">
 										<img id="clickMovie01" src="img/movie-play.png" alt="">
+									</div>
+									<div class="share-block">
+										<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoutu.be%2FxrSTIegew1U&amp;src=sdkpreparse" target="_blank">
+											<img src="img/facebook-icon.png" alt="">
+										</a>
+										<a href="https://social-plugins.line.me/lineit/share?url=https://youtu.be/xrSTIegew1U" target="_blank">
+											<img src="img/line-icon.png" alt="">
+										</a>
+										<div @click="clickToCopy(1)">
+											<img src="img/link-icon.png" alt="">
+										</div>
 									</div>
 								</div>
 								<!-- <div class="btn" @click="openLightBox">播放影片</div> -->
@@ -164,6 +159,17 @@
 									<div class="img" @click="openLightBox('yt2')" id="clickMovie02">
 										<img id="clickMovie02" src="img/movie-play.png" alt="">
 									</div>
+									<div class="share-block">
+										<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoutu.be%2FTklhanTSYjQ&amp;src=sdkpreparse" target="_blank">
+											<img src="img/facebook-icon.png" alt="">
+										</a>
+										<a href="https://social-plugins.line.me/lineit/share?url=https://youtu.be/TklhanTSYjQ" target="_blank">
+											<img src="img/line-icon.png" alt="">
+										</a>
+										<div @click="clickToCopy(2)">
+											<img src="img/link-icon.png" alt="">
+										</div>
+									</div>
 								</div>
 								<!-- <div class="btn">播放影片</div> -->
 							</div>
@@ -182,7 +188,19 @@
 									<div class="img" @click="openLightBox('yt3')" id="clickMovie03">
 										<img id="clickMovie03" src="img/movie-play.png" alt="">
 									</div>
+									<div class="share-block">
+										<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoutu.be%2FGcuZr6SkOF8&amp;src=sdkpreparse" target="_blank">
+											<img src="img/facebook-icon.png" alt="">
+										</a>
+										<a href="https://social-plugins.line.me/lineit/share?url=https://youtu.be/GcuZr6SkOF8" target="_blank">
+											<img src="img/line-icon.png" alt="">
+										</a>
+										<div @click="clickToCopy(2)">
+											<img src="img/link-icon.png" alt="">
+										</div>
+									</div>
 								</div>
+								
 								<!-- <div class="btn">播放影片</div> -->
 							</div>
 						</div>
@@ -251,6 +269,7 @@
 								<p class="history" @click="openLightBox('history')">回顧作答歷程</p>
 								<p class="bottom">如果您對這些問題中的一個或多個回答「<b>是</b>」，您可能
 									患有子宮內膜異位症，請進一步諮詢您的婦產科醫生。</p>
+								<img @click="clickEndBtn" class="end-btn" src="img/menstrual-button.png" alt="">
 							</div>
 						</div>
 					</div>
@@ -308,17 +327,14 @@
 						</div>
 						<div class="scroll_tent">
 							<div v-if="lb_type == 'yt1'">
-								<iframe width="100%" height="500" src="https://www.youtube.com/embed/r9E88f9HlT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<iframe width="100%" height="500" src="https://www.youtube.com/embed/xrSTIegew1U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</div>
 							<div v-else-if="lb_type == 'yt2'">
-								<iframe width="100%" height="500" src="https://www.youtube.com/embed/Hk1IJ2qfjkM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<iframe width="100%" height="500" src="https://www.youtube.com/embed/TklhanTSYjQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</div>
 							<div v-else-if="lb_type == 'yt3'">
-								<iframe width="100%" height="500" src="https://www.youtube.com/embed/5Ib2As7Vxko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<iframe width="100%" height="500" src="https://www.youtube.com/embed/GcuZr6SkOF8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</div>
-							<!-- <div v-if="lb_type == 'history'" class="lb-history">
-								<p>history</p>
-							</div> -->
 							<div v-if="lb_type == 'history'" class="lb-history">
 								<div class="block">
 									<div class="group" v-for="item in testData" ::key="item.num">
@@ -333,6 +349,12 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="container">
+					<div id="map"></div>
 				</div>
 			</section>
 
@@ -355,8 +377,11 @@
 					<img src="img/icon-top.png" alt="">
 					<span>TOP</span>
 				</div>
-				<div class="active-icon">
+				<div class="active-icon" data-type="time">
 					<img src="img/active-icon.png" alt="">
+				</div>
+				<div class="active-icon" data-type="map">
+					<img src="img/menstrualmap-icon.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -367,14 +392,8 @@
 
 	</div>
 
-	<!-- <script src="https://unpkg.com/vue@next"></script> -->
-	<!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->
-	<!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> -->
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.4.2/lottie.min.js"></script> -->
-	<!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-	<!-- <script src="https://docs.lottiefiles.com/lottie-js/"></script> -->
-
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.js"></script>
 	<script type="module" src="js/main.js"></script>
 	<script type="module" src="js/gotop.js"></script>
 	<!-- <script type="module" src="js/lightBox.js"></script> -->

@@ -5,6 +5,18 @@
 // parallaxInstance.friction(0.2, 0.6)
 
 
+//  // 建立 Leaflet 地圖
+//  var map = L.map('map');
+
+//  // 設定經緯度座標
+//  map.setView(new L.LatLng(22.992, 120.239), 12);
+ 
+//  // 設定圖資來源
+//  var osmUrl='https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+//  var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 16});
+//  map.addLayer(osm);
+
+
 const app = {
 	data(){
 		return{
@@ -84,7 +96,28 @@ const app = {
       $('html,body').animate({
         scrollTop: $(`#${section}`).offset().top - 20
       }, 500);
+    },
+    clickToCopy(num) {
+      console.log('click to copy');
+      if (num == 1) {
+        navigator.clipboard.writeText('https://youtu.be/xrSTIegew1U');
+      } else if (num == 2) {
+        navigator.clipboard.writeText('https://youtu.be/TklhanTSYjQ');
+      } else {
+        navigator.clipboard.writeText('https://youtu.be/GcuZr6SkOF8');
+      }
+      alert('已成功複製影片網址')
+    },
+    clickEndBtn() {
+      window.open('https://www.endometriosis-check.com/location/')
     }
+  },
+  mounted() {
+    // let lb = document.querySelector('.sec_lightBox');
+    // lb.css('z-index','-10');
+    // window.setTimeout(()=>{
+    //   lb.css('z-index','1');
+    // },1000)
   },
   // watch:{
   //   testData(nVal,oVal){

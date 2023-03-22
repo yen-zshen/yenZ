@@ -45,10 +45,14 @@ $(document).ready(function () {
 	});
 
 	//active 
-	$(".active-icon").on("click", function () {
+	$(".active-icon[data-type='time']").on("click", function () {
 		$('html,body').animate({
 			scrollTop: $("#sec_test").offset().top
 		}, 500);
+	});
+
+	$(".active-icon[data-type='map']").on("click", function () {
+		window.open('https://www.endometriosis-check.com/location/')
 	});
 
 	//cookie
